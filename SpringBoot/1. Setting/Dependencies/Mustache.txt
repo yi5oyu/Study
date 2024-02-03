@@ -1,0 +1,5 @@
+뷰 템플릿을 만드는 도구
+  // Thymeleaf, JSP 등
+ -> 머스테치 플러그인 설치
+
+doc [TAB] : HTML 자동생성

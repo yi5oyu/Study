@@ -1,0 +1,24 @@
+> Process 'command 'C:\Program Files\Eclipse Adoptium\jdk-17.0.10.7-hotspot\bin\java.exe'' finished with non-zero exit value 1
+  // [File > Settings > Build, Excution, Deployment > Build Tools > Gradle] 이 경로로 이동
+  // [Build and run using]과 [Run tests using]을 IntelliJ IDEA로 변경
+  // [Gradle JVM] 버전을 현재 프로젝트 버전과 동일한 버전으로 변경
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+  1. DB 정보 없을 경우 : (exclude={DataSourceAutoConfiguration.class}) 옵션 추가
+  2. DB 정보
+    // application.properties
+        spring.datasource.url=jdbc:[Database]://localhost:3306/[Database스키마]
+        spring.datasource.username=[DB 아이디]
+        spring.datasource.password=[DB 비밀번호]
+        spring.datasource.driver-class-name=[JDBC 드라이버]
+    // application.yml
+        spring:
+          datasource:
+            url: jdbc:[Database]://localhost:3306/[Database스키마]
+            username: [DB 아이디]
+            password: [DB 비밀번호]
+            driver-class-name: [JDBC 드라이버]
+
+Web server failed to start. Port 8080 was already in use.
+  // 포트 변경. application.properties 파일
+    server.port=8000 (변경할 포트)
