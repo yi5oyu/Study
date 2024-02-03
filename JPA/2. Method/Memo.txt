@@ -1,0 +1,26 @@
+1. EntityManager
+  JPA의 기능 대부분을 제공 (CRUD). 가상의 데이터 베이스로 생각할 수 있음.
+  DB 커넥션과 밀접한 관계가 있어 스레드간에 공유하거나 재사용하면 안됨
+  애플리케이션 관리
+    EntityManagerFactory 생성과 종료, EntityEntityManagerFactory를 이용해 EntityManager 생성하고 종료처리
+  컨테이너 관리
+    EntityManager의 생성과 종료를 관리
+    EntityManager 타입의 필드에 @PersistenceContext 적용
+  Method
+    조회
+    find() (엔티티 타입, 식별자)     /// getReference() (엔티티 타입, 식별자) ***
+      return: 타입의 데이터 / null         프록시 객체 리턴 / EntityNotFoundException
+
+    생성
+    persist() (Object)
+
+    삭제
+    remove() (Object)
+    
+---
+  Connection 대신 EntityManager 사용, JPA가 제공하는 트랜잭션 사용
+  SQL을 직접 실행하지 않고 객체 단위로 DB 연동 처리
+---
+
+5. JPQL
+  객체를 이용해 쿼리문 작성(객체 중심)

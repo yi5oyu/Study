@@ -1,0 +1,61 @@
+Spring Maven OracleDB 
+
+1. pom.xml
+
+
+2. appconfig.xml (파일 이름은 상관없음)
+    web.xml에 위치 추가해야됨
+     - 데이터소스 설정
+     - 트랜잭션 관리자 설정
+     - 엔티티 매니저 팩토리 등록
+     - JPA 예외 반환 AOP 설정
+---
+  persistence.xml
+   순수하게 자바만 사용하는 환경에서만 쓰임. 
+   Oracle / 파일위치: META-INF/persistence.xml (JPA가 인식할 수 있음)
+  <persistence-unit name="연결할 DB 하나의 유닛 이름" >
+    transaction-type="RESOURCE_LOCAL" 디폴트값
+  <class>com.dice.pay.entity.Member</class>
+    Entity 클래스 위치
+  javax.persistence.jdbc.url
+    jdbc:oracle:thin:@[host]:[port]:[sid] = jdbc:oracle:thin:@localhost:1521:xe
+  <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" /> // DB간 SQL 문법과 함수 다름. (dialect=방언)
+---
+
+3. 모델(DTO)와 테이블간 매핑
+  JPA 어느테이션 패키지: javax.persistence.
+  @Entity
+    클래스를 테이블과 매핑한다고 JPA에게 알려줌
+  @Table(name = " ")
+    name 속성을 사용해 매핑할 테이블 정보 알려줌
+  @Id
+    필드를 PK에 매핑
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_seq")
+      어떤 방식으로 기본 키를 생성할지 
+        GenerationType.IDENTITY = 자동 증가 형식 (MySQL, PostgreSQL, SQL Server 등. 자동 증가 열)
+        GenerationType.SEQUENCE = 시퀀스 객체를 이용하여 값 생성
+    @SequenceGenerator(name = "id_seq", sequenceName = "M_SEQ", allocationSize = 1)
+      sequenceName = 시퀀스 이름 (JPA가 알아서 시퀀스 만들어줌)
+      allocationSize 기본값 50. 1로 시작해야 매번 시퀀스에서 값을 읽어옴
+    @Basic
+      @ID를 제외한 나머지 필드들은 @Basic을 이용(생략 가능)
+  @Column(name=" ")
+    name 속성을 사용해 필드를 테이블의 칼럼에 매핑. (생략하면 필드명을 사용함)
+    대소문자가 다른 SQL이면 명시해줘야함
+  @Temporal(TemporalType.TIMESTAMP)
+    날짜와 시간 타입에 사용, TemporalType 열거타입(DATE, TIME,TIMESTAMP)의 값을 가짐
+  @Embedded, @Embeddable
+    참조 객체와 값은 밸류를 @Embedded로 매핑. 매핑 대상은 @Embeddable 클래스의 인스턴스
+      ex) @Embeddable                @Entity
+          public class A{            public class B{
+            private String aa;         @Id
+            private String bb;         private String c;
+          }                            @Embedded
+                                       private A a; 
+                                     }
+---
+  JPA는 Persistence클래스를 사용해서 EntityManagerFactory를 생성
+  Persistence.xml에 정의된 설정을 바탕으로 EntityManagerFactory를 생성
+  persistence-unit에 정의된 이름을 사용해서 EntityManagerFactory 객체 만들 수 있음
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("정의된 이름");
+---

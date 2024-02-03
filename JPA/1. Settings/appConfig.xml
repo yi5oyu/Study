@@ -1,0 +1,52 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 어노테이션 기반의 트랜잭션 관리 활성화 -->
+    <tx:annotation-driven/>
+
+    <!-- Spring이 관리하는 빈들을 찾기 위한 컴포넌트 스캔 -->
+    <context:component-scan base-package="com.dice.pay"/>
+
+    <!-- Apache Commons DBCP 데이터 소스 설정 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="system"/>
+        <property name="password" value="Oracle 관리자 비밀번호"/>
+    </bean>
+
+    <!-- JPA EntityManagerFactory 설정 -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.dice.pay.entity"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="databasePlatform" value="org.hibernate.dialect.OracleDialect"/>
+            </bean>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <!-- Hibernate 및 JPA 속성들 -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop> <!-- Oracle 문법 -->
+                <prop key="hibernate.show_sql">true</prop> <!-- SQL 보기 -->
+                <prop key="hibernate.format_sql">true</prop> <!-- SQL 정렬 -->
+                <prop key="hibernate.use_sql_comments">true</prop> <!-- SQL 코멘트 -->
+                <prop key="hibernate.id.new_generator_mappings">true</prop> <!-- 새 버전의 ID 생성 옵션 -->
+                <prop key="hibernate.hbm2ddl.auto">none</prop> <!-- DDL 자동 생성 -->
+            </props>
+        </property>
+    </bean>
+
+    <!-- JPA 트랜잭션 매니저 설정 -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- JPA 예외 변환을 위한 빈 활성화 -->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+</beans>

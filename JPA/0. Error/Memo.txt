@@ -1,0 +1,55 @@
+ERD cloud export
+  테이블명, 필드명 " " 제거
+
+Oracle 예약어 확인
+  SELECT * FROM V$RESERVED_WORDS WHERE KEYWORD = '예약어';
+
+java.sql.SQLSyntaxErrorException: ORA-00904: invalid identifier
+oracle.jdbc.driver.T4CTTIoer11.processError
+ - 쿼리에서 사용된 칼럼이 해당 테이블에 존재하지 않음
+    // username이라는 칼럼이 없었음
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'memberRepository': Injection of persistence dependencies failed; 
+nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+ - 빈 생성시 빠진 부분 확인
+    // EntityManagerFactory 등록 수정함 (persistence.xml -> appConfig.xml)
+
+org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL
+ - ???
+    // appConfig.xml = <prop key="hibernate.hbm2ddl.auto"> update -> create </prop> DDL 자동 생성 수정
+
+org.springframework.beans.factory.xml.XmlBeanDefinitionStoreException
+ - appConfig.xml
+    // 네임스페이스 http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd 추가
+
+HTTP Status 500
+Request processing failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.dice.pay.entity.Membership]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.dice.pay.entity.Membership.<init>()
+ - 기본 생성자 필요
+
+한글 깨짐. web.xml에 추가
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+HTTP 상태 415 – 지원되지 않는 Media Type
+ @ResponseBoby
+
+Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: The entity must not be null!; nested exception is java.lang.IllegalArgumentException: The entity must not be null!
+ - Entity 매핑 잘못됨
+    // @JsonProperty로 이름 매핑하거나 Entity 필드명 DB칼럼명이랑 같게 수정
+
+ERROR: org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ORA-25156: old style outer join (+) cannot be used with ANSI joins
+  - 구식 외부 조인(+)이 ANSI 조인과 함께 사용될 수 없다. 쿼리 메소드를 사용함
+    // List<Spending> findByMembershipMid(Long mid)
+    // 	@Query(value = "SELECT s.* FROM Spending s, Membership m WHERE s.mid = m.mid(+) AND m.mid = :mid", nativeQuery = true)
+        List<Spending> findByMembershipMid(@Param("mid") Long mid);
