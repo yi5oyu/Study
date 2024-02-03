@@ -1,0 +1,36 @@
+AWS에서 지운하는 클라우드 기반 관계형 데이터베이스
+  하드웨어 프로비저닝, 데이터베이스 설정, 패치 및 백업과 같이 잦은 운영 작업을 자동화, 조정 가능한 용량 지원(추가 비용 발생)
+
+1. RDS 인스턴스 생성
+  - DBMS 선택 (NySQL) 프리티어
+  - 스토리지 최소: 20GB, db.t2(t3).micro
+  - DB 인스턴스 식별자, 사용자 이름, 암호
+  - 퍼플릭 액세스: 예 (보안 그룹에서 지정된 IP만 접근하도록 막음)
+
+2. RDS 운영환경에 맞는 파라미터 설정
+  - 파라미터 그룹 생성(생성한 DB와 같은 버전)
+  - 파라미터 편집
+    | 타임존 time_zone
+      Asia/Seoul
+    | Character Set
+      utf-8
+    | Max Connection
+  설정 후 재부팅
+
+3. RDS 접속
+  - 보안 그룹 
+    | 인바운드 규칙 추가
+
+4. DB 연결
+  - MySQL Workbench
+    Hostname: RDS 엔드포인트
+    port: 3306
+    username:
+    password: (store in keychain)
+  - SCHEMAS 데이터 베이스 확인
+  - 데이터 베이스 생성
+    create database DB이름;
+
+  - 테이블 생성
+    use DB이름;
+    create table
