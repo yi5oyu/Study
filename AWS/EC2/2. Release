@@ -1,0 +1,43 @@
+1. EC2에 프로젝트 clone 받기
+sudo yum install git
+  | git 버전 확인 git --version
+
+프로젝트 저장할 디렉토리 생성
+mkdir ~/app && mkdir ~/app/생성_폴더_이름
+
+디렉토리 이동
+cd ~/app/생성_폴더_이름
+
+클론
+git clone 복사한_주소(프로젝트깃주소)
+
+클론된 프로젝트 파일 확인
+cs 프로젝트명
+11
+
+maven 설치
+  | sudo yum install maven
+
+pom.xml 파일이 있는 디렉토리에서 war 파일 생성
+mvn clean package
+
+git 프로젝트 업데이트시
+git pull
+
+tomcat 패키지 설치
+sudo yum install tomcat9
+
+tomcat 시작
+sudo systemctl start tomcat9
+
+tomcat 서비스 상태 확인
+sudo systemctl status tomcat9
+
+war파일 복사
+sudo cp target/빌드된파일.war /usr/share/tomcat9/webapps/
+
+tomcat 서비스 재시작
+sudo systemctl restart tomcat9
+
+웹 브라우저 접속
+http://<EC2_Public_IP>:8080/pay
