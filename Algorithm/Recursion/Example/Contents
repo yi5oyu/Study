@@ -1,0 +1,20 @@
+    // 미로의 영역을 벗어났을 경우
+    if(x<0 || y<0 || x>=N || y>=N)
+	return false;
+    // 이미 가본 길일 경우
+    else if(maze[x][y]!=PATHWAY)
+	return false;
+    // 출구
+    else if(x==N-1 && y==N-1) {
+	maze[x][y]=PATH;
+	return true;
+    // 
+    } else {
+	maze[x][y]=PATH;
+	// 북 동 남 서 방향을 검사 OR이기 때문에 true만나면 ture리턴 
+	if(findMazePath(x-1,y) || findMazePath(x,y+1) || findMazePath(x+1,y) || findMazePath(x,y-1))
+	    return true;
+	// 모든 방향이 false이면 BLOCKED
+	maze[x][y]=BLOCKED;
+	return false;
+    }

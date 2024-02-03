@@ -1,0 +1,24 @@
+모든 순환함수(Recursion)와 반복문(Iteration)은 서로 변경가능
+복잡한 알고리즘을 단순하고 알고 쉽게 표현가능
+/ 함수 호출에 의한 오버헤드가 있음
+
+무한루프에 빠지지 않으려면 적어도 하나의 base case가 존재해야함
+recursion case는 recursion을 반복하다보면 base case로 수렴해야함
+
+암시적 매개변수가 아닌 명시적 매개변수 사용
+
+1. 0~n의 합
+2. factorial
+3. x^n
+4. fibonacci
+5. 최대공약수 euclid
+6. 문자열 길이
+7. 문자열 출력
+8. 진수 변환
+9. 배열의 합 0~n-1
+10. 순차 검색
+11. 최대값 검색
+12. 이전 검색 Binary Search
+
+Example
+ Maze : 2차원 미로찾기
