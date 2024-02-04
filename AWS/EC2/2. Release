@@ -39,5 +39,9 @@ sudo cp target/빌드된파일.war /usr/share/tomcat9/webapps/
 tomcat 서비스 재시작
 sudo systemctl restart tomcat9
 
+해당 디렉토리 삭제
+rm -rf ~/app/cashflow/현재_폴더(클론 되어 있는 폴더 삭제)
+
+
 웹 브라우저 접속
 http://<EC2_Public_IP>:8080/pay
