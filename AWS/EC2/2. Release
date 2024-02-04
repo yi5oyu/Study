@@ -18,8 +18,13 @@ cs 프로젝트명
 maven 설치
   | sudo yum install maven
 
+pom.xml 파일 있는 디렉토리에서 war 파일 생성
+mvn clean install
+  | 빌드한 아티팩트(JAR 파일)를 로컬 Maven 저장소(~/.m2/repository/)에 설치, target에도 저장됨
+
 pom.xml 파일이 있는 디렉토리에서 war 파일 생성
 mvn clean package
+  |  빌드한 아티팩트(JAR 파일)를 생성하고 target 디렉토리에 저장
 
 git 프로젝트 업데이트시
 git pull
