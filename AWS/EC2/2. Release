@@ -47,6 +47,20 @@ sudo systemctl restart tomcat9
 해당 디렉토리 삭제
 rm -rf ~/app/cashflow/현재_폴더(클론 되어 있는 폴더 삭제)
 
-
 웹 브라우저 접속
 http://<EC2_Public_IP>:8080/pay
+
+톰캣 포트 변경
+ 1. 톰캣 폴더이동
+  /usr/share/tomcat9
+ 2. 설정 파일 열기
+  nano conf/server.xml
+ 3. 기본 포트 80을 변경
+  <Connector port="80" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443" />
+  - [ Error writing server.xml: Permission denied ]
+    | 나노를 root 권한으로 실행
+      - sudo nano server.xml
+ 4. 톰캣 재실행
+  sudo systemctl restart tomcat9
