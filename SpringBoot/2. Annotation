@@ -1,0 +1,10 @@
+Lombok 라이브러리
+
+@Builder
+  빌더 패턴을 사용해 객체 생성할 수 있음
+
+@NoArgsConstructor
+ 기본 생성자 생성해줌
+
+@AllArgsConstructor
+모든 필드를 인자로 받는 생성자를 생성
