@@ -1,3 +1,5 @@
+implementation 'org.springframework.boot:spring-boot-starter-mustache'
+
 뷰 템플릿을 만드는 도구
   // Thymeleaf, JSP 등
  -> 머스테치 플러그인 설치
