@@ -10,4 +10,4 @@
     GENERATE된 폴더 Intellij에서 실행
 
 실행
-  src > main > resources > static
+  src > main > resources > static (파일명 찾아 실행)
