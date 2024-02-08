@@ -26,3 +26,11 @@ Web server failed to start. Port 8080 was already in use.
 엑세스에 접근할 수 없음(localhost 8080 로그인창)
   // Run - Edit Configurations...
   // Environment variables에 server.port='원하는 포트번호'
+
+생성자의 매개변수 이름을 해석할 수가 없다
+java.lang.IllegalStateException: Cannot resolve parameter names for constructor public com.example.firstproject.dto.ArticleForm(java.lang.String,java.lang.String)
+  // Settings : Java Compiler → Additional command line parameters : -parameters 추가
+  // build.gradle : 
+      tasks.withType(JavaCompile) {
+          options.compilerArgs << "-parameters"}
+  // @NoArgsConstructor, @Builder 추가 (@Getter @Setter)
