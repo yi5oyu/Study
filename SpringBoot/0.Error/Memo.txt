@@ -22,3 +22,7 @@ Failed to configure a DataSource: 'url' attribute is not specified and no embedd
 Web server failed to start. Port 8080 was already in use.
   // 포트 변경. application.properties 파일
     server.port=8000 (변경할 포트)
+
+엑세스에 접근할 수 없음(localhost 8080 로그인창)
+  // Run - Edit Configurations...
+  // Environment variables에 server.port='원하는 포트번호'
