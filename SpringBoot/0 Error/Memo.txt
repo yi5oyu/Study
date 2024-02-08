@@ -4,7 +4,8 @@
   // [Gradle JVM] 버전을 현재 프로젝트 버전과 동일한 버전으로 변경
 
 Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-  1. DB 정보 없을 경우 : (exclude={DataSourceAutoConfiguration.class}) 옵션 추가
+  1. DB 정보 없을 경우 : C:\firstproject\src\main\java\com\example\firstproject\FirstprojectApplication.java 
+      -> @SpringBootApplication(exclude={DataSourceAutoConfiguration.class}) 옵션 추가
   2. DB 정보
     // application.properties
         spring.datasource.url=jdbc:[Database]://localhost:3306/[Database스키마]
