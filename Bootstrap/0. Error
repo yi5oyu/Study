@@ -1,0 +1,3 @@
+부트 스트랩 한글 깨짐
+  src\main\resources\application.properties
+   추가 server.servlet.encoding.force=true
