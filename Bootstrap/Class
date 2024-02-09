@@ -26,7 +26,6 @@ Colors
   뒤에 원하는 색
 
 Tables
-  .table : 기본. 수평 구분선
   <table class="table">
     <thead>
       <tr>
@@ -43,7 +42,15 @@ Tables
       </tr>
     </tbody>
   </table>
-  .table-striped
+  -
+  .table : 기본. 수평 구분선
+  .table-striped : 얼룩 무늬
+  .table-bordered : 구분선 모든 셀에 있음
+  .table-hover : 테이블 호버 기능
+  그 외 : https://www.w3schools.com/bootstrap5/bootstrap_tables.php
+
+Images
+  
 
 .pt-5 : padding-top
 .p-5 : padding
