@@ -1,1 +1,6 @@
+.container 
+  반응형 fixed width container
+.container-fluid 
+  full width container
 
+.pt-5 : padding-top
