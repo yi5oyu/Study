@@ -19,7 +19,7 @@ sm : 화면 폭이 576px 미만이 될 경우 열은 자동으로 서로 위로 
   <h1>h1 heading <small>secondary text</small></h1>
  등.. 그 외 :https://www.w3schools.com/bootstrap5/bootstrap_typography.php
 
-
+ㅅ
 
 .pt-5 : padding-top
 .p-5 : padding
