@@ -3,4 +3,14 @@
 .container-fluid 
   full width container
 
+<div class="row">
+  <div class="col-*-*"></div>
+</div>
+
+.col-*-*
+// 첫번째 * : 반응형 sm, md, lg, xl, xxl
+// 두번째 * : 각 행의 총 합이 12가 되도록 하는 숫자 (안적으면 자동으로 나눠짐)
+
 .pt-5 : padding-top
+.p-5 : padding
+.my-5 : margin y축(top, bottom)
