@@ -19,7 +19,31 @@ sm : 화면 폭이 576px 미만이 될 경우 열은 자동으로 서로 위로 
   <h1>h1 heading <small>secondary text</small></h1>
  등.. 그 외 :https://www.w3schools.com/bootstrap5/bootstrap_typography.php
 
-ㅅ
+Colors
+  .text-
+  .bg-
+  .text-bg-
+  뒤에 원하는 색
+
+Tables
+  .table : 기본. 수평 구분선
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+  .table-striped
 
 .pt-5 : padding-top
 .p-5 : padding
