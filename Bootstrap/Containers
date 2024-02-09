@@ -10,6 +10,16 @@
 .col-*-*
 // 첫번째 * : 반응형 sm, md, lg, xl, xxl
 // 두번째 * : 각 행의 총 합이 12가 되도록 하는 숫자 (안적으면 자동으로 나눠짐)
+sm : 화면 폭이 576px 미만이 될 경우 열은 자동으로 서로 위로 쌓임.
+
+기본 폰트 크기 : 1rem(16px), 줄 간격 1.5
+<p> : margin-top:0, margin-bottom: 1rem
+  <p class="h1">h1 Bootstrap heading</p>
+  <h1 class="display-1">Display 1</h1>
+  <h1>h1 heading <small>secondary text</small></h1>
+ 등.. 그 외 :https://www.w3schools.com/bootstrap5/bootstrap_typography.php
+
+
 
 .pt-5 : padding-top
 .p-5 : padding
