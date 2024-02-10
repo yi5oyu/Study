@@ -123,9 +123,77 @@ List Groups
   그 외: https://www.w3schools.com/bootstrap5/bootstrap_list_groups.php
 
 Cards
-  
-  
+
+Dropdowns
+
+Collapse
+  <button data-bs-toggle="collapse" data-bs-target="#demo">Collapsible</button>
+  <div id="demo" class="collapse">
+    Lorem ipsum dolor text....
+  </div>
+  - 
+  .collapse : div에 버튼으로 클릭되어 보여질 내용
+  .data-bs-target : id로 연결됨
+  Accordion
+    <div id="accordion">
+    <div class="card">
+      <div class="card-header">
+        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+        <div class="card-body">
+          Lorem ipsum..
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+          Collapsible Group Item #2
+        </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+          Lorem ipsum..
+        </div>
+      </div>
+    </div>
+
+Navs
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+  -
+  ul .nav + .justify-content-(center or end)
+  .nav + .nav-tabs : 토글형태의 탭
+  그 외: https://www.w3schools.com/bootstrap5/bootstrap_navs.php
+
+Navigation Bars
+  <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-center">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Logo</a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link 1</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  화면이 줄어들면 수직으로 쌓음
+  .bg-light : 네비게이션의 배경
+  .navbar-(dark or light) : dark = 흰 글씨, light = 검은 글씨 
+  .navbar-brand : 로고
+  그 외: https://www.w3schools.com/bootstrap5/bootstrap_navbar.php
+
 
 .pt-5 : padding-top
 .p-5 : padding
 .my-5 : margin y축(top, bottom)
+
