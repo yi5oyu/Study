@@ -192,6 +192,8 @@ Navigation Bars
   .navbar-brand : 로고
   그 외: https://www.w3schools.com/bootstrap5/bootstrap_navbar.php
 
+Input Group
+
 
 .pt-5 : padding-top
 .p-5 : padding
