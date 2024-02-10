@@ -50,6 +50,80 @@ Tables
   그 외 : https://www.w3schools.com/bootstrap5/bootstrap_tables.php
 
 Images
+  <img src="cinqueterre.jpg" class="rounded" alt="Cinque Terre" width="304" height="236"> 
+  - alt : 이미지를 대신한 text
+  .rounded : 모서리가 부드러운 사각형
+  .rounded-circle
+  .img-thumbnail : 액자처럼 border
+  .float-(start or end) :
+  .mx-auto d-block : 이미지 센터로
+  .img-fluid : 반응형 이미지
+
+Jumbotron : 큰 패딩이 적용된 상자
+ - 부트스트랩 5에선 지원하지 않지만 div안에 설정으로 만들 수 있음
+  <div class="mt-4 p-5 bg-primary text-white rounded">
+    <h1>Jumbotron Example</h1>
+    <p>Lorem ipsum...</p>
+  </div>
+
+Alerts
+  <div class="alert alert-success">
+    <strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>
+  </div>
+  -
+  .alert + .alert-(타입, 색상)
+  .alert-link
+  .alert-dismissible : 닫기 버튼 있는 alert
+
+Button
+  <button type="button" class="btn btn-primary">Primary</button>
+  - <a>, <button>, <input>에 적용가능
+  .btn + .btn-primary
+  .btn + .btn-outline-success
+  .btn-group : 버튼을 그룹지어 만듬
+  .dropdown-menu : 버튼밑에 그룹
+  그 외: https://www.w3schools.com/bootstrap5/bootstrap_buttons.php
+
+Badges
+  <span class="badge bg-primary">Primary</span>
+  - 
+  .badge + bg-(색상) +(.rounded-pill : 둥근형태)
+  <button type="button" class="btn btn-primary">
+    Messages <span class="badge bg-danger">4</span>
+  </button>
+  : 뱃지 안에 뱃지
+
+Progress Bar
+  <div class="progress" style="height:20px">
+    <div class="progress-bar" style="width:70%">70%</div>
+  </div>
+  그 외 : https://www.w3schools.com/bootstrap5/bootstrap_progressbars.php
+
+Spinners
+  <div class="spinner-border text-muted"></div>
+  -
+  .spinner-border : 가운데가 뚤린 원 형태
+  .apinner-grow : 원형태
+  .text-(색상)
+  .spinner-(border or grow) + spinner-(border or grow)-sm : 작은 스피너
+
+Pagination
+  <ul class="pagination">
+    <li class="page-item" disabled><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item" active><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+  그 외: https://www.w3schools.com/bootstrap5/bootstrap_pagination.php
+
+List Groups
+  <ul class="list-group">
+    <li class="list-group-item active">Active item</li>
+    <li class="list-group-item">Second item</li>
+  </ul>
+  그 외: https://www.w3schools.com/bootstrap5/bootstrap_list_groups.php
+
+Cards
+  
   
 
 .pt-5 : padding-top
