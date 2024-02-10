@@ -196,4 +196,4 @@ Navigation Bars
 .pt-5 : padding-top
 .p-5 : padding
 .my-5 : margin y축(top, bottom)
-
+.mb-3 : margin bottom
