@@ -18,3 +18,4 @@ Query : Object[] 반환(하나면 Object)
     query.setParameter(1, "lee");
  - 바인딩하지 않고 직접 만들어서 넣으면 SQL인젝션 공격당할 수 있음.
  - 성능 : 파라미터의 값이 달라도 같은 쿼리로 인식해서 JPA는 JPQL을 SQL로 파싱한 결과를 재사용할 수 있음
+
