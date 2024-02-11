@@ -1,1 +1,20 @@
+대소문자 구분, 엔티티 이름, 별칭 필수(AS 생략 가능)
+select m.username from Member m
 
+작성한 JPQL을 실행하려면 쿼리 객체 만들어야함
+TypeQuery : 반환할 타입을 명확하게 지정할 수 있을때 사용
+  TypeQuery<Member> q = em.createQuery*("select m from Memeber m", Member.class); (두번째 파라미터에 반환할 타입 지정)
+  List<Member> l = query.getResultList();
+Query : Object[] 반환(하나면 Object)
+  Qeury q = em.createQuery*("select m from Memeber m");
+  List l = query.getResultList(); (하나일땐 getSingleResult())
+
+파라미터 바인딩
+  이름 기준 파라미터 : :
+    em.createQuery("select m from Member m where m.username = :username", Member.class);
+    query.setParameter("username", "lee");
+  위치 기준 파라미터 : ?
+    em.createQuery("select m from Member m where m.username = ?1", Member.class);
+    query.setParameter(1, "lee");
+ - 바인딩하지 않고 직접 만들어서 넣으면 SQL인젝션 공격당할 수 있음.
+ - 성능 : 파라미터의 값이 달라도 같은 쿼리로 인식해서 JPA는 JPQL을 SQL로 파싱한 결과를 재사용할 수 있음
