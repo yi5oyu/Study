@@ -1,2 +1,5 @@
 ResponseEntity
 HttpStatus
+
+Service에서 트랜잭션 관리
+@Transactional
