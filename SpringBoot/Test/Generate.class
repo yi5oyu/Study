@@ -1,0 +1,4 @@
+테스트 하고 싶은 메서드에 test 생성 JUnit5
+
+test 폴더에 생성
+@test
