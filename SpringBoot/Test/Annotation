@@ -1,0 +1,6 @@
+@SpringBootApplication
+  Spring Boot 애플리케이션의 설정과 진입점을 정의
+  테스트를 위해 별도의 진입점을 만듬(실제 환경과 테스트 환경을 분리)
+
+@SpringBootTest
+  통합 테스트(컨트롤러와 서비스를 함께 테스트하고 싶은 경우)
