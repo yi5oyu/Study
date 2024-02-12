@@ -1,0 +1,16 @@
+파일이름.mustache
+
+doc + Tab : 기본 HTML 코드 자동 작성
+
+{{변수명}} : model.addAtrribute("변수명" , 값)
+
+레이아웃 적용
+{{>폴더명/파일명}} : layouts/header
+
+모델에 등록한 값 사용
+ - model.addAttribute("변수명", 클래스(DTO or Entity)
+  ex) "Member" member // memeber 안에 id, pw 등
+{{#변수명}}
+  {{변수에 담긴 값}}
+  {{변수에 담긴 값}}
+{{/변수명}}
