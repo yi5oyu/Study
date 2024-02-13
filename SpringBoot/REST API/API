@@ -5,7 +5,7 @@ Controller -> Service (dto 객체를 entity 객체로 변환)
  - dto 클래스에 toEntity() 메서드 생성
   public class MemberDTO{
     public MemberEntity toEntity(){
-      return new MemberEntity(null, userId, pw);
+      return new MemberEntity(null, userId, pw); // Long id 값은 DB에서 결정됨 (최초 입력엔 필요없음)
     }
   }
 Sevice -> Controller (entity 객체를 dto 객체로 변환)
