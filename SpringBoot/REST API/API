@@ -3,9 +3,9 @@ HttpStatus
 
 Controller -> Service (dto 객체를 entity 객체로 변환)
  - dto 클래스에 toEntity() 메서드 생성
-  public class Member{
-    public Member toEntity(){
-      return new Member(null, userId, pw);
+  public class MemberDTO{
+    public MemberEntity toEntity(){
+      return new MemberEntity(null, userId, pw);
     }
   }
 Sevice -> Controller (entity 객체를 dto 객체로 변환)
