@@ -12,8 +12,8 @@ return ResponseEntitiy.status(HttpStatus.OK).body(updated);
 
 dto list를 entity list로 변환. stream() 이용
 List<Member> memberList = dtos.stream()
-  .map(dto -> dto.toEntity())
-  .collect(Collectors.toList());
+  .map(dto -> dto.toEntity()) // .map(a -> b) 스트림의 각 요소a를 꺼내 b를 수행한 결과로 매핑
+  .collect(Collectors.toList()); // 스트림 데이터를 List 자료형으로 변환
 ==
 List<Member> memberList = new ArrayList<>();
 for(int i = 0 ; i < dtos.size() ; i++) {
