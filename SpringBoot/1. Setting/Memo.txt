@@ -4,7 +4,7 @@
   Intellij
 
 프로젝트 생성
-  https://start.spring.io/
+  https://start.spring.io/  //스프링 이니셜라이저
     SNAPSHOT 테스트 단계
     Mx 주요 기능/버그 수정 단계
     GENERATE된 폴더 Intellij에서 실행
