@@ -3,6 +3,7 @@ HttpStatus
 
 Service에서 트랜잭션 관리
 @Transactional
+ // 실패할 경우 데이터를 롤백
 
 return ResponseEntitiy.status(HttpStatus.BAD_REQUEST).body(null); == .build() (body 없는 ResponseEntity 객체 생성)
  // 400 or HttpStatus.BAD_REQUEST일 경우 body 에 null 반환
