@@ -3,3 +3,34 @@ HttpStatus
 
 Service에서 트랜잭션 관리
 @Transactional
+
+return ResponseEntitiy.status(HttpStatus.BAD_REQUEST).body(null); == .build() (body 없는 ResponseEntity 객체 생성)
+ // 400 or HttpStatus.BAD_REQUEST일 경우 body 에 null 반환
+return ResponseEntitiy.status(HttpStatus.OK).body(updated);
+ // 200 or HttpStatus.OK일 경우 updated 반환
+  - DELETE 일경우 body에 정보 없이 보냄 .build()
+
+dto list를 entity list로 변환. stream() 이용
+List<Member> memberList = dtos.stream()
+  .map(dto -> dto.toEntity())
+  .collect(Collectors.toList());
+==
+List<Member> memberList = new ArrayList<>();
+for(int i = 0 ; i < dtos.size() ; i++) {
+  memberDTO dto = dtos.get(i);
+  member entity = dto.toEntity();
+  memberList.add(entity);
+}
+
+enetity list를 DB에 저장
+memeberList.stream()
+  .forEach(member -> memberRepository.save(member));
+==
+for(int i = 0 ; i < memberList.size() ; i++) {
+  Member member = memberList.get(i);
+  memeberRepository.save(member);
+}
+
+예외 밣생. 찾는 데이터가 없으면 예외 발생
+articleRepository.findById( (데이터) )
+  .orElseThrow(() -> new IllegalArgumentException("예외 발생"));
