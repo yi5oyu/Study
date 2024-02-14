@@ -19,6 +19,12 @@
  @ComponentScan : @Component이 붙은 클래스를 발견해 빈을 등록
  @EnableAutoConfiguration을 통해 spring-boot-autoconfigure 패키지 안에 spring.factories 파일을 추가해 다양한 자동 설정이 일부 조건을 거쳐 적용
 
+내장 WAS
+ 특별한 설정 없이도 Tomcat 실행 가능 ( Jetty, Undertow 등 으로 대체 가능 )
+
+모니터링
+ Spring Boot Actuator : 서비스를 운영하는 시기에 해당 시스템이 사용하는 스레드, 메모리, 세션 등 주요 요소들 모니터링 
+
 IoC 제어 역전 (Inversion of Control)
  사용할 객체를 직접 생성하지 않고 객체의 생명주기 관리를 스프링 컨테이너 or IoC 컨테이너에 위임
  제어 역전을 통해 의존성 주입, 관점 지향 프로그래밍 등이 가능
