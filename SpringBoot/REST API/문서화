@@ -4,7 +4,7 @@ Swagger
  http://localhost:8080/swagger-ui.html -> 페이지 출력
  1. 의존성 추가
  2. 설정 코드 작성
-  com.springboot.api 하단에 config 패키지 생성후 SwaggerConfiguration.java 파일
+  main.java 폴더에 있는 패키지명 하단에 config 패키지 생성후 SwaggerConfiguration.java 파일
     ---
     @Configuration
     @EnableSwagger2
@@ -13,7 +13,7 @@ Swagger
         public Docket api() {
             return new Docket(DocumentationType.SWAGGER_2)
                     .select()
-                    .apis(RequestHandlerSelectors.basePackage("com.springboot.api")) 
+                    .apis(RequestHandlerSelectors.basePackage("main.java 폴더에 있는 패키지명")) 
                       // Swagger에서 스캔할 패키지 범위 설정. 하위 패키지, 클래스를 모두 스캔해서 문서 생성
                     .paths(PathSelectors.any())
                     .build()
