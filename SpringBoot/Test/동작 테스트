@@ -3,3 +3,4 @@ Talend API Tester
   - GET, POST, PUT, DELETE 등의 다양한 HTTP 메서드를 설정하고 query, parameter를 담아 요청 보냄
   - HTTP 요청을 보내려는 경로와 메서드 설정흐 Send
   - Https -> http
+ HTTP 헤더를 볼 수 있음. REST에선  Body와 Header에 값을 추가해서 요청에 필요한 데이터를 담아 보낼 수 있음(Spring Security)
