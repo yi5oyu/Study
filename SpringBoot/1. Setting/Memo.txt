@@ -1,7 +1,9 @@
 개발환경 설정
-  스프링 부트 3버전. JDK 17
-  cmd. java -version
-  Intellij
+  스프링 부트 3버전은 JDK 17 이상만 지원
+  설치 확인 : cmd. java -version
+  https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=17
+  
+  Intellij C 설치
 
 프로젝트 생성
   https://start.spring.io/  //스프링 이니셜라이저
