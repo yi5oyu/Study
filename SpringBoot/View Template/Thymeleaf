@@ -1,1 +1,39 @@
+템플릿 선언
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
+변수 표현식
+${...}
+
+속성 값 설정 
+th:
+ - 조건 : th:if, th:unless, th:switch, th:case 
+ - 반복문 : th:each
+
+ 1. th:text="${데이터}"
+  - 일반 텍스트 반환. (HTML escape)
+    th:utext="${데이터}"
+  - 텍스트가 HTML로 해석.
+   * HTML escape : 결과를 코드로 인식 하는 것이 아닌 문자 그대로 인식하고 랜더링
+  model.addAttribute("data", "<script>alert('XSS Attack!');</script>");
+    <div>
+        <h1 th:text="${data}"></h1>
+        <h1 th:utext="${data}"></h1>
+    </div>
+
+ 2. th:value="${데이터}"
+  - 입력 요소 값 설정, 수정된 이름 서버 전송
+    model.addAttribute("defaultName", "name");
+    model.addAttribute("colors", Arrays.asList("Red", "Green", "Blue"));
+    model.addAttribute("defaultColor", "Green");
+    <form action="/submit" method="post">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" th:value="${defaultName}" />
+        <label th:each="color : ${colors}">
+            <input type="radio" name="color" th:value="${color}" th:checked="${color == defaultColor}" />
+            <span th:text="${color}"></span><br/>
+        </label>
+        <button type="submit">제출</button>
+    </form>
+
+  
