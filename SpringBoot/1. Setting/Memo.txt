@@ -13,3 +13,7 @@
 
 실행
   src > main > resources > static (파일명 찾아 실행)
+
+폴더 구조
+ . 으로 표시
+  -> options -> Tree Appearance -> Compact Middle Packages 해제
