@@ -1,0 +1,11 @@
+산술 (+,-,*,/,%)
+ 
+ <div th:with="isEven=(${prodStat.count} % 2 == 0)">
+ <div th:with="isEven=${prodStat.count % 2 == 0}">
+  - 둘다 가능
+
+  <div th:with="isEven=(${prodStat.count} % 2 == 0)">
+      <p th:if="${isEven}">
+          <span th:text="${prodStat.count}"></span>
+      </p>
+  </div>
