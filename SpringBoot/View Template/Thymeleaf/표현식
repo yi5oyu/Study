@@ -27,12 +27,17 @@ Controller / model / user 객체 name, age 필드
      
 프래그먼트 표현식: ~{...}
  - 템플릿에서 다른 템플릿 조각을 가져올 때 사용 (정적 리소스 처리에 좋음)
+ - 상대 경로 표현. 템플릿이나 리소스 파일의 위치를 변경할 때 유용 (파일의 위치를 변경하더라도 코드를 수정하지 않고도 정확한 위치를 참조)
   src/main/resources/static /css/style.css or /js/script.js or /images/logo.png
    <link rel="stylesheet" th:href="@{~{/css/style.css}}" />
    <script th:src="@{~{/js/script.js}}" defer></script>
    <img th:src="@{~{/images/logo.png}}" alt="Logo" class="logo"/>
   src/main/resources/templates /layout/header.html or /layout/footer.html
-   <div th:replace="layout/header :: header"></div>
-    - layout/header 폴더 안에 있는 header 태그를 찾아 대체함
-   <div th:replace="layout/main :: h1"></div>
-    - main.html에 h1이 여러개일 때 모두 출력함
+   * th:replace
+    <div th:replace="layout/header :: header"></div>
+     - layout/header 폴더 안에 있는 header 태그를 찾아 대체함 (<div th:replace="layout/header :: header"></div>를 대체)
+    <div th:replace="layout/main :: h1"></div>
+     - main.html에 h1이 여러개일 때 모두 출력함
+   * th:insert
+    <div th:insert="layout/header :: header"></div>
+     - layout/header 폴더 안에 있는 header 태그를 찾아 대체함 (<div th:replace="layout/header :: header"></div> 안에 삽입됨)
