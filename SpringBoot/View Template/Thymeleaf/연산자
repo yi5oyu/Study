@@ -9,3 +9,6 @@
           <span th:text="${prodStat.count}"></span>
       </p>
   </div>
+
+기호 (>, <, >=, <=, ==, !=)
+ XML 
