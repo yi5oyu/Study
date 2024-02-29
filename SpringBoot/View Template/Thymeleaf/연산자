@@ -42,3 +42,8 @@
 No-Operation 토큰
  <span th:text="${user.name} ?: _">이름 초기값</span>
   -user.name이 null이면 이름 초기값 출력 / 값이 있으면 user.name 출력
+
+데이터 형식 변환
+ - {{}} 이중 중괄호
+  결과를 문자열로 변환함
+  <td th:text="${{user.lastAccessDate}}"></td>
