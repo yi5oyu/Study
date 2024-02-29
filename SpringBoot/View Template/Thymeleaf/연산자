@@ -18,6 +18,7 @@
   </div>
 
 조건 표현식
+ 중첩 사용
  <div th:class="${row.even}? (${row.first}? 'first' : 'even') : 'odd'"></div>
  <div th:class="${row.even}? 'alt'"></div>
   - 생략 가능 (이 경우 거짓인 경우 null 반환)
@@ -35,5 +36,5 @@
      <span th:text="*{age != null}? *{age} : '(나이 미지정)'"></span>
       - 두개는 같음 (null일 경우 기본값 설정)
  </div>
- 중첩 사용 가
+ 중첩 사용 가능
  <span th:text="*{firstName}?: (*{admin}? '관리자' : #{default.username})"></span>
