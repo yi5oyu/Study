@@ -39,6 +39,7 @@
  중첩 사용 가능
  <span th:text="*{firstName}?: (*{admin}? '관리자' : #{default.username})"></span>
 
+``````````` 그 외 ```````````
 No-Operation 토큰
  <span th:text="${user.name} ?: _">이름 초기값</span>
   -user.name이 null이면 이름 초기값 출력 / 값이 있으면 user.name 출력
@@ -47,3 +48,9 @@ No-Operation 토큰
  - {{}} 이중 중괄호
   결과를 문자열로 변환함
   <td th:text="${{user.lastAccessDate}}"></td>
+
+Preprocessing
+ 양쪽에 이중 언더스코어 기호(__)로 둘러싸임
+ <p th:text="${__#{article.text('textVar')}__}"></p>
+  - 값에 따라 언어 번역 메서드가 선택되게 할 수 있음
+  - 다른 언어로의 번역이 필요한 텍스트가 있을 때마다 표현식을 변경하지 않고도 해당 언어로 적절한 번역 메서드를 호출할 수 있음
