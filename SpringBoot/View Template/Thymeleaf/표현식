@@ -26,4 +26,10 @@ Controller / model / user 객체 name, age 필드
     scope 범위내에 설정한 속성(pageContext, request, session, application), model 등
      
 프래그먼트 표현식: ~{...}
-
+ - 템플릿에서 다른 템플릿 조각을 가져올 때 사용 (정적 리소스 처리에 좋음)
+  src/main/resources/static /css/style.css or /js/script.js or /images/logo.png
+   <link rel="stylesheet" th:href="@{~{/css/style.css}}" />
+   <script th:src="@{~{/js/script.js}}" defer></script>
+   <img th:src="@{~{/images/logo.png}}" alt="Logo" class="logo"/>
+  src/main/resources/templates /layout/header.html or /layout/footer.html
+   <div th:replace="layout/header :: header"></div>
