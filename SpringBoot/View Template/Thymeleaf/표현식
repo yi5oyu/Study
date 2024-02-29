@@ -33,3 +33,6 @@ Controller / model / user 객체 name, age 필드
    <img th:src="@{~{/images/logo.png}}" alt="Logo" class="logo"/>
   src/main/resources/templates /layout/header.html or /layout/footer.html
    <div th:replace="layout/header :: header"></div>
+    - layout/header 폴더 안에 있는 header 태그를 찾아 대체함
+   <div th:replace="layout/main :: h1"></div>
+    - main.html에 h1이 여러개일 때 모두 출력함
