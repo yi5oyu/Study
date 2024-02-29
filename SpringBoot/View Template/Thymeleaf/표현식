@@ -9,6 +9,7 @@ Controller / model / user 객체 name, age 필드
      
 선택 변수 표현식: *{...}
  - 선택된 객체의 속성을 가져올 때 사용
+  th:object 속성을 사용해 선택한 객체 지정 (객체 없을 경우 일반 표현식과 동일하게 동작)
   <div th:object="${user}">
      <span th:text="*{name}">텍스트</span>
   </div>
@@ -16,15 +17,27 @@ Controller / model / user 객체 name, age 필드
 메시지 표현식: #{...}
  - 국제화 메시지를 가져올 때 사용(메시지 키에 해당하는 메시지를 찾아 사용)
   src/main/resources/messages.properties or messages_ko.properties 파일 생성
-  각 파일에 welcome.message=안녕하세요! or hello!
+  각 파일에 welcome.message = 안녕하세요! or hello!
   HTTP 요청의 Accept-Language 헤더에서 파악   
    <div th:text="#{welcome.message}">환영 메시지</div>
-     
+    welcome.message = hello! {0}
+   <p th:utext="#{home.welcome(${user.name})}">
+     hello! 이름
+   </p>
+
 링크 URL 표현식: @{...}
  - URL을 생성할 때 사용 (URL 인코딩을 자동으로 처리)
-  <a th:href="@{/users/(userId=${userId} ?: 'null일때 기본값')}">Product Details</a>
+  <a th:href="@{/users/(userId=${userId} != null ? ${userId} : 'null일때 기본값', age=${age})}">User</a>
     scope 범위내에 설정한 속성(pageContext, request, session, application), model 등
-     
+    삼항 연산자를 사용할 수 있음
+***
+ 절대 URL : 프로토콜(http/https) 및 도메인 이름을 포함한 완전한 경로를 지정 (https://www.naver.com)
+ 상대 URL
+  페이지 URL : 현재 위치를 기준으로 경로 지정. user/login.html
+  컨텍스트 URL : /로 시작해 웹 어플리케이을 기준으로 호출. /home?id=3
+  서버 URL : 동일한 서버의 다른 응용 프로그램에서 URL 호출. ~/billing/processInvoice
+  프로토콜 URL : //로 시작해 현재 페이지의 프로토콜 상속 //code.jquery.com/jquery-2.0.3.min.js
+
 프래그먼트 표현식: ~{...}
  - 템플릿에서 다른 템플릿 조각을 가져올 때 사용 (정적 리소스 처리에 좋음)
  - 상대 경로 표현. 템플릿이나 리소스 파일의 위치를 변경할 때 유용 (파일의 위치를 변경하더라도 코드를 수정하지 않고도 정확한 위치를 참조)
