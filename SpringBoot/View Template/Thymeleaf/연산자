@@ -38,3 +38,7 @@
  </div>
  중첩 사용 가능
  <span th:text="*{firstName}?: (*{admin}? '관리자' : #{default.username})"></span>
+
+No-Operation 토큰
+ <span th:text="${user.name} ?: _">이름 초기값</span>
+  -user.name이 null이면 이름 초기값 출력 / 값이 있으면 user.name 출력
