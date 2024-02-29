@@ -5,7 +5,9 @@
 변수 표현식
 ${...}
 
-속성 값 설정 
+속성 값 설정. 
+ -(하이픈) 사용 : data-th-text
+ th: 사용 : th:text
 th:
  - 조건 : th:if, th:unless, th:switch, th:case 
  - 반복문 : th:each
