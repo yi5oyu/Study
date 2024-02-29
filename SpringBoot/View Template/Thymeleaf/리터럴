@@ -18,3 +18,10 @@
 널 리터럴
  <div th:if="${variable.something} == null">
 
++ 연산자 사용
+<span th:text="'The name of the user is ' + ${user.name}">
+ - 변수 값이 결합됨 The name of the user is 이름
+
+리터럴 치환
+<span th:text="|The name of the user is ${user.name}|">
+ - 변수 문자열 그대로 출력됨. The name of the user is ${user.name}
