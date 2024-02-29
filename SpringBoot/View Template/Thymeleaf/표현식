@@ -47,10 +47,15 @@ Controller / model / user 객체 name, age 필드
    <img th:src="@{~{/images/logo.png}}" alt="Logo" class="logo"/>
   src/main/resources/templates /layout/header.html or /layout/footer.html
    * th:replace
-    <div th:replace="layout/header :: header"></div>
-     - layout/header 폴더 안에 있는 header 태그를 찾아 대체함 (<div th:replace="layout/header :: header"></div>를 대체)
-    <div th:replace="layout/main :: h1"></div>
+    <div th:replace="fragments/header :: header"></div>
+     - fragments/header 폴더 안에 있는 header 태그를 찾아 대체함 (<div th:replace="fragments/header :: header"></div>를 대체)
+    <div th:replace="fragments/main :: h1"></div>
      - main.html에 h1이 여러개일 때 모두 출력함
    * th:insert
-    <div th:insert="layout/header :: header"></div>
-     - layout/header 폴더 안에 있는 header 태그를 찾아 대체함 (<div th:replace="layout/header :: header"></div> 안에 삽입됨)
+    <div th:insert="fragments/header :: header"></div>
+     - fragments/header 폴더 안에 있는 header 태그를 찾아 대체함 (<div th:replace="fragments/header :: header"></div> 안에 삽입됨)
+   * th:with
+    <div th:with="footerFragment=~{fragments/footer :: footer}">
+        <footer th:insert="${footerFragment}"></footer>
+    </div>
+     - 조각을 변수에 할당한 다음 th:insert로 삽입
