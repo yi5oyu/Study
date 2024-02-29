@@ -24,4 +24,13 @@
 
 리터럴 치환
 <span th:text="|The name of the user is ${user.name}|">
- - 변수 문자열 그대로 출력됨. The name of the user is ${user.name}
+ - 치환되 출력 The name of the user is 이름
+
+`입력`
+<span th:text="|Welcome to our application, ${session.user}!|">
+<span th:text="'Welcome to our application, ' + ${session.user} + '!'"></span>
+<span th:text="${onevar} + ', ' + |${twovar}, ${threevar}|"></span>
+`출력`
+Welcome to our application, joe!
+Welcome to our application, joe!
+one, two, thr
