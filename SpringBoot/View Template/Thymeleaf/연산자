@@ -28,3 +28,12 @@
   <a th:href="${isLoggedIn}? '/profile' : '/login'">Profile</a>
   <span th:text="${isLoggedIn}? 'Welcome' : 'Please log in'"></span>
   <img th:src="${hasAvatar}? '/images/avatar.png' : '/images/default-avatar.png'" alt="User Avatar">
+
+기본 표현식
+ <div th:object="${session.user}">
+     <span th:text="*{age}?: '(나이 미지정)'"></span>
+     <span th:text="*{age != null}? *{age} : '(나이 미지정)'"></span>
+      - 두개는 같음 (null일 경우 기본값 설정)
+ </div>
+ 중첩 사용 가
+ <span th:text="*{firstName}?: (*{admin}? '관리자' : #{default.username})"></span>
