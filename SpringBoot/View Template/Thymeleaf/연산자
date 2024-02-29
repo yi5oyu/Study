@@ -11,4 +11,20 @@
   </div>
 
 기호 (>, <, >=, <=, ==, !=)
- XML 
+ XML 속성 값에 <, > 기호 사용 불가
+  - gt (>), lt (<), ge (>=), le (<=), not (!). Also eq (==), neq/ne (!=)
+  <div th:if="${prodStat.count} &gt; 1">
+      <span th:text="'실행 모드는 ' + ( (${execMode} == 'dev')? '개발' : '운영')">
+  </div>
+
+조건 표현식
+ <div th:class="${row.even}? (${row.first}? 'first' : 'even') : 'odd'"></div>
+ <div th:class="${row.even}? 'alt'"></div>
+  - 생략 가능 (이 경우 거짓인 경우 null 반환)
+  * th:class
+   - class="even" 클래스 속성
+ 다양한 속성에 적용 가능
+  <div th:style="${row.even}? 'background-color: lightgray' : 'background-color: white'"></div>
+  <a th:href="${isLoggedIn}? '/profile' : '/login'">Profile</a>
+  <span th:text="${isLoggedIn}? 'Welcome' : 'Please log in'"></span>
+  <img th:src="${hasAvatar}? '/images/avatar.png' : '/images/default-avatar.png'" alt="User Avatar">
