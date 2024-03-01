@@ -1,0 +1,29 @@
+ - th:each
+  <tr th:each="prod, iterStat : ${prods}" th:class="${iterStat.odd}? 'odd'">
+    - 변수의 상테를 지정할 수 있음. iterStat 변수 사용
+    <td th:text="${prod.name}"></td>
+    <td th:text="${prod.price}"></td>
+    <td th:text="${prod.inStock}? #{true} : #{false}"></td>
+      - #{true} : #{false} => Thymeleaf에서 내장된 메시지 소스로부터 값을 가져옴
+      - 언어에 따라 "예"와 "아니오"를 표시
+  </tr>
+``` 변수 상태 사용 ```
+    <td th:text="${iterStat.index}">0</td>
+    <td th:text="${iterStat.count}">1</td>
+    <td th:text="${iterStat.size}">5</td>
+    <td th:text="${iterStat.even}">true</td>
+    <td th:text="${iterStat.odd}">false</td>
+    <td th:text="${iterStat.first}">true</td>
+    <td th:text="${iterStat.last}">false</td>
+``````
+
+lazy Loding
+ 실제 사용할 때만 불러오고 싶은 경우 : 변수를 LazyContextVariable 설정
+  LazyContextVariable<List<User>> lazyUsers = () -> databaseRepository.findAllUsers();
+  model.addAttribute("users", lazyUsers);
+
+ <ul th:if="${condition}">
+    <li th:each="u : ${users}" th:text="${u.name}">user name</li>
+ </ul>
+  - condition이 false일때 users 변수의 데이터가 실제로 검색되거나 로드되지 않음
+   (해당 데이터가 필요하지 않은 경우 데이터베이스에서 사용자 데이터를 검색하는 작업이 발생하지 않음)
