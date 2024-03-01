@@ -14,14 +14,22 @@ th:
 
  1. th:text="${데이터}"
   - 일반 텍스트 반환. (HTML escape)
+   [[${데이터}]]
     th:utext="${데이터}"
   - 텍스트가 HTML로 해석.
+   [(${데이터})]
    * HTML escape : 결과를 코드로 인식 하는 것이 아닌 문자 그대로 인식하고 랜더링
   model.addAttribute("data", "<script>alert('XSS Attack!');</script>");
     <div>
         <h1 th:text="${data}"></h1>
         <h1 th:utext="${data}"></h1>
     </div>
+
+인라인
+ * [ , ] 를 쓰고 싶으면 inline을 비활성화 해야함
+  <p th:inline="none">[[1, 2, 3], [4, 5]]</p>
+
+
 
  2. th:value="${데이터}"
   - 입력 요소 값 설정, 수정된 이름 서버 전송
