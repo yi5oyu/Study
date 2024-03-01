@@ -1,3 +1,36 @@
+레이아웃 프래그먼트 선언
+  <!DOCTYPE html>
+  <html th:fragment="layout (title, content)" xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <title th:replace="${title}">레이아웃 제목</title>
+  </head>
+  <body>
+      <h1>레이아웃 H1</h1>
+      <div th:replace="${content}">
+          <p>레이아웃 내용</p>
+      </div>
+      <footer>
+          레이아웃 푸터
+      </footer>
+  </body>
+  </html>
+
+layoutFile의 프래그먼트 layout을 불러와 대입
+  <!DOCTYPE html>
+  <html th:replace="~{layoutFile :: layout(~{::title}, ~{::section})}">
+  <head>
+      <title>페이지 제목</title>
+  </head>
+  <body>
+  <section>
+      <p>페이지 내용</p>
+      <div>페이지에 포함됨</div>
+  </section>
+  </body>
+  </html>
+
+--------------------------------------------------------------
+
 templates/footer.html
   <!DOCTYPE html>
   <html xmlns:th="http://www.thymeleaf.org">
