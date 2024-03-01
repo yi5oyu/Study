@@ -6,7 +6,16 @@ Controller / model / user 객체 name, age 필드
    객체 : toString() 오버라이딩 했을 경우. User{name='이름', age=20} 출력 // 클래스 이름과 해시코드를 반환
   <div th:text="${user.name}">대체 텍스트</div>
    필드 : 이름 출력
-     
+```
+ session.user 출력
+ <p>${session.user}</p>
+  - 출력 : ${session.user} // 문자 그대로 나옴
+ <p th:text="${session.user}"></p>
+  - 출력 : joe // session에 들어있는 값 나옴
+ <p>[[${session.user}]]</p>
+  - 출력 : joe // 위와 같음
+```
+
 선택 변수 표현식: *{...}
  - 선택된 객체의 속성을 가져올 때 사용
   th:object 속성을 사용해 선택한 객체 지정 (객체 없을 경우 일반 표현식과 동일하게 동작)
