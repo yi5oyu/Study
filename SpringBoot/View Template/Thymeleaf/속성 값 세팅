@@ -1,1 +1,16 @@
+모든 속성 값 설정
+ - th:attr
+  <img src="../../images/gtvglogo.png" th:attr="src=@{/images/gtvglogo.png},title=#{logo},alt=#{logo}"/>
+  여러 속성을 정의 할 수 있고 더 높은 우선 순위를 가짐
 
+직접 속성 설정
+ - th:속성
+  <form action="subscribe.html" th:action="@{/subscribe}">
+  <input type="submit" value="Subscribe!" th:value="#{subscribe.submit}"/>
+  <a href="product/list.html" th:href="@{/product/list}">Product List</a>
+
+두 가지 동시 설정
+ 두 가지 속성을 동일한 값으로 설정
+  - th:alt-title
+  - th:lang-xmllang
+  
