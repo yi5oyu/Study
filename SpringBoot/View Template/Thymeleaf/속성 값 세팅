@@ -10,7 +10,32 @@
   <a href="product/list.html" th:href="@{/product/list}">Product List</a>
 
 두 가지 동시 설정
- 두 가지 속성을 동일한 값으로 설정
+ 두 가지 속성 동일한 값 설정
   - th:alt-title
   - th:lang-xmllang
+   <img src="profile.jpg" th:src="@{/images/profile.jpg}" th:alt-title="#{profile.altTitle}" />
+
+속성 값 덧붙이기
+ 기존 속성 값에 추가
+  - th:attrappend : 뒤에 추가
+   <input type="text" th:attrappend="value=${' - Suffix'}" />
+  - th:attrprepend : 앞에 추가
+   <input type="text" th:attrprepend="value=${'Prefix - '}" />
+  - th:classappend
+   <button th:classappend="${true}? 'btn' : 'warning'">버튼 1</button>
+  - th:styleappend
+   <p th:styleappend="'font-weight: bold;'">굵은 글꼴</p>
+
+boolean 속성
+ - th:checked
+  <input type="checkbox" name="active" th:checked="${user.active}" />
+ - th:disabled
+  <button type="submit" th:disabled="${isDisabled}">Submit</button>
+ - th:selected
+  <select>
+    <option th:selected="${option == 'value1'}" value="value1">Value 1</option>
+    <option th:selected="${option == 'value2'}" value="value2">Value 2</option>
+    <option th:selected="${option == 'value3'}" value="value3">Value 3</option>
+  </select>
+   option 값에 따라 선택
   
