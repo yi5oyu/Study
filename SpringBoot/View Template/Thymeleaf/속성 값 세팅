@@ -39,3 +39,8 @@ boolean 속성
   </select>
    option 값에 따라 선택
   
+어떤 속성이든 값을 설정할 수 있는 기본 속성 프로세서를 제공
+ <span th:whatever="${user.name}"></span>
+
+data-{prefix}-{name} 구문
+ <td data-th-text="${user.login}"></td>
