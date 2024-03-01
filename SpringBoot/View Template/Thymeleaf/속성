@@ -1,3 +1,15 @@
+속성 우선 순위
+ 1 프래그먼트 포함 th:insert, th:replace
+ 2 프래그먼트 반복 th:each
+ 3 조건 th:if, th:unless, th:switch, th:case
+ 4 로컬 변수 정의 th:object, th:with
+ 5 일반적인 속성 수정 th:attr, th:attrprepend, th:attrappend
+ 6 특정 속성 수정 th:value, th:href, th:src ...
+ 7 텍스트 (태그 본문 수정) th:text, th:utext
+ 8 프래그먼트 지정 th:fragment
+ 9 프래그먼트 제거 th:remove
+  - 속성의 위치와 상관없이 우선 순위에 따라 동
+
 모든 속성 값 설정
  - th:attr
   <img src="../../images/gtvglogo.png" th:attr="src=@{/images/gtvglogo.png},title=#{logo},alt=#{logo}"/>
