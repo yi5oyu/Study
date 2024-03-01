@@ -143,4 +143,7 @@ base.html
     반복되는 첫번째 요소를 제외한 나머지 전부 삭제
    - th:remove="none"
     모든 요소 출력
+
+  조건으로 활용 할 수 있음
+   <a href="/something" th:remove="${condition}? tag : none">제거되지 않을 링크 텍스트</a>
 ```
