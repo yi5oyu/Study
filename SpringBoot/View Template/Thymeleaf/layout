@@ -122,9 +122,12 @@ base.html
 
 ```
  - th:with
-  <div th:with="name=${user.name}, age=${user.age}">
-    <p>Hello, <span th:text="${name}"></span>! You are <span th:text="${age}"></span> years old.</p>
-  </div>
+  로컬 변수를 선언 (선언된 div안에서만 쓰임)
+    <div th:with="name=${user.name}, age=${user.age}">
+      <p>Hello, <span th:text="${name}"></span>! You are <span th:text="${age}"></span> years old.</p>
+    </div>
+  동일한 속성에서 정의된 변수를 재사용할 수 있음
+    <div th:with="company=${user.company + ' Co.'},account=${accounts[company]}">...</div>
 
  - th:assert
   템플릿에서 특정 조건 확인하고 조건 충족되지 않으면 예외 발생
