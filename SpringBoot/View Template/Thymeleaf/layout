@@ -28,30 +28,6 @@ templates/footer.html
    - 이렇게도 쓸 수 있음
   <div th:replace="~{::greeting}" th:with="name=${value1}, age=${value2}"></div>
    - 이것과 같음
-```
- - th:with
-  <div th:with="name=${user.name}, age=${user.age}">
-    <p>Hello, <span th:text="${name}"></span>! You are <span th:text="${age}"></span> years old.</p>
-  </div>
-
- - th:assert
-  템플릿에서 특정 조건 확인하고 조건 충족되지 않으면 예외 발생
-  <div th:assert="${condition}" th:text="${name}"></div>
-   - 변수가 null이 아니거나 조건을 충족해야함. false : 예외
-
- - th:block
-  렌더링을 위한 태그 (특정 조건이나 반복 작업을 수행하기 위해 사용)
-  <th:block th:if="${user.isAdmin()}">
-      <p>Welcome, Administrator!</p>
-      <p>Manage your account here.</p>
-  </th:block>
-   - 특정 조건이 참이면 내부의 요소들을 렌더링
-  <th:block th:each="item : ${items}">
-    <li th:text="${item.name}"></li>
-  </th:block>
-   - 반복적으로 사용되는 HTML 요소들을 렌더링
-   => HTML 구조 유지, 랜더링 효율
-```
 
 base.html
   <head th:fragment="common_header(title,links)">
@@ -110,3 +86,61 @@ base.html
  <div th:insert="~{common :: salutation} ?: _">
      Welcome [[${user.name}]], click <a th:href="@{/support}">here</a> for help-desk support.
  </div>
+
+```
+ - th:with
+  <div th:with="name=${user.name}, age=${user.age}">
+    <p>Hello, <span th:text="${name}"></span>! You are <span th:text="${age}"></span> years old.</p>
+  </div>
+
+ - th:assert
+  템플릿에서 특정 조건 확인하고 조건 충족되지 않으면 예외 발생
+  <div th:assert="${condition}" th:text="${name}"></div>
+   - 변수가 null이 아니거나 조건을 충족해야함. false : 예외
+
+ - th:block
+  렌더링을 위한 태그 (특정 조건이나 반복 작업을 수행하기 위해 사용)
+  <th:block th:if="${user.isAdmin()}">
+      <p>Welcome, Administrator!</p>
+      <p>Manage your account here.</p>
+  </th:block>
+   - 특정 조건이 참이면 내부의 요소들을 렌더링
+  <th:block th:each="item : ${items}">
+    <li th:text="${item.name}"></li>
+  </th:block>
+   - 반복적으로 사용되는 HTML 요소들을 렌더링
+   => HTML 구조 유지, 랜더링 효율
+
+ - th:remove
+  템플릿 프래그먼트 제거
+
+    <tr class="odd" th:remove=" all or body or tag or all-but-first or none ">
+      <td>파란 상추</td>
+      <td>9.55</td>
+      <td>아니오</td>
+      <td>
+        <span>0</span> 개의 댓글
+      </td>
+    </tr>
+
+   - th:remove="all"
+    포함된 태그와 모든 자식 제거
+    호출 결과 : 전부 삭제
+   - th:remove="body"
+    포함된 태그를 제외. 모든 자식 제거
+    호출 결과 :
+    <tr class="odd"></tr>
+   - th:remove="tag"
+    태그만 제거
+    호출 결과 :
+    <td>파란 상추</td>
+    <td>9.55</td>
+    <td>아니오</td>
+    <td>
+        <span>0</span> 개의 댓글
+    </td>
+   - th:remove="all-but-first"
+    반복되는 첫번째 요소를 제외한 나머지 전부 삭제
+   - th:remove="none"
+    모든 요소 출력
+```
