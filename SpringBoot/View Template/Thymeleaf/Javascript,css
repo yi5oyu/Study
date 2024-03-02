@@ -1,0 +1,7 @@
+Javsscript
+  <script th:inline="javascript">
+      var username = [[${session.user.name}]];
+
+      var username = /*[[${session.user.name}]]*/ "Gertrud Kiwifruit";
+       - 정적 : "Gertrud Kiwifruit". 동적 : [[${session.user.name}]]
+  </script>
