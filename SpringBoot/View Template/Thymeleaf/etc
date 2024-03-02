@@ -32,6 +32,9 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-b-expre
  - ${#aggregates} : 배열 또는 컬렉션에 대한 집계
  - ${#ids} : 반복될 수 있는 id 속성을 처리
 
+https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-c-markup-selector-syntax
+ 마크업 선택
+
   ``` javadoc API ```
   org.thymeleaf.context.WebRequestParamsVariablesMap. 
    컨텍스트 객체가 아니라 변수로서 컨텍스트에 추가된 맵
