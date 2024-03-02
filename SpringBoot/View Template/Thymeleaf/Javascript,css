@@ -21,6 +21,11 @@ Javsscript
     var msg  = "This is shown only when executed statically!";
   /* -]*/
 
+ 서버없을때 (정적), user.admin이 true일때만 alert 실행됨
+  /*[# th:if="${user.admin}"]*/
+     alert('Welcome admin');
+  /*[/]*/
+
 CSS
  <style th:inline="css">
     .[[${classname}]] {
