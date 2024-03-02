@@ -1,4 +1,12 @@
 유틸리티 함수
+
+ - #calendars.format()
+ 날짜 및 시간 형식을 지정된 형식으로 변환
+ #calendars.format(today,'dd MMMM yyyy')
+
+ - #dates.createNow()
+ 현재 날짜. java.util.Date 객체 생성 반환 
+
  - #aggregates.sum()
   <tr th:each="o : ${orders}" th:class="${oStat.odd}? 'odd'">
     <td th:text="${#calendars.format(o.date,'dd/MMM/yyyy')}">13 jan 2011</td>
