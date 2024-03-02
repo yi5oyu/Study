@@ -11,6 +11,7 @@ CSS
  <style th:inline="css">
     .[[${classname}]] {
       text-align: [[${align}]] left;
+       - 정적 : left 적용
     }
  </style>
 '''
