@@ -7,6 +7,15 @@ Javsscript
   </script>
    - session.user 객체가 들어오면 {"age":null,"firstName":"John"}. 직렬화되 표현됨
 
+ 주석으로 처리된 코드를 자동으로 주석 해제해 포함 시킴
+  /*[+
+  var greeting = "Hello, ";
+  var user = "John";
+  +]*/
+ ->
+  var greeting = "Hello, ";
+  var user = "John";
+
 CSS
  <style th:inline="css">
     .[[${classname}]] {
