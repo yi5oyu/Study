@@ -1,0 +1,31 @@
+  [#th:block th:each="item : ${items}"]
+    - [#th:block th:utext="${item}" /]
+  [/th:block]
+   - [ ] 태그 사용 /로 닫아야
+
+javascript에 적용
+ abc.js 파일 안에 스크립트 작성
+  var aaa = function() {
+  
+      var username = [[${session.user.name}]];
+  
+      [# th:each="salut : ${salutations}"]    
+        alert([[${salut}]] + " " + username);
+      [/]
+  
+  };
+ abc.js 스크립트 호출
+ <script src="abc.js"></script>
+
+사용자 정의 요소, 속성 사용
+  [#blog:post blog:title="내 첫 번째 블로그 게시물" blog:date="2024-03-20" blog:author="예시 사용자"]
+      <h1>[(${blog:title})]</h1>
+      <p>게시 날짜: [(${blog:date})]</p>
+      <p>작성자: [(${blog:author})]</p>
+      
+      <p>게시물 내용은 여기에 작성됩니다.</p>
+      
+      [#blog:tags blog:tag1="기술" blog:tag2="프로그래밍"]
+          <p>태그: [(${blog:tag1})], [(${blog:tag2})]</p>
+      [/blog:tags]
+  [/blog:post]
