@@ -1,4 +1,5 @@
 https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-a-expression-basic-objects
+ - ${#ctx}
  - ${#locale} : 현재 사용되는 로케일을 가져옴. ex) ko
  - ${param.변수명} == ${변수명}
   모든 요청 속성은 자동으로 컨텍스트의 루트 변수로 추가. 액세스할 때 네임스페이스를 명시할 필요가 없음
@@ -9,7 +10,14 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-a-expre
  - ${application.변수명}
   HttpServletRequest request;
   request.getServletContext().setAttribute("변수명", 값);
-  
+
+https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-b-expression-utility-objects
+ - ${#execInfo} : 처리 중인 템플릿에 관한 유용한 정보를 제공
+ - ${#messages} : 외부화된 메시지를 얻는 유틸리티 메서드 (messages.properties에 작성된 키 값을 가져옴)
+   <p th:text="${#messages.msg('registration.success', ${user.firstName}, ${user.lastName})}"></p>
+   => messages.properties -> registration.success=Congratulations, {0} {1}! You have successfully registered.
+ 
+
   ``` javadoc API ```
   org.thymeleaf.context.WebRequestParamsVariablesMap. 
    컨텍스트 객체가 아니라 변수로서 컨텍스트에 추가된 맵
