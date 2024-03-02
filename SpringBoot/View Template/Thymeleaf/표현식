@@ -19,9 +19,13 @@ Controller / model / user 객체 name, age 필드
 선택 변수 표현식: *{...}
  - 선택된 객체의 속성을 가져올 때 사용
   th:object 속성을 사용해 선택한 객체 지정 (객체 없을 경우 일반 표현식과 동일하게 동작)
-  <div th:object="${user}">
-     <span th:text="*{name}">텍스트</span>
-  </div>
+  <div th:text="${order.customer.name}"></div>
+  ==
+  <body th:object="${order}">
+    <div th:object="*{customer}">
+      <div th:text="*{name}"></div>
+    </div>
+  </body>
      
 메시지 표현식: #{...}
  - 국제화 메시지를 가져올 때 사용(메시지 키에 해당하는 메시지를 찾아 사용)
