@@ -120,6 +120,20 @@ base.html
      Welcome [[${user.name}]], click <a th:href="@{/support}">here</a> for help-desk support.
  </div>
 
+다른 요소 참조 생성
+ th:ref
+ <body>
+      <div th:ref="aa" class="header">
+          <h1>Website Header</h1>
+      </div>
+      <section th:ref="content" class="content">
+          <h2>Welcome to our website!</h2>
+      </section>
+  
+      <div th:replace="${aa}" th:remove="tag"></div>
+      <div th:replace="${content}" th:remove="tag"></div>
+  </body>
+   - 다른 템플릿 에선 <div th:replace="~{template :: aa}"></div>
 ```
  - th:with
   로컬 변수를 선언 (선언된 div안에서만 쓰임)
