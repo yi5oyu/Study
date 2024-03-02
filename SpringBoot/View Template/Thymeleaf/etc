@@ -16,7 +16,21 @@ https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-b-expre
  - ${#messages} : 외부화된 메시지를 얻는 유틸리티 메서드 (messages.properties에 작성된 키 값을 가져옴)
    <p th:text="${#messages.msg('registration.success', ${user.firstName}, ${user.lastName})}"></p>
    => messages.properties -> registration.success=Congratulations, {0} {1}! You have successfully registered.
- 
+ - ${#uris} : 안전한 URI/URL을 생성하고 처리
+ - ${#conversions} : 템플릿의 어느 지점에서든 객체를 원하는 형식으로 변환
+ - ${#dates} : 다양한 날짜 및 시간 작업을 수행 (java.util.Date)
+ - ${#calendars} : 다양한 캘린더 작업을 수행 (java.util.Calendar)
+ - ${#temporals} : JDK8+ java.time API의 날짜/시간 객체 처리 (java.time)
+ - ${#numbers} 
+ - ${#strings} 
+ - ${#objects} 
+ - ${#bools} 
+ - ${#arrays} 
+ - ${#lists} 
+ - ${#sets} 
+ - ${#maps} 
+ - ${#aggregates} : 배열 또는 컬렉션에 대한 집계
+ - ${#ids} : 반복될 수 있는 id 속성을 처리
 
   ``` javadoc API ```
   org.thymeleaf.context.WebRequestParamsVariablesMap. 
