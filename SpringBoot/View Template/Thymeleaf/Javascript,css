@@ -5,3 +5,23 @@ Javsscript
       var username = /*[[${session.user.name}]]*/ "Gertrud Kiwifruit";
        - 정적 : "Gertrud Kiwifruit". 동적 : [[${session.user.name}]]
   </script>
+   - session.user 객체가 들어오면 {"age":null,"firstName":"John"}. 직렬화되 표현됨
+
+CSS
+ <style th:inline="css">
+    .[[${classname}]] {
+      text-align: [[${align}]] left;
+    }
+ </style>
+'''
+  classname = 'main elems'
+  align = 'center'
+   -
+
+  <style th:inline="css">
+    .main\ elems {
+      text-align: center;
+    }
+  </style>
+   - \  : 백슬레시 공백 : 공백
+'''
