@@ -1,0 +1,48 @@
+CDN
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+HTML
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">내용 1</div>
+      <div class="swiper-slide">내용 2</div>
+      <div class="swiper-slide">내용 3</div>
+    </div>
+    
+    <!-- 페이징 -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- 버튼 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  
+    <!-- 스크롤 -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+JavaScript
+  <script>
+    const swiper = new Swiper('.swiper', {
+    
+    direction: 'vertical', // 세로 방향일때. 가로 horizontal
+    loop: true, // 슬라이드 반복 (마지막 번호에서 첫번째로)
+  
+    // 페이
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  
+    // 네이게이션 버튼
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+  </script>
