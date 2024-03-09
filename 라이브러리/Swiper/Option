@@ -29,6 +29,16 @@ https://swiperjs.com/swiper-api
    
        // 한 번에 넘어가는 슬라이드 갯수
       slidesPerGroup : 1,
+
+      // 반응형
+      breakpoints : {
+          1024 : { // 1200px 이하에서는
+              slidesPerView : 3
+          },
+          767 : { // 767px 이하에서는
+              slidesPerView : 1
+          }
+      }
    
       // 슬라이드 첫 시작
       centeredSlides : true, // 기본은 false임. true : 가운데
