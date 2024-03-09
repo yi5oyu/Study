@@ -1,3 +1,5 @@
+https://swiperjs.com/
+
 CDN
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -36,11 +38,11 @@ JavaScript
   
     // 네이게이션 버튼
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next', // 버튼의 클래스 명
+      prevEl: '.swiper-button-prev', // 버튼의 클래스 명
     },
   
-    // And if we need scrollbar
+    // 스크롤바
     scrollbar: {
       el: '.swiper-scrollbar',
     },
