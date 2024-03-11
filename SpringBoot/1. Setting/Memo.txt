@@ -12,8 +12,12 @@
     GENERATE된 폴더 Intellij에서 실행
 
 실행
-  src > main > resources > static (파일명 찾아 실행)
+ src > main > resources > static (파일명 찾아 실행)
 
 폴더 구조
  . 으로 표시
   -> options -> Tree Appearance -> Compact Middle Packages 해제
+
+콘솔 한글 깨짐
+ Settings → Editor → File Encodings
+ UTF-8으로 변경
