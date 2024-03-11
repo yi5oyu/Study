@@ -21,3 +21,6 @@
 콘솔 한글 깨짐
  Settings → Editor → File Encodings
  UTF-8으로 변경
+ Help → "Edit Custom VM options" 선택
+ - Dfile.encoding=UTF-8
+ - Dconsole.encoding=UTF-8 추가
