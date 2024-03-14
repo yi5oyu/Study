@@ -39,6 +39,10 @@
  중첩 사용 가능
  <span th:text="*{firstName}?: (*{admin}? '관리자' : #{default.username})"></span>
 
+| (파이프)연산자
+ - 표현식 내에서 문자열을 연결
+  <img th:src="@{|/img/${title}_logo.png|}"
+
 ``````````` 그 외 ```````````
 No-Operation 토큰
  <span th:text="${user.name} ?: _">이름 초기값</span>
