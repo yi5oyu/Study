@@ -46,3 +46,5 @@ java.lang.IllegalArgumentException: Name for argument of type [java.lang.String]
   File > Settings > Build, Execution, Deployment > Compiler > Java Compiler 
   Additional command line parameters 항목에 '-parameters' 옵션을 추가
 
+Uncaught SyntaxError: Unexpected token '<'
+ intellj ult
