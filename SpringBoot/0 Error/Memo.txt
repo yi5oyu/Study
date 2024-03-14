@@ -40,3 +40,9 @@ plugins : lombok 설치, 의존성 추가
 Cannot resolve method 'builder'
   implementation 'org.projectlombok:lombok:1.18.20'
   annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+
+java.lang.IllegalArgumentException: Name for argument of type [java.lang.String] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag.
+  File > Settings > Build, Execution, Deployment > Compiler > Java Compiler 
+  Additional command line parameters 항목에 '-parameters' 옵션을 추가
+
