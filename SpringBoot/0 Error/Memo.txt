@@ -35,3 +35,8 @@ java.lang.IllegalStateException: Cannot resolve parameter names for constructor 
       tasks.withType(JavaCompile) {
           options.compilerArgs << "-parameters"}
   // @NoArgsConstructor, @Builder 추가 (@Getter @Setter)
+
+plugins : lombok 설치, 의존성 추가
+Cannot resolve method 'builder'
+  implementation 'org.projectlombok:lombok:1.18.20'
+  annotationProcessor 'org.projectlombok:lombok:1.18.20'
