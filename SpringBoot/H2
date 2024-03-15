@@ -13,3 +13,16 @@
    - jdbc:h2:mem:testdb : 메모리 주소
    - DB_CLOSE_DELAY=-1 : 애플리케이션 실행 동안 데이터베이스 계속 열어둠
    - DB_CLOSE_ON_EXIT=FALSE : 애플리케이션 종료 시 데이터베이스 닫지 않음
+  spring.datasource.driverClassName=org.h2.Driver
+   - 애플리케이션이 특정 데이터베이스(JDBC 드라이버를 통해)에 연결되도록 지시 (설정이 자동으로 처리될 경우 적지 않아도됨)
+  spring.datasource.username=sa
+  spring.datasource.password=
+
+
+```
+ JDBC(Java Database Connectivity)
+  - 자바 애플리케이션에서 데이터베이스에 접근할 수 있게 해주는 API 집합
+  - 각종 데이터베이스에는 자신들의 데이터베이스 시스템을 위한 JDBC 드라이버를 제공
+  - JDBC 드라이버는 데이터베이스와의 통신을 중개
+  - 자바 애플리케이션에서 SQL 명령을 데이터베이스에 전송하고 결과를 받아오는 역할
+```
