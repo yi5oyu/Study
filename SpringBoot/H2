@@ -1,9 +1,15 @@
 기본 설정
  application.properties
-  spring.h2.console.enabled=true
+  spring.h2.console.enabled=true 추가
  서버 재시작
   localhost:8080/h2-console 페이지 접속
   DB 접근 주소 : JDBC URL (서버 실행할 때마다 바뀜)
-   - jdbc 검색
+   - jdbc 검색 or application.properties 입력
   JDBC H2 DB 메모리 주소 : jdbc:h2:mem:~~ (서버 실행할 때마다 바뀜)
   JDBC URL 에 메모리 주소 입력. Connect
+
+ - application.properties 입력
+  spring.datasource.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+   - jdbc:h2:mem:testdb : 메모리 주소
+   - DB_CLOSE_DELAY=-1 : 애플리케이션 실행 동안 데이터베이스 계속 열어둠
+   - DB_CLOSE_ON_EXIT=FALSE : 애플리케이션 종료 시 데이터베이스 닫지 않음
