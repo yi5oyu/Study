@@ -9,3 +9,8 @@ Workbench
  Connction name 설정
  127.0.0.1(localhost) : 3306(포트)
  username, password
+
+SpringBoot 연결
+ 의존성 추가
+  - 	runtimeOnly 'com.mysql:mysql-connector-j'
+ 
