@@ -6,11 +6,16 @@ MySQL 설치
 
 Workbench
  new connection 생성
- Connction name 설정
- 127.0.0.1(localhost) : 3306(포트)
- username, password
-
+  Connction name 설정
+  127.0.0.1(localhost) : 3306(포트)
+  username, password
+ DB 생성 (스키마)
+  CREATE SCHEMA `DB이름`;
+  use '생성한 DB이름';
+   (생성된 스키마 왼쪽 창에서 선택해서 볼 수 있음)
+ 테이블 생성
+  
 SpringBoot 연결
  의존성 추가
-  - 	runtimeOnly 'com.mysql:mysql-connector-j'
+  - runtimeOnly 'com.mysql:mysql-connector-j'
  
