@@ -1,1 +1,5 @@
-Workbench
+MySQL 설치
+ https://dev.mysql.com/downloads/installer/
+ (mysql-installer-community-8.0.36.0.msi)
+ Server, Router, samples and Examples, workbench 설치
+ 3306 포트, root pw 설
