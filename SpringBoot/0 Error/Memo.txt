@@ -48,3 +48,11 @@ java.lang.IllegalArgumentException: Name for argument of type [java.lang.String]
 
 Uncaught SyntaxError: Unexpected token '<'
  intellj ult
+
+셀레니움
+ Message: session not created: This version of ChromeDriver only supports Chrome version 114
+ Current browser version is 122.0.6261.129
+ 114이전의 크롬지원하지않음 (버전 불일치)
+  implementation 'org.seleniumhq.selenium:selenium-java:4.12.0'
+  implementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+ 최신버전으로 바꿈
