@@ -7,11 +7,20 @@ JUnit 프레임워크에서 제공하는 메서드
 
   - assertTrue(조건, [메세지]), assertFalse(조건, [메세지])
     조건이 참 / 거짓 인지 검사
-    assertTrue('a' < 'b', "This should be true");
-    assertFalse('a' > 'b', "This should be false");
+    assertTrue('a' < 'b', "메세지");
+    assertFalse('a' > 'b', "메세지");
 
   - assertNull(객체, [메세지]), assertNotNull(객체, [메세지])
     객체가 null인지 / 아닌지 검사
+    assertNull(value, "메세지");
+    assertNotNull(value, "메세지");
+
+  - assertThrows(예외타입, 함수, [메세지])
+    실행한 코드가 예상된 예외를 던지는지 검사
+    assertThrows(NullPointerException.class, () -> {
+        String str = null;
+        str.length(); // null 객체에 대해 메서드 호출
+    });
     
 예상 결과와 실제 결과를 비교하는 데 사용되는 메서드
  assertEquals(x,y) (예상, 실제)
