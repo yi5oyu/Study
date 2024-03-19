@@ -1,17 +1,18 @@
 JUnit 프레임워크에서 제공하는 메서드
  assert 메서드 (x: 에상, y: 실제)
-  - assertEquals(x, y, [메세지])
-    두 값이 같은지 바교
+  - assertEquals(x, y, [메세지]), assertNotEquals(x, y, [메세지])
+    두 값이 같은지 / 다른지 비교
     assertEquals(4, calculator.add(2, 2), "실패시 메세지 출력 가능");
-  - assertNotEquals
-    두 값이 다른지 비교
     assertNotEquals(5, calculator.add(2, 2), "실패시 메세지 출력 가능");
-  - assertTrue
-    조건이 참인지 검사
-    
-  - assertFalse
-    조건이 거짓인지 검사
 
+  - assertTrue(조건, [메세지]), assertFalse(조건, [메세지])
+    조건이 참 / 거짓 인지 검사
+    assertTrue('a' < 'b', "This should be true");
+    assertFalse('a' > 'b', "This should be false");
+
+  - assertNull(객체, [메세지]), assertNotNull(객체, [메세지])
+    객체가 null인지 / 아닌지 검사
+    
 예상 결과와 실제 결과를 비교하는 데 사용되는 메서드
  assertEquals(x,y) (예상, 실제)
   JUnit 프레임워크에서 제공하는 메서드
