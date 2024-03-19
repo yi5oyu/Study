@@ -21,6 +21,7 @@ JUnit 프레임워크에서 제공하는 메서드
         String str = null;
         str.length(); // null 객체에 대해 메서드 호출
     });
+
     
 예상 결과와 실제 결과를 비교하는 데 사용되는 메서드
  assertEquals(x,y) (예상, 실제)
