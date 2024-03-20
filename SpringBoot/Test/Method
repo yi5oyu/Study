@@ -15,14 +15,30 @@ JUnit 프레임워크에서 제공하는 메서드
     assertNull(value, "메세지");
     assertNotNull(value, "메세지");
 
-  - assertThrows(예외타입, 함수, [메세지])
-    실행한 코드가 예상된 예외를 던지는지 검사
+  - assertThrows(예외타입, 함수, [메세지]), assertDoesNotThrow(함수, [메세지])
+    실행한 코드가 예상된 예외를 던지는지 / 않던지는지 검사
     assertThrows(NullPointerException.class, () -> {
         String str = null;
         str.length(); // null 객체에 대해 메서드 호출
-    });
+    }, "메세지");
+    assertDoesNotThrow(() -> {
+        // 실행 코드
+    }, "메세지");
 
-    
+  - assertAll(함수들)
+    여러 검증을 그룹화하여 모두 실행. 실패한 모든 검증에 대한 결과 보고
+    assertAll("그룹",
+      () -> assertEquals(4, calculator.add(2, 2)),
+      () -> assertEquals(0, calculator.subtract(2, 2))
+    );
+
+   - assertTimeout(duration, 함수, [메세지])
+     실행한 코드가 지정된 시간 내에 완료되는지 검사
+     assertTimeout(Duration.ofMillis(100), () -> {
+         // 코
+     }, "메세");
+
+
 예상 결과와 실제 결과를 비교하는 데 사용되는 메서드
  assertEquals(x,y) (예상, 실제)
   JUnit 프레임워크에서 제공하는 메서드
