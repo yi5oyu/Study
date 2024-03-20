@@ -47,3 +47,4 @@ JUnit 프레임워크에서 제공하는 메서드
   AssertJ 라이브러리에서 제공하는 메서드. Fluent API제공
   isNotNull(), contains(), startsWith(), endsWith() 등의 메서드를 사용하여 특정 조건을 확인
 
+AssertJ 메서드
