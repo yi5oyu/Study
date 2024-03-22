@@ -1,6 +1,8 @@
  HTTP 요청과 응답을 모의. 애플리케이션의 엔드포인트가 올바르게 동작하는지 검증
  @WebMvcTest
-  - Controller 계층만 로드하고 테스트할 수 있음
+  - 컨트롤러 계층만 로드하고 테스트할 수 있음
+ @MockBean
+  - 컨트롤러가 의존하는 서비스 또는 컴포넌트를 모의 객체로 대체 (컨트롤러의 로직만을 격리하여 테스트)
 
 
 @WebMvcTest(BookController.class)
