@@ -1,0 +1,23 @@
+ HTTP 요청과 응답을 모의. 애플리케이션의 엔드포인트가 올바르게 동작하는지 검증
+ @WebMvcTest
+  - Controller 계층만 로드하고 테스트할 수 있음
+
+
+@WebMvcTest(BookController.class)
+class BookControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private BookService bookService;
+
+    @Test
+    void whenGetBook_thenReturns200() throws Exception {
+        when(bookService.findBookById(1L)).thenReturn(new Book(1L, "The Hobbit", "J.R.R. Tolkien"));
+
+        mockMvc.perform(get("/books/1"))
+               .andExpect(status().isOk())
+               .andExpect(jsonPath("$.name").value("The Hobbit"));
+    }
+}
