@@ -1,0 +1,26 @@
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Getter
+public class AA {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long a;
+
+    private String b;
+    private String c;
+
+    @ManyToOne
+    @JoinColumn(name = "aa")
+    private BB bb;
+}
+
+@Data
+ - getter, setter, toString(), equals(), hashCode() 메소드를 자동 생성
+
+JPA를 사용하기 위해선 기본 생성자 필요
+ - @NoArgsConstructor
+
+(access = AccessLevel.PROTECTED)
+ - 
