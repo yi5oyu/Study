@@ -1,0 +1,9 @@
+  - MySQL Workbench
+    Hostname: RDS 엔드포인트
+    port: 3306
+    username:
+    password: (store in keychain)
+  - SCHEMAS 데이터 베이스 확인
+  - 데이터 베이스 생성
+    create database DB이름;
+
