@@ -3,6 +3,8 @@
     port: 3306
     username:
     password: (store in keychain)
+
+ 스키마를 확인하고 DB를 생성해야함
   - SCHEMAS 데이터 베이스 확인
   - 데이터 베이스 생성
     create database DB이름;
