@@ -1,2 +1,13 @@
 java.util.regex
  Pattern, Matcher 클래스
+ - matches
+   패턴 일치 확인
+   1. 한글포함 확인
+    boolean isKoreanOnly = koreanText.matches("[가-힣]+");
+     - 문자열 전체가 패턴에 일치할 때 true를 반환
+   2. 이메일 주소 유효성 검사
+    boolean isValidEmail = email.matches("[\\w.-]+@[\\w.-]+\\.[a-z]{2,}");
+     - 하나 이상의 단어 문자(문자, 숫자, 밑줄), 점 또는 하이픈이 @ 기호 앞에 오고 동일한 문자들이 다시 오며 마지막으로 점과 두 개 이상의 알파벳 소문자로 끝나야함
+   3. 전화번호 패턴
+    boolean isValidPhone = phone.matches("\\d{3}-\\d{3}-\\d{4}");
+     - 세 자리 숫자-세 자리 숫자-네 자리 숫자
