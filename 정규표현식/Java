@@ -1,6 +1,10 @@
 java.util.regex
  Pattern, Matcher 클래스
- - matches
+ - Pattern
+   Pattern pattern = Pattern.compile(regex);
+   : Pattern 객체에 정의된 정규표현식을 컴파일한 형태로 저장
+
+ - Matcher
    패턴 일치 확인
    1. 한글포함 확인
     boolean isKoreanOnly = koreanText.matches("[가-힣]+");
