@@ -8,3 +8,20 @@
   Pattern pattern = Pattern.compile("^start");
   Matcher matcher = pattern.matcher(text);
    : 패턴이 문자열의 맨 처음부터 시작해야 일치
+
+2. $
+ : 문자열의 끝과 일치
+  String text = "start middle end";
+  Pattern pattern = Pattern.compile("end$");
+  Matcher matcher = pattern.matcher(text);
+   : 패턴이 문자열의 맨 끝과 같아야 일치
+
+3. \b
+ : 단어의 경계와 일치(단어와 공백 또는 문자열의 시작과 끝 사이의 위치를 지정)
+  String text = "example word boundary";
+  Pattern pattern = Pattern.compile("\\bword\\b");
+  Matcher matcher = pattern.matcher(text);
+   : word가 전체 단어로 문자열에 포함되어 있는지 확인(word 앞뒤에 공백이 있어야 일치)
+  <->
+   \B
+    : 단어 경계가 아닌 위치와 일치
