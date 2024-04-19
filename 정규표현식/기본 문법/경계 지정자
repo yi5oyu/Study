@@ -1,0 +1,10 @@
+경계 지정자
+ : 정규 표현식에서 특정 위치를 지정하여 패턴 일치가 이루어지도록 함
+   문자 자체가 아닌 문자열 내의 위치를 지정
+
+1. ^
+ : 문자열의 시작과 일치
+  String text = "start middle end";
+  Pattern pattern = Pattern.compile("^start");
+  Matcher matcher = pattern.matcher(text);
+   : 패턴이 문자열의 맨 처음부터 시작해야 일치
