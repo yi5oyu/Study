@@ -1,0 +1,10 @@
+문자
+
+ 1. . 
+  : 단일 문자와 일치(어떤 한 문자와 일치)
+  String text = "cat";
+  Pattern pattern = Pattern.compile("c.t");
+  Matcher matcher = pattern.matcher(text);
+   : .이 a와 일치
+ 2. [abc]
+  : 문자 집합(괄호 안에 있는 어떤 한 문자와 일치)
