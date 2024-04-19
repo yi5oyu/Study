@@ -1,0 +1,18 @@
+패턴의 일부를 캡처하고 나중에 그 캡처한 부분을 다시 사용하거나 참조할 수 있게 해줌
+복잡한 문자열 처리에서 매우 유용하며, 데이터 추출이나 패턴 검증에 자주 활용
+
+그룹화
+ 1. ()
+  : 괄호를 사용해 정규 표현식 내에서 패턴의 일부를 그룹으로 만듬
+   String text = "The number was 42 and the code was 1234.";
+   Pattern pattern = Pattern.compile("number was (\\d+) and the code was (\\d+)");
+   Matcher matcher = pattern.matcher(text);
+   if (matcher.find()) {
+      System.out.println("First number: " + matcher.group(1)); // 그룹 1 참조
+      System.out.println("Second number: " + matcher.group(2)); // 그룹 2 참조
+   }
+    : matcher.group(1)과 matcher.group(2)를 통해 각 그룹의 매칭된 내용을 추출
+
+참조
+ 1. \n
+  : n은 참조하고자 하는 그룹의 번호
