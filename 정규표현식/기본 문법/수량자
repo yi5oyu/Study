@@ -1,0 +1,27 @@
+패턴의 특정 부분이 몇 번 반복되어야 하는지를 지정
+
+1. *
+ : 앞의 요소가 0번 이상 반복될 수 있음(요소가 전혀 없을 수도 있고 여러 번 반복될 수도 있음)
+  String text = "heeeello";
+  Pattern pattern = Pattern.compile("he*llo");
+  Matcher matcher = pattern.matcher(text);
+   : 'h' 다음에 'e'가 0번 이상 나온 후 'llo'가 나타나는 패턴을 찾음(hllo도 일치)
+
+2. +
+ : 앞의 요소가 최소 1번 이상 반복되어야 함
+  String text = "heeeello";
+  Pattern pattern = Pattern.compile("he+llo");
+  Matcher matcher = pattern.matcher(text);
+   :  'h' 뒤에 'e'가 최소한 한 번은 나타나야 함
+
+3. ?
+ : 앞의 요소가 0번 또는 1번 나타날 수 있음을 의미(있어도 되고 없어도 됨)
+  String text = "hllo";
+  Pattern pattern = Pattern.compile("he?llo");
+  Matcher matcher = pattern.matcher(text);
+
+4. {n}
+ : 앞의 요소가 정확히 n번 반복
+  String text = "heeello";
+  Pattern pattern = Pattern.compile("he{3}llo");
+  Matcher matcher = pattern.matcher(text);
