@@ -2,8 +2,11 @@ java.util.regex
  Pattern, Matcher 클래스
 
  - Pattern
-   Pattern pattern = Pattern.compile(regex);
-   : Pattern 객체에 정의된 정규표현식을 컴파일한 형태로 저장
+   Pattern 객체 컴파일
+    Pattern pattern = Pattern.compile(regex);
+    : Pattern 객체에 정의된 정규표현식을 컴파일한 형태로 저장
+   Matcher 객체 생성
+    Matcher matcher = pattern.matcher(String값)
 
  - Matcher
    패턴 일치 확인
