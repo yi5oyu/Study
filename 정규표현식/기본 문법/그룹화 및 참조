@@ -26,3 +26,8 @@
     - < 아닌 문자열 그룹화
    : </\\1>
     - 앞서 사용한 첫번째 그룹 사용 </ (첫번째 그룹) >
+
+  동일한 단어가 연속으로 두 번 등장하는 경우를 찾는 예제
+  String text = "this is is a test test";
+  Pattern pattern = Pattern.compile("\\b(\\w+) \\1\\b");
+  Matcher matcher = pattern.matcher(text);
