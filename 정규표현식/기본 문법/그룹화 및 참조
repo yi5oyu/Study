@@ -21,7 +21,7 @@
    Matcher matcher = pattern.matcher(text);
    : <(\\w+)> 
     - \\w+ 를 그룹화
-      \w+ : [a-zA-Z_0-9]
+      \w+ : [a-zA-Z_0-9] 하나 이상의 단어 문자
    : ([^<]+)
     - < 아닌 문자열 그룹화
    : </\\1>
