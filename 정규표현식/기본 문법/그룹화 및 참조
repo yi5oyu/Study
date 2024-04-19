@@ -16,3 +16,13 @@
 참조
  1. \n
   : n은 참조하고자 하는 그룹의 번호
+   String text = "<title>Example Title</title>";
+   Pattern pattern = Pattern.compile("<(\\w+)>([^<]+)</\\1>");
+   Matcher matcher = pattern.matcher(text);
+   : <(\\w+)> 
+    - \\w+ 를 그룹화
+      \w+ : [a-zA-Z_0-9]
+   : ([^<]+)
+    - < 아닌 문자열 그룹화
+   : </\\1>
+    - 앞서 사용한 첫번째 그룹 사용 </ (첫번째 그룹) >
