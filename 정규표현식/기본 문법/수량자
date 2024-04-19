@@ -25,3 +25,15 @@
   String text = "heeello";
   Pattern pattern = Pattern.compile("he{3}llo");
   Matcher matcher = pattern.matcher(text);
+
+5. {n,}
+ : 앞의 요소가 최소 n번 이상 반복되어야 함(최소 n번 이상 반복)
+  String text = "heeeello";
+  Pattern pattern = Pattern.compile("he{2,}llo");
+  Matcher matcher = pattern.matcher(text);
+
+6. {n,m}
+ : 앞의 요소가 최소 n번, 최대 m번 반복되어야 함을 의미(최소 n번, 최대 m번 반복)
+  String text = "heeeello";
+  Pattern pattern = Pattern.compile("he{2,4}llo");
+  Matcher matcher = pattern.matcher(text);
