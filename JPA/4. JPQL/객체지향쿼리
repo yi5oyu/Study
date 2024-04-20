@@ -14,7 +14,7 @@ JPA 지원하는 기능
  - JDBC 직접사용(MyBatis 같은 SQL Mapper 프레임워크 사용)
    | JDBC 직접 사용
 
-- JPQA
+- JPQL
  엔티티 객체를 조회하는 객체지향 쿼리 (ANSI 표준 SQL이 제공하는 기능을 유사하게 지원)
  특정 DB에 의존하지 않음. DB 방언(Dialect)만 변경하면 JPQL을 수정하지 않아도 DB를 변경할 수 있음 
  SQL보다 간결
