@@ -1,4 +1,4 @@
-1. JDK 설치
+JDK 설치
  - 스프링 부트 3 이상 : JDK 17
  윈도우에 JDK 설치
   - https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=17
