@@ -8,4 +8,6 @@
   - SCHEMAS 데이터 베이스 확인
   - 데이터 베이스 생성
     create database DB이름;
-
+  - 데이터 사용
+    use 생성한DB이름;
+  
