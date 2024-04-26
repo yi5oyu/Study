@@ -1,0 +1,6 @@
+용량 확인 쿼리
+Select
+round(Sum(data_length+index_length)/1024/1024, 1) AS 'used_MB',
+round(Sum(data_free)/1024/1024, 1) AS 'free_MB'
+From
+information_schema.TABLES;
