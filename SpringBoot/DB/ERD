@@ -1,2 +1,12 @@
 https://www.erdspace.com/
+
 https://www.erdcloud.com/
+ - AUTO_INCREMENT 기능 없어 추가해줘야함
+
+    CREATE TABLE `Product` (
+    	`p_id`	BIGINT	NOT NULL AUTO_INCREMENT,
+    	`market_name`	VARCHAR(20)	NOT NULL,
+    	`product_type`	VARCHAR(20)	NOT NULL,
+    	`product_number`	BIGINT	NOT NULL,
+        PRIMARY KEY (`p_id`)
+    );
