@@ -53,3 +53,6 @@ ERROR: org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ORA-25156: old style o
     // List<Spending> findByMembershipMid(Long mid)
     // 	@Query(value = "SELECT s.* FROM Spending s, Membership m WHERE s.mid = m.mid(+) AND m.mid = :mid", nativeQuery = true)
         List<Spending> findByMembershipMid(@Param("mid") Long mid);
+
+org.hibernate.NonUniqueResultException: Query did not return a unique result: 2 results were returned
+ - 리턴해주는 값이 여러개 일때 발생. List로 받음
