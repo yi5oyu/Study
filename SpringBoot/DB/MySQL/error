@@ -1,7 +1,12 @@
 Failed to connect to mysql at 127.0.0.1 with user root
  - 서버 관리자 생성 / 비밀번호 설정 필요
+
 org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [org.hibernate.dialect.MySQL5InnoDBDialect] as strategy [org.hibernate.dialect.Dialect]
  - application.properties 설정 확인
+
 java.sql.SQLException: Field 'p_id' doesn't have a default value
  - AUTO_INCREMENT 누락
  - ALTER TABLE `테이블명` MODIFY COLUMN id bigint auto_increment NOT NULL; 추가
+
+java.sql.SQLIntegrityConstraintViolationException: Column 'id' cannot be null
+ - null 값이 들어올 수 없음
