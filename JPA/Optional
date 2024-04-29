@@ -1,5 +1,14 @@
+Optional 클래스 : 조건부 로직 처리, 값의 존재 유무 검사, 기본값 설정 등을 간편하게 수행할 수 있음
 - null이 될 수 있는 객체를 감싸는 컨테이너 데이터 타입
 - 널 값을 직접 다루는 것보다 더 안전한 방법을 제공
 - NullPointerException을 피하고 코드에서 명시적으로 null 가능성을 표현
 
 값이 있는 상태 or 값이 없는 상태를 가짐
+
+ 1. 생성 메소드
+  - Optional.of
+   : null이 아닌 값으로 Optional 객체를 생성, null 이면 NullPointerException 발생 (null이 아님을 확신할 수 있는 상황에서 사용)
+    String name = "optional";
+    Optional<String> optName = Optional.of(name);
+    System.out.println(optName.get());
+     - 문자열을 
