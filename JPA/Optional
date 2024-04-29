@@ -7,21 +7,29 @@ Optional 클래스 : 조건부 로직 처리, 값의 존재 유무 검사, 기�
 
  1. 생성 메소드
   null 관련 버그를 효과적으로 방지하고 메소드 반환 값의 의도를 명확하게 표현할 수 있음
-  - Optional.of
+  - Optional.of()
    : null이 아닌 값으로 Optional 객체를 생성, null 이면 NullPointerException 발생 (null이 아님을 확신할 수 있는 상황에서 사용)
     String name = "optional";
     Optional<String> optName = Optional.of(name);
     System.out.println(optName.get());
      - .of로 감싼후 .get으로 값에 접근. null일 경우 NullPointerException 발생
 
-  - Optional.ofNullable
+  - Optional.ofNullable()
    : null일 수도 있는 값. null일 경우 비어 있는 Optional 객체를 반환 (값의 null 가능성이 있을 때 사용)
     String name = null;
     Optional<String> optName = Optional.ofNullable(name);
     System.out.println(optName.isPresent());
      - null일 경우 isPresent()가 false 반환
 
-  - Optional.empty
+  - Optional.empty()
    : 비어 있는 Optional 객체를 생성 (값이 전혀 없음을 명확히 표현할 때 사용)
     Optional<String> optName = Optional.empty();
     System.out.println(optName.isPresent());
+
+ 2. 값 접근 메소드
+  객체의 존재 여부를 명시적으로 처리
+  - get()
+   : 객체가 값을 포함하고 있을 때 해당 값을 반환. 값이 없는 경우 NoSuchElementException 발생 (객체가 값이 있음을 확신할 때만 사용)
+
+  - orElse(T other)
+   : 
