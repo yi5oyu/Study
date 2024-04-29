@@ -11,4 +11,7 @@ Optional 클래스 : 조건부 로직 처리, 값의 존재 유무 검사, 기�
     String name = "optional";
     Optional<String> optName = Optional.of(name);
     System.out.println(optName.get());
-     - 문자열을 
+     - .of로 감싼후 .get으로 값에 접근. null일 경우 NullPointerException 발생
+
+  - Optional.ofNullable
+   : null일 수도 있는 값. null일 경우 비어 있는 Optional 객체를 반환 (값의 null 가능성이 있을 때 사용)
