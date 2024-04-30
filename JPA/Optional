@@ -5,32 +5,42 @@ Optional 클래스 : 조건부 로직 처리, 값의 존재 유무 검사, 기�
 
 값이 있는 상태 or 값이 없는 상태를 가짐
 
- 1. 생성 메소드
   null 관련 버그를 효과적으로 방지하고 메소드 반환 값의 의도를 명확하게 표현할 수 있음
-  - Optional.of()
+  - Optional.of(T value)
    : null이 아닌 값으로 Optional 객체를 생성, null 이면 NullPointerException 발생 (null이 아님을 확신할 수 있는 상황에서 사용)
     String name = "optional";
     Optional<String> optName = Optional.of(name);
     System.out.println(optName.get());
      - .of로 감싼후 .get으로 값에 접근. null일 경우 NullPointerException 발생
 
-  - Optional.ofNullable()
+  - Optional.ofNullable(T value)
    : null일 수도 있는 값. null일 경우 비어 있는 Optional 객체를 반환 (값의 null 가능성이 있을 때 사용)
     String name = null;
     Optional<String> optName = Optional.ofNullable(name);
     System.out.println(optName.isPresent());
      - null일 경우 isPresent()가 false 반환
 
+  - Optional.isPresent()
+   : 객체가 값을 포함하고 있는지 여부를 반환
+    ture, false 반환
+
+  - Optional.ifPresent(Consumer<? super T> consumer)
+   : 값이 존재하면 주어진 액션(함수)를 실행 (값이 있는 경우에만 작동하고 없으면 아무 동작도 하지 않음) 
+
   - Optional.empty()
    : 비어 있는 Optional 객체를 생성 (값이 전혀 없음을 명확히 표현할 때 사용)
     Optional<String> optName = Optional.empty();
     System.out.println(optName.isPresent());
 
- 2. 값 접근 메소드
   객체의 존재 여부를 명시적으로 처리
-  - get()
+  - Optional.get()
    : 객체가 값을 포함하고 있을 때 해당 값을 반환. 값이 없는 경우 NoSuchElementException 발생 (객체가 값이 있음을 확신할 때만 사용)
 
-  - orElse(T other)
+  - Optional.orElse(T other)
    : 객체가 값을 포함하고 있으면 그 값을 반환하고 값이 없는 경우에는 메소드 인자로 전달된 타입의 값을 반환 (기본값을 제공할 때 유용, 값의 존재 여부에 상관없이 항상 타입의 값을 평가)
-    
+
+  - Optional.orElseGet(Supplier<? extends T> other)
+   : Optional 객체가 비어 있을 경우에만 Supplier 인터페이스를 통해 제공된 값을 반환 (기본값 대신 값 생성 로직을 지연 실행할 수 있음)
+
+  - Optional.orElseThrow(Supplier<? extends X> exceptionSupplier)
+   : Optional 객체가 비어 있을 때 주어진 Supplier에 의해 생성된 예외를 발생 (값의 부재가 프로그램 오류로 간주되는 상황에서 유용하게 사용될 수 있음)
