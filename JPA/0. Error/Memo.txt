@@ -1,5 +1,5 @@
 ERD cloud export
-  테이블명, 필드명 " " 제거
+  테이블명, 필드명 " " 제거 (Oracle)
 
 Oracle 예약어 확인
   SELECT * FROM V$RESERVED_WORDS WHERE KEYWORD = '예약어';
