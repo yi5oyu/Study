@@ -1,11 +1,15 @@
+https://www.chartjs.org/
+
 - cdn. 라이브러리 포함
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 - 차트를 표시할 캔버스 요소를 HTML에 추가
 <canvas id="myChart"></canvas>
+ or
+<canvas id="goodCanvas1" width="400" height="100" aria-label="Hello ARIA World" role="img"></canvas>
 
 - 차트 데이터 및 옵션 설정
- : Chart 클래스 인스턴스화
+ : Chart 클래스 인스턴스화 (방법)
   let ctx = document.getElementById('myChart');
   let ctx = document.getElementById('myChart').getContext('2d');
   let ctx = $('#myChart');
