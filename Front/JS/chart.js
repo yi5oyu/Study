@@ -15,6 +15,7 @@ https://www.chartjs.org/
   let ctx = $('#myChart');
   let ctx = 'myChart';
 
+- 사용
 let ctx = document.getElementById('myChart').getContext('2d');
 let myLineChart = new Chart(ctx, {
     type: 'line', 
