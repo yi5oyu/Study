@@ -1,1 +1,34 @@
+동시에 많은 요청을 처리해야 하는 환경에서 비동기 처리 유용
 
+: Spring Boot 설정 (선택사항)
+ - 프로젝트의 규모가 클 경우, 여러 설정 관리가 필요할 경우 설정 클래스 사용
+  @EnableAsync 사용
+
+  @Configuration
+  @EnableAsync
+  public class AppConfig {
+      // 기타 설정
+  }
+
+: Service 메소드에 @Async 추가 / CompletableFuture 반환
+  @Service
+  public class AService {
+  
+      @Async
+      public CompletableFuture<Void> a() {
+          // 메소드 로직
+          return CompletableFuture.completedFuture(null);  // 비동기 작업 완료 통지
+      }
+  }
+
+: 컨트롤러에서 CompletableFuture 처리
+  @RestController
+  public class AsyncController {
+      @Autowired
+      private AService aService;
+  
+      @GetMapping("/aa")
+      public CompletableFuture<Void> aaa() {
+          return aService.a(); // 컨트롤러는 CompletableFuture를 반환하고, 결과 처리는 클라이언트 측에서 수행
+      }
+  }
