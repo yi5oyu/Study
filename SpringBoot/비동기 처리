@@ -35,6 +35,15 @@
       }
   }
 
++ 두 개 이상 메소드 비동기 처리
+  @GetMapping("/AA")
+  public CompletableFuture<Void> aaa() {
+      CompletableFuture<Void> a = aService.a();
+      CompletableFuture<Void> b = aService.b();
+
+      return CompletableFuture.allOf(a, b);
+  }
+
 ---
 비동기 메소드의 실행 결과와 예외 처리를 관리하는 방법
  @Async 어노테이션을 사용하면 메소드가 Future or CompletableFuture or ListenableFuture 객체를 반환하도록 할 수 있음
