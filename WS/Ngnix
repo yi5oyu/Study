@@ -1,1 +1,19 @@
+역방향 프록시 서버로 사용하여 애플리케이션에 대한 요청을 처리할 수 있음. 이를 통해 로드 밸런싱, SSL 종료 및 정적 콘텐츠 제공 등의 기능을 구현할 수 있음
 
+ : Nginx 설정 파일 작성
+  - Spring Boot 프로젝트 내에 Nginx 설정 파일 (프로젝트와 관련된 모든 설정 파일을 한 곳에 모아 관리)
+   . 프로젝트의 src와 같은 위치에 nginx.conf 파일 생성
+   . Spring Boot 애플리케이을 프록시할 Nginx 설정 파일 작성
+      server {  // 서버 블록 하나의 웹 서
+          listen 80; // 서버가 80번 포트(HTTP) (HTTP 프로토콜을 사용하여 요청을 수신하도록 설정)
+      
+          server_name 도메인 or IP 주소; // 이 서버 블록이 적용될 도메인 이름 또는 IP 주소를 지정
+      
+          location / { // URL 경로가 루트(/)인 모든 요청을 처리하는 블록
+              proxy_pass http://springboot:8888;
+              proxy_set_header Host $host;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header X-Forwarded-Proto $scheme;
+          }
+      }
