@@ -31,6 +31,7 @@ application.porperties 설정
  spring.jpa.show-sql=true
  //spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8InnoDBDialect
 
+---
  // Hibernate SQL 로그 메시지 콘솔 출력 설정
  logging.level.org.hibernate.SQL=OFF
  logging.level.org.hibernate.type.descriptor.sql.BasicBinder=OFF
