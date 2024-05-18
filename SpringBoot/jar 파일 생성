@@ -1,1 +1,2 @@
-터미널 명 ./gradlew bootJar
+터미널 명령 ./gradlew bootJar
+build/libs/ 위치에 jar 파일 생성
