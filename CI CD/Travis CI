@@ -1,1 +1,33 @@
+.travis.yml : Travis CI 설정 파일
+
+   language: java
+  jdk:
+    - openjdk17
+  
+  services:
+    - docker
+  
+  before_install:
+    - chmod +x gradlew  
+      # before_install = 실제 빌드 전에 실행할 명령어들을 지정
+      # Gradle wrapper 파일(gradlew)에 실행 권한을 부여 (Gradle 빌드를 수행하기 위해 필요)
+      # chmod: 파일 모드(권한)를 변경하는 명령어, +x: 파일에 실행 권한을 추가, gradlew: 실행 권한을 부여할 대상 파일
+
+  script:
+    - ./gradlew build  
+      # script = 빌드 단계에서 실행할 명령어들을 지정
+      # Gradle을 사용하여 프로젝트를 빌드
+  
+  after_success:
+    - docker build -t <DOCKERHUB_USERNAME>/pricetaglist .  # Docker 이미지 빌드
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin  # Docker Hub 로그인
+    - docker push <DOCKERHUB_USERNAME>/pricetaglist  # Docker 이미지 푸시
+      # after_success = 빌드가 성공한 후 실행할 명령어들을 지정
+      #
+
+  deploy:
+    provider: script
+    script: bash scripts/deploy.sh  # 배포 스크립트 실행
+    on:
+      branch: main  # main 브랜치에서만 배포
 
