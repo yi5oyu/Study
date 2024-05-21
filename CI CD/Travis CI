@@ -23,6 +23,10 @@
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin  # Docker Hub 로그인
     - docker push <DOCKERHUB_USERNAME>/pricetaglist  # Docker 이미지 푸시
       # after_success = 빌드가 성공한 후 실행할 명령어들을 지정
+      # docker build: 현재 디렉토리에 있는 Dockerfile을 기반으로 Docker 이미지를 빌드하는 명령어
+      # -t: 빌드된 이미지에 태그를 지정
+      #
+      #
       #
 
   deploy:
