@@ -1,6 +1,6 @@
 .travis.yml : Travis CI 설정 파일
 
-   language: java
+  language: java
   jdk:
     - openjdk17
   
