@@ -1,0 +1,10 @@
+bootJar {
+	archiveBaseName.set('myapp')
+	archiveVersion.set('')
+	archiveClassifier.set('')
+}
+// 어플리케이션 이름 설정 / 버전 안붙
+
+jar {
+	enabled = false  // 기본 JAR 태스크를 비활성화하여 plain 파일 생성 방지
+}
