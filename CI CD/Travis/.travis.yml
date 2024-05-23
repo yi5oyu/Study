@@ -13,6 +13,14 @@
       # Gradle wrapper 파일(gradlew)에 실행 권한을 부여 (Gradle 빌드를 수행하기 위해 필요)
       # chmod: 파일 모드(권한)를 변경하는 명령어, +x: 파일에 실행 권한을 추가, gradlew: 실행 권한을 부여할 대상 파일
 
+  cache:
+    directories:
+      - $HOME/.gradle/caches/
+      - $HOME/.gradle/wrapper/
+       # 이전 빌드의 특정 파일과 디렉터리를 재사용하여 빌드 프로세스의 속도를 높이는 데 사용
+       # Gradle이 빌드를 실행할 때마다 종속성을 다시 다운로드할 필요가 없음
+       # 모든 빌드에 대해 gralde wrapper를 다시 다운로드하는 것을 방지 (프로젝트에서 필요로 하는 특정 버전의 Gradle을 신속하게 사용할 수 있음)
+
   script:
     - ./gradlew build  
       # script = 빌드 단계에서 실행할 명령어들을 지정
