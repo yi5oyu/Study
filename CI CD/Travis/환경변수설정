@@ -7,3 +7,4 @@ Travis CI 대시보드
 환경 변수 추가
  - Environment Variables -> 필요한 환경 변수를 추가
  - DOCKER_USERNAME, DOCKER_PASSWORD, EC2_HOST, EC2_KEY 등 (NAME, VALUE)
+  : .travis.yml, deploy.sh에서 $DOCKER_USERNAME, $DOCKER_PASSWORD등 를 사용해서 사용 (이메일 주소가 아닌 아이디 입력. aaaaa@gmail.com x / aaaaaa o)
