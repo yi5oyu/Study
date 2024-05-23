@@ -6,5 +6,7 @@ bootJar {
 // 어플리케이션 이름 설정 / 버전 안붙
 
 jar {
-	enabled = false  // 기본 JAR 태스크를 비활성화하여 plain 파일 생성 방지
+	enabled = false  
 }
+// spring boot 2.5 이상 버전에서 빌드하게 되면 2개의 jar 파일 생성됨 
+// 기본 JAR 태스크를 비활성화하여 plain 파일 생성 방지
