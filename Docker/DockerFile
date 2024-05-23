@@ -1,1 +1,14 @@
+FROM openjdk:17-jdk-alpine
+ # Docker 이미지의 베이스 이미지를 설정 (OpenJDK 17과 함께 Alpine Linux(Docker 이미지 크기를 줄이는 데 도움)를 포함하는 경량의 베이스 이미지)
+ 
+WORKDIR /app
+ # 컨테이너 내부에서 작업 디렉토리를 설정. 모든 명령은 이 디렉토리 내에서 실행 (/app 디렉토리가 존재하지 않으면 Docker가 자동으로 생성)
 
+COPY build/libs/*.jar myapp.jar
+ # build/libs 디렉토리 안의 첫 번째 JAR 파일을 myapp.jar 이름으로 복사 (build/libs 디렉토리 안 파일 이름이 aaa.jar 라면 myapp.jar 변경되어 복사됨)
+
+ENTRYPOINT ["java", "-jar", "/app/pricetaglist.jar"]
+ # 컨테이너가 시작될 때 실행될 명령 설정 (Spring Boot 애플리케이션을 시작)
+
+EXPOSE 8080
+ # 컨테이너가 외부에 노출할 포트를 지정 (docker run -p 8080:8080 명령을 통해 호스트와 컨테이너의 8080 포트를 연결할 수 있음)
