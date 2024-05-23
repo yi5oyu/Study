@@ -7,7 +7,7 @@ set -e
 # 스크립트 실행 중에 명령이 실패하면 즉시 스크립트 실행을 중지 (오류 발생 시 후속 명령이 실행되지 않음)
 
 ssh -o StrictHostKeyChecking=no -i $EC2_KEY ec2-user@$EC2_HOST << 'EOF'
-docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
 docker pull $DOCKER_USERNAME/myapp
 docker-compose down || true
 docker-compose up -d
