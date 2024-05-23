@@ -18,8 +18,10 @@ EOF
 # -i $EC2_KEY: SSH 프라이빗 키 파일을 지정 (Travis CI 환경 변수로 설정된 프라이빗 키 파일 경로)
 # ec2-user@$EC2_HOST: 접속할 EC2 인스턴스의 사용자명(ec2-user)과 호스트($EC2_HOST는 EC2 인스턴스의 퍼블릭 IP 또는 호스트네임)
 # << 'EOF' 이 부분부터 EOF 사이에 있는 명령어들이 SSH를 통해 원격 서버에서 실행
-# EOF(End-Of-File) : CLI 환경의 명령어에 입력으로 사용할 수 있음
+# EOF(End-Of-File) : CLI 환경의 명령어에 입력으로 사용할 수 있음 (명령어를 하나의 블록으로 원격 서버에서 실행)
 # 
 # docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD: Docker Hub에 로그인
 # docker pull $DOCKER_USERNAME/myapp: Docker Hub에서 최신 이미지를 가져오는 명령
-
+# docker-compose down || true: 현재 실행 중인 Docker Compose 서비스를 중지하고 관련된 모든 컨테이너, 네트워크, 볼륨을 제거 / 명령이 실패해도 스크립트 실행을 계속하도록 함 (실행 중인 Docker Compose 서비스가 없어서 실패해도 무시하고 다음 명령을 계속 실행)
+# docker-compose up : 파일에 정의된 모든 서비스를 빌드
+# -d: --detach 옵션 (컨테이너를 백그라운드에서 실행함)
