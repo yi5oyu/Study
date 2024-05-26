@@ -7,7 +7,7 @@ WORKDIR /app
 COPY build/libs/*.jar myapp.jar
  # build/libs 디렉토리 안의 첫 번째 JAR 파일을 myapp.jar 이름으로 복사 (build/libs 디렉토리 안 파일 이름이 aaa.jar 라면 myapp.jar 변경되어 복사됨)
 
-ENTRYPOINT ["java", "-jar", "/app/pricetaglist.jar"]
+ENTRYPOINT ["java", "-jar", "/app/myapp.jar"]
  # 컨테이너가 시작될 때 실행될 명령 설정 (Spring Boot 애플리케이션을 시작)
 
 EXPOSE 8080
