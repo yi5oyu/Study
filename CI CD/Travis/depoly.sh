@@ -1,10 +1,21 @@
 # Travis CI에서 실행되어, EC2 인스턴스에 SSH로 접속
+# pem 키를 이용한 SSH 접속
 
 #!/bin/bash
 # Bash 셸에서 실행됨을 명시 (스크립트를 실행할 때 사용할 인터프리터를 지정)
 
 set -e
 # 스크립트 실행 중에 명령이 실패하면 즉시 스크립트 실행을 중지 (오류 발생 시 후속 명령이 실행되지 않음)
+
+eval $(ssh-agent -s)
+# ssh-agent를 시작하고 환경 변수를 설정합니다.
+
+echo "$EC2_KEY_BASE64" | base64 --decode > my-ec2-key.pem
+# 사전에 pem키를 Base64로 인코딩해 Travis CI의 환경변수로 넣어줌
+# 환경 변수에서 Base64로 인코딩된 키를 디코딩하여 .pem 파일 생성
+
+chmod 400 my-ec2-key.pem
+# 권한 부여
 
 ssh -o StrictHostKeyChecking=no -i $EC2_KEY ec2-user@$EC2_HOST << 'EOF'
 echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
