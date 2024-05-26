@@ -1,0 +1,21 @@
+spring boot root 폴더에 Dockerfile 작성
+
+도커 이미지 빌드
+docker build -t <도커허브 유저이름>/<도커 레포지토리> .
+
+도커 허브에 푸시
+docker push <도커허브 유저이름>/<도커 레포지토리>
+
+서버 접속 SSH(AWS EC2(AMI-centos7))
+ssh -i /pair.pem ec2-user@(IP or 탄력적 IP)
+ // EC2 인스턴스 생성시 발급받은 pem키의 위치. ex) C:\Users\Young\Desktop\pem\pair.pem
+ // 탄력적 IP 사용할 경우 
+
+도커 허브에서 받아옴(PULL)
+docker pull <도커허브 유저이름>/<도커 레포지토리>:<태그명>
+
+도커 실행
+docker run -d -p 8080:8080 <도커허브 유저이름>/<도커 레포지토리>:<태그명>
+
+실행 확인
+http://<탄력적 IP or 도메인>:8080
