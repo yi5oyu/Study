@@ -27,14 +27,6 @@ if [ $? -eq 0 ]; then
   docker-compose down || true
   docker-compose up -d
 EOF
-else
-  rm -f my-ec2-key.pem
-  # .pem 파일 삭제
-fi
-
-# .pem 파일 삭제
-rm -f my-ec2-key.pem
-
 #
 # ssh: 원격 서버에 접속하기 위한 명령어
 # -o StrictHostKeyChecking=no: 호스트 키 검사를 비활성화 (처음 접속 시 호스트 키를 자동으로 신뢰하도록 설정)
@@ -48,3 +40,11 @@ rm -f my-ec2-key.pem
 # docker-compose down || true: 현재 실행 중인 Docker Compose 서비스를 중지하고 관련된 모든 컨테이너, 네트워크, 볼륨을 제거 / 명령이 실패해도 스크립트 실행을 계속하도록 함 (실행 중인 Docker Compose 서비스가 없어서 실패해도 무시하고 다음 명령을 계속 실행)
 # docker-compose up : 파일에 정의된 모든 서비스를 빌드
 # -d: --detach 옵션 (컨테이너를 백그라운드에서 실행함)
+
+else
+  rm -f my-ec2-key.pem
+  # .pem 파일 삭제
+fi
+
+# .pem 파일 삭제
+rm -f my-ec2-key.pem
