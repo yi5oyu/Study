@@ -56,3 +56,7 @@ Uncaught SyntaxError: Unexpected token '<'
   implementation 'org.seleniumhq.selenium:selenium-java:4.12.0'
   implementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
  최신버전으로 바꿈
+
+변경사항 적용안됨
+ 캐시 삭제
+  : file -> Invalidate Caches
