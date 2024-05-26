@@ -8,7 +8,7 @@ set -e
 # 스크립트 실행 중에 명령이 실패하면 즉시 스크립트 실행을 중지 (오류 발생 시 후속 명령이 실행되지 않음)
 
 eval $(ssh-agent -s)
-# ssh-agent를 시작하고 환경 변수를 설정합니다.
+# ssh-agent를 시작하고 환경 변수를 설정
 
 echo "$EC2_KEY_BASE64" | base64 --decode > my-ec2-key.pem
 # 사전에 pem키를 Base64로 인코딩해 Travis CI의 환경변수로 넣어줌
@@ -17,12 +17,24 @@ echo "$EC2_KEY_BASE64" | base64 --decode > my-ec2-key.pem
 chmod 400 my-ec2-key.pem
 # 권한 부여
 
-ssh -o StrictHostKeyChecking=no -i $EC2_KEY ec2-user@$EC2_HOST << 'EOF'
-echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
-docker pull $DOCKER_USERNAME/myapp
-docker-compose down || true
-docker-compose up -d
+ssh-add my-ec2-key.pem
+# SSH 키를 ssh-agent에 추가
+
+if [ $? -eq 0 ]; then
+  ssh -o StrictHostKeyChecking=no -i $EC2_KEY ec2-user@$EC2_HOST << 'EOF'
+  echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
+  docker pull $DOCKER_USERNAME/myapp
+  docker-compose down || true
+  docker-compose up -d
 EOF
+else
+  rm -f my-ec2-key.pem
+  # .pem 파일 삭제
+fi
+
+# .pem 파일 삭제
+rm -f my-ec2-key.pem
+
 #
 # ssh: 원격 서버에 접속하기 위한 명령어
 # -o StrictHostKeyChecking=no: 호스트 키 검사를 비활성화 (처음 접속 시 호스트 키를 자동으로 신뢰하도록 설정)
