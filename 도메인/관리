@@ -7,4 +7,4 @@
 
  서브 도메인 추가
   - 구매한 도메인이 example.com 이라면 www.example.com or blog.example.com 등 추가
-  - A레코드에 도메인 명과 IP주소 입력(AWS EC2 / 탄력적 IP)
+  - A레코드에 도메인 명과 IP주소 입력(AWS EC2, 탄력적 IP)
