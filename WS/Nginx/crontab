@@ -1,1 +1,14 @@
 // 인증서 자동 갱신 설정 (인증서 유효 기간: 90일)
+cronie 패키지를 설치 (crontab 명령어 사용하기 위해)
+ : sudo yum install cronie -y
+cronie 시작
+ : sudo systemctl start crond
+cronie 부팅시 자동 시작
+ : sudo systemctl enable crond
+실행 확인
+ : sudo systemctl status crond
+
+crontab 실행 주기 변경
+ : sudo crontab -e
+  매월 자정 1시. docker-compose로 실행시켰으니 docker-compose.yml 파일이 있는 폴더로가 다시 시작시킴
+   : 0 0 1 * * /usr/bin/certbot renew --quiet --post-hook "docker-compose -f ~/docker/docker-compose.yml restart nginx"
