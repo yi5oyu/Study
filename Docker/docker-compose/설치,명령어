@@ -1,0 +1,9 @@
+docker-compose 설치 (Docker Compose 바이너리 다운로드)
+ : sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+버전 확인
+ : docker-compose --version
+
+docker-compose up -d
+docker-compose down
+docker-compose ps
+docker-compose logs
