@@ -1,0 +1,14 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./example.conf:/etc/nginx/conf.d/example.conf # 같은 폴더안에 있는 example.conf파일을 nginx의 conf.d로 매핑
+      - /etc/letsencrypt:/etc/letsencrypt # 인증서 파일 매핑
+    depends_on:
+      - app
+    networks:
+      - app-network
