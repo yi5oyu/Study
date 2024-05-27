@@ -22,7 +22,7 @@ services: # Docker Compose에서 관리할 서비스 정의
       - "80:80" # 호스트의 포트 80을 컨테이너의 포트 80에 매핑 (호스트로 들어오는 HTTP요청이 컨테이너 내부의 포트 80으로 전달됨)
       - "443:443" # 호스트의 포트 443을 컨테이너의 포트 443에 매핑 (호스트로 들어오는 HTTPS 요청이 컨테이너 내부의 포트 443으로 전달됨)
     volumes: # 호스트와 컨테이너 파일 or 폴더 공유
-      - ./example.conf:/etc/nginx/conf.d/example.conf # 파일 매핑
+      - ./example.conf:/etc/nginx/conf.d/example.conf # 파일 매핑 (example.conf 파일은 docker-compose.yml 파일과 같은 폴더에 있음)
       - /etc/letsencrypt:/etc/letsencrypt # 폴더 매핑 (Nginx 웹 서버가 호스트 시스템의 SSL/TLS 인증서를 사용할 수 있도록 하기 위해 사용)
     depends_on: # nginx 서비스가 app 서비스가 시작된 후에 시작되도록 지정
       - app 
