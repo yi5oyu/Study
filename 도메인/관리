@@ -1,2 +1,10 @@
-https://www.dnszi.com/
- 도메인 추가
+네임서버 관리 서비스
+ https://www.dnszi.com/
+
+ 도메인을 구입한 곳에 네임서버 변경 (5개 제공)
+ 
+ dnszi에서 구매한 도메인을 추가
+
+ 서브 도메인 추가
+  - 구매한 도메인이 example.com 이라면 www.example.com or blog.example.com 등 추가
+  - A레코드에 도메인 명과 IP주소 입력
