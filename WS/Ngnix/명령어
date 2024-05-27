@@ -3,7 +3,11 @@ AWS EC2(AMI2023)
   : sudo yum install nginx -y
  - 시작
   : sudo systemctl start nginx
- - 부팅시 자동 시작
-  : sudo systemctl enable nginx
+ - 부팅시 자동 시작 <-> 비활성화
+  : sudo systemctl enable nginx <-> sudo systemctl disable nginx
  - 재시작
   : sudo systemctl restart nginx
+ - 중지
+  : sudo systemctl stop nginx
+ - 상태 확인
+  : sudo systemctl status nginx
