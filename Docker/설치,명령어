@@ -31,7 +31,7 @@ Dockerfile 을 이용한 이미지 빌드 (Dockerfile 작성)
  : docker pull [이미지 이름]:[태그] ex) docker pull nginx:latest or docker pull dockerhub_username:repository_name:tag
 이미지 삭제
  : docker rmi [이미지 ID or 이름]
-
+  - 강제 삭제 : docker rmi -f [도커 이미지 ID]
 --컨테이너
 실행중인 컨테이너
  : docker ps
