@@ -5,7 +5,10 @@ SSL 인증서 얻기 위한 실행
 .conf 파일 수정 후 재시작
  : sudo systemctl restart nginx or sudo systemctl reload nginx
 
--- nginx 가 실행중일 경우 중지 후 인증서 발급
+- nginx 가 실행중일 경우 중지 후 인증서 발급
+ : sudo lsof -i :80
+ : sudo kill -9 PID (모든 프로세스 끄고 발급)
+
 임시로 적은 후 인증받고 변경
 server {
     listen 80;
