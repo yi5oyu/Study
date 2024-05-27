@@ -57,6 +57,6 @@ Uncaught SyntaxError: Unexpected token '<'
   implementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
  최신버전으로 바꿈
 
-변경사항 적용안됨
- 캐시 삭제
-  : file -> Invalidate Caches
+변경사항 적용안됨 (application.properties -> application.yml)
+ out -> resources 폴더에 application.properties 남아있어 적용안됨(삭제)
+
