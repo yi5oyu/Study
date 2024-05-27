@@ -11,3 +11,41 @@ Docker 버전 확인
  : sudo systemctl enable docker
 상태 확인
  : sudo systemctl status docker
+
+Dockerfile 을 이용한 이미지 빌드 (Dockerfile 작성)
+ : docker build -t dockerhub-username/repository_name:tag .
+빌드한 이미지 docker-hub에 푸시
+ : docker login
+ : docker push dockerhub-username/repository_name:tag
+도커 실행
+ : docker run -d -p 8080:8080 --name container_name dockerhub-username/repository_name:latest
+  // -d: 컨테이너를 백그라운드에서 실행
+  // -p 8080:8080: 호스트의 8080 포트를 컨테이너의 8080 포트에 매핑 (http://IP주소 or 도메인:8080 에 접근하면 컨테이너 내부의 8080 포트로 전달)
+  // --name: 컨테이너 이름
+  // dockerhub-username/repository_name:latest 이미지 사용
+
+-- 도커 이미지
+이미지 목록
+ : docker images
+이미지 다운로드(Pull)
+ : docker pull [이미지 이름]:[태그] ex) docker pull nginx:latest or docker pull dockerhub_username:repository_name:tag
+이미지 삭제
+ : docker rmi [이미지 ID or 이름]
+
+--컨테이너
+실행중인 컨테이너
+ : docker ps
+모든 컨테이너 목록
+ : docker ps -a
+컨테이너 시작
+ : docker start [컨테이너 ID 또는 이름]
+컨테이너 중지
+ : docker stop [컨테이너 ID 또는 이름]
+컨테이너 재시작
+ : docker restart [컨테이너 ID 또는 이름]
+컨테이너 삭제
+ : docker rm [컨테이너 ID 또는 이름]
+컨테이너 로그 확인
+ : docker logs [컨테이너 ID 또는 이름]
+컨테이너 내부로 진입
+ : docker exec -it [컨테이너 ID 또는 이름] /bin/bash or /bin/sh
