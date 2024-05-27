@@ -1,0 +1,21 @@
+라운드 로빈
+ 기본 로드 밸런싱 방법. 순차적으로 각 서버에 요청을 분산
+
+최소 연결
+ 현재 활성 연결 수가 가장 적은 서버에 요청을 보냄
+  upstream backend {
+      least_conn;
+      server backend1.example.com;
+      server backend2.example.com;
+      server backend3.example.com;
+  }
+
+IP 해시
+ 클라이언트 IP 주소를 기반으로 요청을 분산. 동일한 클라이언트는 항상 같은 서버로 연결
+  upstream backend {
+      ip_hash;
+      server backend1.example.com;
+      server backend2.example.com;
+      server backend3.example.com;
+  }
+
