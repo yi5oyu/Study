@@ -1,1 +1,34 @@
+version: '3.9' # Docker Compose 파일의 버전
 
+services: # Docker Compose에서 관리할 서비스 정의
+   app: # 서비스 이름
+    image: dockerhub_username/repository_name:latest # 이 서비스가 사용할 Docker 이미지를 지정
+    container_name: app1 # 컨테이너 이름
+    environment: # 컨테이너에서 사용할 환경 변수를 설정
+      - TZ=Asia/Seoul
+      - PORT=8888
+      - DB_URL=jdbc:mysql://엔드포인트:3306/db스키마
+      - DB_USERNAME=id
+      - DB_PASSWORD=pw
+    ports: # 호스트와 컨테이너 포트 매핑
+      - "8888:8888" # 호스트의 포트 8888을 컨테이너의 포트 8888에 매핑
+    networks: # 이 서비스가 연결될 네트워크를 지정
+      - app-network # 네트워크 이름
+
+   nginx: # 서비스 이름
+    image: nginx:latest # 이 서비스가 사용할 Docker 이미지를 지정 (docker hub 에서 제공하는 nginx 이미지)
+    container_name: nginx # 컨테이너 이름
+    ports:
+      - "80:80" # 호스트의 포트 80을 컨테이너의 포트 80에 매핑 (HTTP)
+      - "443:443" # 호스트의 포트 443을 컨테이너의 포트 443에 매핑 (HTTPS)
+    volumes: # 호스트와 컨테이너 파일 or 폴더 공유
+      - ./example.conf:/etc/nginx/conf.d/example.conf # 파일 매핑
+      - /etc/letsencrypt:/etc/letsencrypt # 폴더 매
+    depends_on: # nginx 서비스가 app 서비스가 시작된 후에 시작되도록 지정
+      - app 
+    networks:
+      - app-network
+
+networks: # 네트워크 정의
+  app-network: # 네트워크 이름
+    driver: bridge # 브리지 드라이버를 사용하여 네트워크를 생성
