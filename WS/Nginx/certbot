@@ -1,0 +1,17 @@
+certbot 설치
+ : sudo yum install -y certbot python3-certbot-nginx
+SSL 인증서 얻기 위한 실행
+ : sudo certbot --nginx -d example.com
+.conf 파일 수정 후 재시작
+ : sudo systemctl restart nginx or sudo systemctl reload nginx
+
+-- nginx 가 실행중일 경우 중지 후 인증서 발급
+임시로 적은 후 인증받고 변경
+server {
+    listen 80;
+    server_name example.com;
+
+    location / {
+        return 200 'Temporary setup for certbot validation';
+    }
+}
