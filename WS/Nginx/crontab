@@ -14,3 +14,6 @@ crontab 실행 주기 변경
    : 0 0 1 * * /usr/bin/certbot renew --quiet --post-hook "docker-compose -f ~/docker/docker-compose.yml restart nginx"
 설정 확인
  : sudo crontab -l
+
+--
+docker-compose에선 reload가 없으니 restart 해줘야함
