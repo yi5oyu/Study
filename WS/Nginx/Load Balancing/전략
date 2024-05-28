@@ -1,8 +1,8 @@
 라운드 로빈
- 기본 로드 밸런싱 방법. 순차적으로 각 서버에 요청을 분산
+ 기본 로드 밸런싱 방법. 순차적으로 각 서버에 요청을 분산. (기본값)요청을 순서대로 처리
 
 최소 연결
- 현재 활성 연결 수가 가장 적은 서버에 요청을 보냄
+ 현재 활성 연결 수가 가장 적은 서버에 요청을 보냄. 각 요청을 서버에 할당된 가중치를 고려해 연결 수가 가장 적은 서버로 전송
   upstream backend {
       least_conn;
       server backend1.example.com;
@@ -18,4 +18,7 @@ IP 해시
       server backend2.example.com;
       server backend3.example.com;
   }
+
+least_time : 연결 수가 가장 적으면서 평균 응답시간이 가장 적은 쪽을 선택해서 분배 (Nginx Plus에서만 가능)
+
 
