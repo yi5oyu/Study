@@ -1,0 +1,2 @@
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+ - 로컬에서 접근시 IP 변경후 인바운드 규칙에 접속할 IP 추가해줘야함
