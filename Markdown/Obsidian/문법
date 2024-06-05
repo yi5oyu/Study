@@ -1,1 +1,35 @@
+하이라이트
+ - == 내용 ==
 
+체크박스: Ctrl + L
+ - [X]: 취소선 있는 체크된 박스
+ - [-]: 체크된 박스
+ - []: 체크안된 박스
+
+그림 크기 조절
+ - ![대체 텍스트|가로x세로](이미지 URL)
+
+문서 링크
+ - [[노트이름]]: 노트로 가는 링크가 생성
+
+문서 임베딩
+ - ![[노트내용]]: 노트 내용 자체를 다른 노트에 넣음
+
+문단 참조
+ - ![[블록 링크#^id]]: 다른 블록 내용을 현재 블록에 포함시키는 기능
+
+강조 상자 (말풍선)
+ - > [!note]
+ [!note]
+ [!abstract], [!summary], [!tldr]
+ [!info]
+ [!todo]
+ [!tip], [!hint], [!important]
+ [!success], [!check], [!done]
+ [!question], [!help], [!faq]
+ [!warning], [!caution], [!attention]
+ [!failure], [!fail], [!missing]
+ [!danger], [!error]
+ [!bug]
+ [!example]
+ [!quote], [!cite]
