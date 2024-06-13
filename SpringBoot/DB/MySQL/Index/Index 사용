@@ -13,8 +13,8 @@ MySQL
 복합 인덱스
 
 MySQL
-  CREATE INDEX idx_테이블명 ON 테이블명 (칼럼명_1, 칼럼명_2);
+  CREATE INDEX idx_칼럼명_1_칼럼명_2 ON 테이블명 (칼럼명_1, 칼럼명_2);
 
 @Table(name = "테이블명", indexes = {
-        @Index(name = "idx_테이블명", columnList = "칼럼명_1, 칼럼명_2")
+        @Index(name = "idx_칼럼명_1_칼럼명_2", columnList = "칼럼명_1, 칼럼명_2")
 })
