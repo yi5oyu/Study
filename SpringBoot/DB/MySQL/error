@@ -10,3 +10,6 @@ java.sql.SQLException: Field 'p_id' doesn't have a default value
 
 java.sql.SQLIntegrityConstraintViolationException: Column 'id' cannot be null
  - null 값이 들어올 수 없음
+
+Error Code: 1046. No database selected Select the default DB to be used by double-clicking its name in the SCHEMAS list in the sidebar.
+ - use 테이블
