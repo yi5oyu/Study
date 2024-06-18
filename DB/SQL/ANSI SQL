@@ -1,0 +1,10 @@
+표준 SQL문 작성방법
+ - 데이터베이스 시스템 간의 호환성 높음
+ 
+JOIN과 WHERE절이 분리
+
+MySQL
+SELECT CONCAT(FirstName, ' ', LastName) AS FullName FROM Employees;
+
+ANSI SQL
+SELECT FirstName || ' ' || LastName AS FullName FROM Employees;
