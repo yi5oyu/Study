@@ -1,0 +1,25 @@
+문자열
+  SET key value       # 키에 문자열 값 설정
+  GET key             # 키에 설정된 값 가져옴
+  INCR key            # 키에 저장된 값 1 증가
+
+해시
+  HSET key field value    # 해시에 필드와 값 설정
+  HGET key field          # 해시의 필드 값 가져옴
+  HGETALL key             # 해시의 모든 필드와 값 가져옴
+
+리스트
+  LPUSH key value    # 리스트의 앞에 값 삽입
+  RPUSH key value    # 리스트의 뒤에 값 삽입
+  LPOP key           # 리스트의 앞에서 값 제거하고 반환
+  RPOP key           # 리스트의 뒤에서 값 제거하고 반환
+
+세트
+  SADD key value     # 세트에 값 추가
+  SMEMBERS key       # 세트의 모든 값 가져옴
+  SREM key value     # 세트에서 값 제거
+
+정렬된 세트
+  ZADD key score value    # 정렬된 세트에 값을 추가하고, 점수를 설정
+  ZRANGE key start stop   # 정렬된 세트의 지정된 범위의 값을 가져옴
+  ZREM key value          # 정렬된 세트에서 값 제거
