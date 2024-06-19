@@ -1,1 +1,31 @@
+동적 쿼리를 작성
+ - 코드 가독성 향상 / 타입 안전성 보장
+ - 복잡한 쿼리 깔끔하게 작성할 수 있음
 
+Q 클래스를 사용하여 타입 안전한 쿼리를 작성할 수 있음
+
+엔티티 클래스
+  @Entity
+  public class A {
+      @Id
+      private Long id;
+  
+      private String aaa;
+      private int bbb;
+  }
+
+ Repository 인터페이스 확장 QueryDSL 추가
+   public interface UserRepository extends JpaRepository<A, Long>, QuerydslPredicateExecutor<A> { ... }
+
+ Q 클래스를 사용
+  @Service
+  public class UserService {
+      @Autowired
+      private UserRepository userRepository;
+  
+      public List<User> searchUsers(String name) {
+          QUser A = QUser.a;
+          Predicate predicate = a.aaa.eq("단어").and(a.bbb.gt(10)); // 10 이상(greater than)의 단어와 같은 데이터
+          return (List<A>) userRepository.findAll(predicate);
+      }
+  }
