@@ -11,6 +11,7 @@ Q 클래스를 사용하여 타입 안전한 쿼리를 작성할 수 있음
       private Long id;
   
       private String aaa;
+      private String bbb;
       private int bbb;
   }
 
@@ -19,13 +20,42 @@ Q 클래스를 사용하여 타입 안전한 쿼리를 작성할 수 있음
 
  Q 클래스를 사용
   @Service
-  public class UserService {
+  public class AService {
       @Autowired
-      private UserRepository userRepository;
+      private ARepository aRepository;
   
-      public List<User> searchUsers(String name) {
-          QUser A = QUser.a;
-          Predicate predicate = a.aaa.eq("단어").and(a.bbb.gt(10)); // 10 이상(greater than)의 단어와 같은 데이터
-          return (List<A>) userRepository.findAll(predicate);
+      public List<A> searchA(String abc, int ccc) {
+          QUser a = QUser.a;
+          Predicate predicate = a.aaa.eq(abc).and(a.bbb.gt(ccc)); // ccc 이상(greater than), abc와 같은 데이터
+          return (List<A>) aRepository.findAll(predicate);
       }
   }
+
+주요 클래스 / 인터페이스
+
+ BooleanExpression
+  - 조건문을 구성하는 데 사용되는 클래스 (여러 조건을 결합하고 논리 연산을 수행하는 데 유용)
+   : Predicate 보다 구체적
+
+ JPAQueryFactory
+  - JPQL 스타일의 쿼리를 작성할 수 있음
+
+    @Service
+    public class AService {
+        @Autowired
+        private JPAQueryFactory queryFactory;
+    
+        public List<A> searchA(String abc, String b) {
+            QUser a = QUser.a;
+            return queryFactory.selectFrom(a)
+                           .where(a.bbb.containsIgnoreCase(b)
+                                  .and(a.aaa.eq(abc)))
+                           .fetch();
+        }
+    }
+
+ OrderSpecifier
+  - 쿼리 정렬 (정렬 기준을 지정하여 결과를 정렬할 수 있음)
+
+ Projections
+  - 특정 DTO(Data Transfer Object)나 다른 형태로 매핑하는 데 사용 (복잡한 쿼리 결과를 간단하게 매핑할 수 있음)
