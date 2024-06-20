@@ -1,8 +1,0 @@
-function App() {
- // 변수 적용
- let name = "A"
-
- return (
-  <div> { name } <div> // {} 안에 변수명을 넣어 대입
- )
-}
