@@ -1,0 +1,11 @@
+node.js: npm을 활용한 모듈 다운
+
+spring boot, intellj 연동
+
+spring project 생성
+터미널
+ - main 폴더 이동
+   cd src/main
+ - 리액트 프로젝트 생성
+   npx create-react-app 폴더명
+ - 
