@@ -1,0 +1,14 @@
+build
+ - 빌드 시 생성되는 폴더
+
+node_modules
+ - 리액트 실행에 필요한 모듈 폴더
+
+public
+ - 정적 파일 폴더
+
+src
+ - 프로젝트 source 폴더
+
+app.js 
+ - 최상위 컴포넌트
