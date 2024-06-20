@@ -8,4 +8,10 @@ spring project 생성
    cd src/main
  - 리액트 프로젝트 생성
    npx create-react-app 폴더명
- - 
+ - 브라우저 열기
+   cs 폴더명
+   npm start
+
+포트 변경
+ - package.json 파일 script 위에 생성
+   "proxy" : "http://localhost:8080",
