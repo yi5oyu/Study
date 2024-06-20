@@ -1,6 +1,6 @@
 node.js: npm을 활용한 모듈 다운
 
-spring boot, intellj 연동
+spring boot, intellj
 
 spring project 생성
 터미널
@@ -15,3 +15,8 @@ spring project 생성
 포트 변경
  - package.json 파일 script 위에 생성
    "proxy" : "http://localhost:8080",
+
+VSCode 연동
+ 폴더 열기
+  - 생성한 리액트 프로젝트 폴더 열기
+ 브라우저 열기 : npm start
