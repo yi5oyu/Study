@@ -1,0 +1,35 @@
+의존성
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-aop'
+}
+
+aspect 폴더 (Controller, Service 등 폴더 루트)
+ - Aspect 클래스 생성
+
+Aspect 클래스
+package com.traceprice.takeoffer.aspect;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+public class QueryAspect {
+    private long startTime;
+
+    // ProductRepository의 메서드들
+    @Before("execution(* com.traceprice.takeoffer.Repository.ProductRepository.메소드1(..)) || " + 
+            "execution(* com.traceprice.takeoffer.Repository.ProductRepository.메소드2(..))")
+    public void before() {
+        startTime = System.currentTimeMillis();
+    }
+
+    @After("execution(* com.traceprice.takeoffer.Repository.ProductInfoByDateRepository.findByPriceDateOrderByDiscountRateDesc(..))")
+    public void after() {
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
+        System.out.println("쿼리 실행 시간: " + executionTime + " ms");
+    }
+}
