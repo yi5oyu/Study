@@ -66,6 +66,8 @@ Docker hub
  : docker push [Docker 사용자명]/[이미지명]:[테그명] 
 
 -- 컨테이너
+컨테이너 생성
+ : docker create
 실행중인 컨테이너
  : docker ps
 모든 컨테이너 목록
@@ -93,4 +95,8 @@ Docker hub
 
   레이어 digest 위치는 /var/lib/docker/<storage-driver> 에 저장됨 
   레이어 메타정보에서 cache-id파일에 레이어 digest가 있음
+*/
+
+/* 
+
 */
