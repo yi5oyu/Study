@@ -1,3 +1,30 @@
+인프라 구성 관리
+ - 이미지에 각종 미들웨어 설치/설정 애플리케이션 실행 모듈을 deploy하여 모든 실행 기반을 Dockerfile 안에 저장
+ - Dockerfile: 인프라 구성 방법을 저장하는 파일, Docker 상에서 동작하는 컨테이너 구성 정보를 기반으로 Docker 이미지 생성
+
+[명령어] [값]
+
+명령어
+ - FROM: 베이스 이미지 저장
+  : FROM [이미지명]
+  : FROM [이미지명]:[태그명]
+  : FROM [이미지명]@[Digest]
+ - ADD: 파일 / 폴더 추가
+ - MAINTAINER: Dockerfile 생성자
+  : MAINTAINER [Dockerfile 작성자]
+ - COPY: 파일 복사
+ - RUN: 커맨드 실행
+ - VOLUME: 볼륨 마운트
+ - CMD: 데몬 실행
+ - ENTRYPOINT: 데몬 실행
+ - LABEL: 라벨 설정
+ - USER: 사용자 설정
+ - EXPOSE: 포트 export
+ - WORKDIR: 작업 폴더 지정
+ - ENV: 환경변수 설정
+ - ONBUILD: build 완료 후 실행될 명령어
+
+/*
 FROM openjdk:17-jdk-alpine
  # Docker 이미지의 베이스 이미지를 설정 (OpenJDK 17과 함께 Alpine Linux(Docker 이미지 크기를 줄이는 데 도움)를 포함하는 경량의 베이스 이미지)
  
@@ -12,3 +39,4 @@ ENTRYPOINT ["java", "-jar", "/app/myapp.jar"]
 
 EXPOSE 8080
  # 컨테이너가 외부에 노출할 포트를 지정 (docker run -p 8080:8080 명령을 통해 호스트와 컨테이너의 8080 포트를 연결할 수 있음)
+*/
