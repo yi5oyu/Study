@@ -4,8 +4,9 @@ docker-compose 설치 (Docker Compose 바이너리 다운로드)
  : docker-compose --version
 
 docker-compose 커맨드
- up: 컨테이너 생성 / 구동
- scale: 생성할 컨테이너 개수 지정
+ 여러 개의 컨테이너를 한 번에 생성
+  : docker-compose up [옵션] [서비스명]
+   //
  
 docker-compose up -d
 docker-compose down
