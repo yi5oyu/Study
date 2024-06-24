@@ -3,6 +3,10 @@ docker-compose 설치 (Docker Compose 바이너리 다운로드)
 버전 확인
  : docker-compose --version
 
+docker-compose 커맨드
+ up: 컨테이너 생성 / 구동
+ scale: 생성할 컨테이너 개수 지정
+ 
 docker-compose up -d
 docker-compose down
 docker-compose ps
