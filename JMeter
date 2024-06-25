@@ -10,6 +10,7 @@ Test Plan
   - Number of Threads (users): 가상 사용자의 수 (서버의 최대 처리 용량을 확인할 수 있음)
   - Ramp-Up Period (seconds): 모든 스레드가 시작되는 데 걸리는 시간을 설정 (부하를 점진적으로 증가)
   - Loop Count: 테스트를 반복할 횟수를 설정 (단기간 부하 테스트 : 작은 값)
+    ex) 10 1 300: 10명의 유저가 1초에 300개씩 요청보냄(1초에 3000개 요청) 
 
 Thread Group
  -> add -> Sampler -> Http Request
