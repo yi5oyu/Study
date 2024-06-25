@@ -27,4 +27,7 @@ Thread Group
 jmeter-plugin
  https://jmeter-plugins.org/
  plugins-manager 설치 
-/lib/ext 에 넣기
+ /lib/ext 에 넣기
+ Transactions per Second
+  - https://jmeter-plugins.org/wiki/TransactionsPerSecond/
+   Download -> Download Versions: 2.0 (2.0 클릭) -> 압축풀고 lib 폴더안에 붙여넣기
