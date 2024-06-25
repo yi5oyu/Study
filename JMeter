@@ -31,3 +31,4 @@ jmeter-plugin
  Transactions per Second
   - https://jmeter-plugins.org/wiki/TransactionsPerSecond/
    Download -> Download Versions: 2.0 (2.0 클릭) -> 압축풀고 lib 폴더안에 붙여넣기
+   (확장자명 확인 ja -> jar로 변경해야함)
