@@ -4,7 +4,9 @@
 
 실행
   /bin/jmeter.bet 실행 (영문)
-  /bin/jmeter.sh (한글)
+
+한글
+  /bin/jmeter.sh 실행 or Options -> Language
 
 Test Plan
  -> add -> Thread -> Thread Group
@@ -21,3 +23,8 @@ Thread Group
   - 요청의 상세한 결과 제공
  -> add -> Listener -> Summary Report
   - 전체 테스트의 성능 평가, 결과 요약
+
+jmeter-plugin
+ https://jmeter-plugins.org/
+ plugins-manager 설치 
+/lib/ext 에 넣기
