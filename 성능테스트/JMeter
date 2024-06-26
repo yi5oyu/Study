@@ -32,6 +32,10 @@ jmeter-plugin
   - https://jmeter-plugins.org/wiki/TransactionsPerSecond/
    Download -> Download Versions: 2.0 (2.0 클릭) -> 압축풀고 lib 폴더안에 붙여넣기
    (확장자명 확인 ja -> jar로 변경해야함)
+ 
+ 그래프 플러그인 
+  - 3 Basic Graphs
+  - jpgc - Standard Set
 
 성능 테스트
  - 특정 부하에서 응답성 / 안정성 측면에서 시스템이 어떻게 동작하는지 측정하기 위한 비 기능 테스트
