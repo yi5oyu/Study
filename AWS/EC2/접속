@@ -1,0 +1,7 @@
+Window에서 Linux(AWS EC2)접속
+터미널 설치 or powershell(관리자)
+ssh 명령어 사용
+ - OpenSSH 활성화
+ - ruby 설치
+
+ssh -i (Window에 있는 .pem 키 위치) (ec2-user) @ (퍼블릭 IP)
