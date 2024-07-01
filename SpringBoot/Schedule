@@ -1,0 +1,33 @@
+스케쥴링 활성화
+ @EnableScheduling
+ 메인 어플리케이션 클래스에 추가
+
+  @SpringBootApplication
+  @EnableScheduling
+  public class Application {
+      public static void main(String[] args) {
+          SpringApplication.run(Application.class, args);
+      }
+  }
+
+스케쥴링 설정
+ @Scheduled
+ 스케쥴링 시킬 메소드에 @Scheduled 어노테이션 적용
+
+    // 10초의 지연 후에 5초마다 실행
+    @Scheduled(fixedDelay = 5000, initialDelay = 10000)
+    public void A() {
+        System.out.println("지연 후 현재 시간: " + System.currentTimeMillis());
+    }
+
+    // 정오 실행
+    @Scheduled(cron = "0 0 0 * * ?")
+    public void B() {
+        System.out.println("Cron 표현식 현재 시간: " + System.currentTimeMillis());
+    }
+
+fixedRate: 이전 작업이 끝나기 전이라도 설정된 시간마다 실행
+fixedDelay: 이전 작업이 끝난 후 설정된 시간만큼 기다렸다가 실행
+cron: 크론 표현식 일정에 따라 작업을 실행
+ - 초 분 시간 일 월 요일
+   ex) 0 0 0,12 * * ?
