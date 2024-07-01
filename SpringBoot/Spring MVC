@@ -1,0 +1,17 @@
+https://www.javaguides.net/2020/07/three-tier-three-layer-architecture-in-spring-mvc-web-application.html
+https://developer.mozilla.org/ko/docs/Glossary/MVC
+
+MVC 디자인 패턴
+ - 소프트웨어의 비즈니스 로직과 화면을 구분
+  M 모델: 데이터, 비즈니스 로직 관리
+  V 뷰: 레이아웃, 화면을 처리
+  C 컨트롤러: 모델, 뷰로 명령 전달
+
+- 3 Tier Layered Architecture
+ : Controller - Service - Repository
+  Presentation
+   : 애플리케이션의 user interface, 애플리케이션의 특징, 데이터 유저에게 제공
+  Business logic 단계
+   : 애플리케이션 핵심 기능, 의사결정, 계산, 평가 및 다른 두 계층에 전달되는 데이터 처리.
+  Data access 단계
+   : DB와 상호 작용 하여 애플리케이션 데이터 저장/수정
