@@ -8,10 +8,23 @@ MVC 디자인 패턴
   C 컨트롤러: 모델, 뷰로 명령 전달
 
 - 3 Tier Layered Architecture
- : Controller - Service - Repository
   Presentation
    : 애플리케이션의 user interface, 애플리케이션의 특징, 데이터 유저에게 제공
   Business logic 단계
    : 애플리케이션 핵심 기능, 의사결정, 계산, 평가 및 다른 두 계층에 전달되는 데이터 처리.
   Data access 단계
    : DB와 상호 작용 하여 애플리케이션 데이터 저장/수정
+
+ Controller - Service - Repository
+  Controller (Presentation layer)
+   : 입력, 수신, 검증, Model 객체, ModelAndView 반환 기능 수행
+  Service (Business logic layer)	
+   : 계산, 데이터 변환, 데이터 프로세스, 레코드간 검증
+  Repository (Data access layer)	
+   : CRUD (관계형 또는 비관계형)
+
+Entity: 데이터베이스 테이블과 매핑되는 객체. 데이터베이스 연산과 관련된 모든 작업 처리
+DTO: 계층 간 데이터 전송을 위한 객체. Entity 객체의 데이터를 Presentation Layer에 맞게 변환하여 전달
+Controller: 사용자 요청을 처리, DTO를 통해 데이터를 주고받음
+Service: 비즈니스 로직을 처리, 엔티티와 DTO 변환
+Repository: 데이터 접근 계층을 담당, 데이터베이스와 상호작용
