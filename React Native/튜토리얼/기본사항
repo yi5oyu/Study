@@ -1,0 +1,217 @@
+React Fundamentals
+ - components, JSX, props, state
+
+Component
+ - 컴포넌트는 함수로 시작. 반환된 React 요소는 화면에 렌더링됨
+  1. React 및 Text 컴포넌트 가져오기
+   import React from 'react';
+   import {Text} from 'react-native';
+  2. 컴포넌트 정의 ( const 함수명 = () => {}; )
+   const Cat = () => {
+     return <Text>Hello, I am your cat!</Text>;
+   };
+  3. 컴포넌트 내보내기
+   export default Cat;
+
+JSX
+ - 중괄호는 JSX에서 JavaScript 기능을 사용할 수 있게 함
+  import React from 'react';
+  import {Text} from 'react-native';
+   // import React from 'react'가 포함되어야 JSX가 제대로 작동
+
+  const Cat = () => {
+    const name = 'Maru';
+    return <Text>Hello, I am {name}!</Text>;
+  };
+   // JavaScript 내에서 변수 선언. 변수 호출
+
+  const getFullName = (firstName, secondName, thirdName) => {
+    return `${firstName} ${secondName} ${thirdName}`;
+  };
+  
+  const Cat = () => {
+    return <Text>Hello, I am {getFullName('Rum', 'Tum', 'Tugger')}!</Text>;
+  };
+   // 함수 선언. 함수 호출
+  
+Custom Components
+ - 핵심 컴포넌트를 중첩하여 새로운 컴포넌트를 만들 수 있음
+  import React from 'react';
+  import {Text, TextInput, View} from 'react-native';
+  
+  const Cat = () => {
+    return (
+      <View>
+        <Text>Hello, I am...</Text>
+        <TextInput
+          style={{
+            height: 40,
+            borderColor: 'gray',
+            borderWidth: 1,
+          }}
+          defaultValue="Name me!"
+        />
+      </View>
+    );
+  };
+   // Text와 TextInput을 View 안에 중첩할 수 있음
+
+  const Cat = () => {
+    return (
+      <View>
+        <Text>I am also a cat!</Text>
+      </View>
+    );
+  };
+  
+  const Cafe = () => {
+    return (
+      <View>
+        <Text>Welcome!</Text>
+        <Cat />
+        <Cat />
+        <Cat />
+      </View>
+    );
+  };
+   // 컴포넌트를 여러 번 사용하여 중복 코드를 피할 수 있음. 컴포넌트 재사용 (부모: Cafe. 자식: Cat)
+
+  export default Cat;
+   
+Props (properties)
+ - React 컴포넌트를 커스터마이즈할 수 있음
+ - 컴포넌트를 렌더링할 때 설정하는 매개변수
+
+  import React from 'react';
+  import {Text, View} from 'react-native';
+  
+  type CatProps = {
+    name: string;
+  };
+  
+  const Cat = (props: CatProps) => {
+    return (
+      <View>
+        <Text>Hello, I am {props.name}!</Text>
+      </View>
+    );
+  };
+   // Cat에 다른 이름으로 전달 할 수 있음 
+  const Cafe = () => {
+    return (
+      <View>
+        <Cat name="Maru" />
+        <Cat name="Jellylorum" />
+        <Cat name="Spot" />
+      </View>
+    );
+  };
+
+  const CatApp = () => {
+    return (
+      <View>
+        <Image
+          source={{
+            uri: 'https://reactnative.dev/docs/assets/p_cat1.png',
+          }}
+          style={{width: 200, height: 200}}
+        />
+        <Text>Hello, I am your cat!</Text>
+      </View>
+    );
+  };
+   // Image 컴포넌트에 source라는 props를 전달하여 이미지를 정의할 수 있음
+   // JSX에서 JavaScript 값을 참조하려면 {}를 사용. 체를 전달하려면 객체를 또 다른 중괄호로 감싸야 함
+  export default Cafe;
+
+State
+ - 컴포넌트의 개인 데이터 저장소
+ - 시간이 지나면서 변경되거나 사용자 상호작용에 의해 변화하는 데이터를 처리
+ - props와 state의 개념을 적용해 상호작용이 가능한 컴포넌트를 만들 수 있음
+
+  import React, {useState} from 'react';
+  import {Button, Text, View} from 'react-native';
+  
+  type CatProps = {
+    name: string;
+  };
+  
+  const Cat = (props: CatProps) => {
+    const [isHungry, setIsHungry] = useState(true);
+  
+    return (
+      <View>
+        <Text>I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!</Text>
+        <Button
+          onPress={() => setIsHungry(false)}
+          disabled={!isHungry}
+          title={isHungry ? 'Give me some food, please!' : 'Thank you!'}
+        />
+         // 버튼클릭하면 isHungry의 상태가 false로 바뀌고 disabled가 ture가 되 비활성화도고 title 변경됨
+      </View>
+    );
+  };
+  
+  const Cafe = () => (
+    <>
+      <Cat name="Munkustrap" />
+      <Cat name="Spot" />
+    </>
+  );
+  
+  export default Cafe;
+
++ useState
+ - const [a, setA] = useState()
+  : [현재 state, state 를 변경하기 위한 함수]
+
+  function UserCard() {
+    const [name, setName] = useState("홍길동");
+    const [age, setAge] = useState(20);
+    const [school, setSchool] = useState("민국대학교");
+  
+    return (
+      <div>
+        <h1>이름: {name}</h1>
+        <h2>나이: {age}</h2>
+        <h3>학교: {school}</h3>
+        <button
+          onClick={() => {
+            setName("홍길순");
+            setAge("22");
+            setSchool("한국대학교");
+          }}
+        >
+          사람 변경
+        </button>
+      </div>
+    );
+  }
+
+  function UserCardSquashed() {
+    const [user, setUser] = useState({
+      name: "홍길동",
+      age: 20,
+      school: "민국대학교",
+    });
+  
+    return (
+      <div>
+        <h1>이름: {user.name}</h1>
+        <h2>나이: {user.age}</h2>
+        <h3>학교: {user.school}</h3>
+        <button
+          onClick={() => {
+            setUser({
+              name: "홍길순",
+              age: 22,
+              school: "한국대학교",
+              // ...user (이전 상태값을 사용)
+            });
+          }}
+        >
+          사람 변경
+        </button>
+      </div>
+    );
+  }
