@@ -48,6 +48,8 @@ FlatList, SectionList
   + renderItem
    - 리스트의 각 항목을 렌더링할 때 호출되는 함수
     : 리스트의 data 배열의 각 요소를 받아서 그 요소를 렌더링하는 React 요소 반환
+    item
+     - {item} 객체를 인자로 받음. data 배열의 각 항목을 item으로 전달 받음
 
  SectionList
   - 데이터를 논리적 섹션으로 나누어 표시
