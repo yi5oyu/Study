@@ -1,0 +1,9 @@
+프로젝트 명
+ cli.init is not a function
+ : npm uninstall -g react-native-cli
+  -> npx react-native init 프로젝트명 (설치 없이 실행하면 추천해주는 버전으로 설치)
+
+HelloWorld가 react-native-cli의 기본 플레이스홀더 이름임
+  error Project name shouldn't contain "HelloWorld" name in it, because it is CLI's default placeholder name.
+  info Run CLI with --verbose flag for more details.
+  
