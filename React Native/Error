@@ -9,4 +9,4 @@ HelloWorld가 react-native-cli의 기본 플레이스홀더 이름임
   
 App.js
  'import type' declarations can only be used in TypeScript files.
-  : vsCode 플러그인 > @builtin TypeScript and JavaScript Language Features > disabled
+  : vsCode 플러그인 > @builtin TypeScript and JavaScript Language Features > disabled > Reload Required
