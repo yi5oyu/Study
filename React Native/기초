@@ -1,0 +1,27 @@
+React Native
+ - Android 및 iOS 애플리케이션을 만들기 위한 오픈 소스 프레임워크 
+ - React와 플랫폼의 네이티브 기능을 사용
+ - JavaScript를 사용하여 플랫폼의 API에 접근하고 React 컴포넌트를 사용해 UI / 기능 구현
+
+View
+ - Android와 iOS에서 UI의 기본 구성 요소
+ - 텍스트, 이미지 표시 및 사용자 입력에 반응하는 작은 직사각형 요소
+ - 모든 시각적 요소는 뷰로 구성, 일부 뷰는 다른 뷰를 포함할 수 있음
+
+Native Components (플랫폼 지원 컴포넌트)
+  - JavaScript로 이러한 뷰를 호출
+  - 실행 시 React Native는 해당 컴포넌트에 대한 Android 및 iOS 뷰를 생성
+  - Android와 iOS의 뷰와 동일한 백엔드를 사용 (앱의 외관과 성능이 네이티브 앱과 유사함)
+
+Core Components
+  - 다양한 기본 제공 네이티브 컴포넌트를 제공
+  - 필요에 따라 Android와 iOS를 위한 고유한 네이티브 컴포넌트를 만들 수도 있음
+
+  REACT NATIVE UI COMPONENT
+  |    <View>    |    <Text>	  |    <Image>	  |  <ScrollView>	 |     <TextInput>     |
+  ANDROID VIEW
+  |  <ViewGroup> |  <TextView>  |  <ImageView>	|  <ScrollView>	 |      <EditText>     |
+  IOS VIEW
+  |   <UIView>   | <UITextView> | <UIImageView>	| <UIScrollView> |    <UITextField>    |
+  WEB ANALOG
+  |    <div>     |     <p>      |     <img>     |     <div>      | <input type="text"> |
