@@ -1,8 +1,8 @@
 TextInput
  - 사용자가 텍스트를 입력할 수 있는 핵심 컴포넌트
-onChangeText (property)
+onChangeText (properties)
  - 텍스트가 변경될 때마다 호출되는 함수를 받음
-onSubmitEditing (property)
+onSubmitEditing (properties)
  - 텍스트가 제출될 때 호출되는 함수를 받음
 
   import React, {useState} from 'react';
