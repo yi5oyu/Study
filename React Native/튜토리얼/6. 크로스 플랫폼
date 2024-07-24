@@ -1,0 +1,76 @@
+크로스 플랫폼 앱을 개발할 때 최대한 코드를 재사용하는 것이 중요
+ - 경우에 따라 Android와 iOS에 대해 별도의 시각적 컴포넌트를 구현하는 것이 좋을 수 있음
+
+플랫폼별 코드를 분리하는 두 가지 방법을 제공
+ - 앱이 실행되는 플랫폼을 감지하는 모듈을 제공
+ 
+ 1. Platform 모듈 사용 (컴포넌트의 일부만 플랫폼별로 다를 때 유용)
+  import {Platform, StyleSheet} from 'react-native';
+  
+  const styles = StyleSheet.create({
+    height: Platform.OS === 'ios' ? 200 : 100,
+     // Platform.OS: 현재 실행 중인 플랫폼을 반환 (ios 또는 android)
+  });
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      ...Platform.select({
+       // Platform.select: 객체의 키에 따라 가장 적합한 값을 반환
+        ios: {
+          backgroundColor: 'red',
+        },
+        android: {
+          backgroundColor: 'green',
+        },
+        default: {
+          backgroundColor: 'blue',
+        },
+      }),
+    },
+  });
+
+  const Component = Platform.select({
+    ios: () => require('ComponentIOS'),
+    android: () => require('ComponentAndroid'),
+  })();
+  
+  <Component />;
+   // 플랫폼별 컴포넌트 반환
+
+ + Android 버전 감지
+  - Platform 모듈을 사용하여 앱이 실행 중인 Android 플랫폼 버전을 감지할 수 있음
+   import {Platform} from 'react-native';
+   if (Platform.Version === 25) {
+    // Version은 Android OS 버전이 아닌 Android API 버전 (Android 버전 히스토리)
+     console.log('Running on Nougat!');
+   }
+
+ + iOS 버전 감지
+  - iOS에서 Version은 현재 운영체제 버전을 문자열로 반환
+   import {Platform} from 'react-native';
+   const majorVersionIOS = parseInt(Platform.Version, 10);
+   if (majorVersionIOS <= 9) {
+     // iOS 9 이하 버전
+     console.log('Work around a change in behavior');
+   }
+
+
+ 2. 플랫폼별 파일 확장자 사용
+  - 코드를 별도의 파일로 분리
+  파일 생성
+   파일명.ios.js
+    // iOS
+   파일명.android.js
+    // Android
+  컴포넌트 임포트
+  import 파일명 from './파일명';
+  - 실행 중인 플랫폼에 따라 적절한 파일을 자동으로 선택
+
+ + 네이티브 전용 확장자
+  - NodeJS/Web과 React Native 간의 모듈 공유가 필요할 경우. .native.js 확장자를 사용할 수 있음
+   파일
+    파일명.js
+     // 웹
+    파일명.native.js
+     // React Native (Android / iOS)
