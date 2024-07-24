@@ -1,0 +1,105 @@
+FlatList, SectionList
+ - 데이터를 목록 형태로 표시
+ - 서버에서 데이터를 가져와 목록으로 표시하는 데 매우 유용
+ 
+ FlatList
+  - 변경될 수 있는 유사한 구조의 데이터를 스크롤 가능한 목록으로 표시
+   : 현재 화면에 보이는 요소들만 렌더링하여 성능을 최적화함
+
+  import React from 'react';
+  import {FlatList, StyleSheet, Text, View} from 'react-native';
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      paddingTop: 22,
+    },
+    item: {
+      padding: 10,
+      fontSize: 18,
+      height: 44,
+    },
+  });
+  
+  const FlatListBasics = () => {
+    return (
+      <View style={styles.container}>
+        <FlatList
+          data={[
+            {key: 'Devin'},
+            {key: 'Dan'},
+            {key: 'Dominic'},
+            {key: 'Jackson'},
+            {key: 'James'},
+            {key: 'Joel'},
+            {key: 'John'},
+            {key: 'Jillian'},
+            {key: 'Jimmy'},
+            {key: 'Julie'},
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        />
+      </View>
+    );
+  };
+  
+  export default FlatListBasics;
+
+ SectionList
+  - 데이터를 논리적 섹션으로 나누어 표시
+   : 섹션 헤더를 포함할 수 있음
+
+  import React from 'react';
+  import {SectionList, StyleSheet, Text, View} from 'react-native';
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      paddingTop: 22,
+    },
+    sectionHeader: {
+      paddingTop: 2,
+      paddingLeft: 10,
+      paddingRight: 10,
+      paddingBottom: 2,
+      fontSize: 14,
+      fontWeight: 'bold',
+      backgroundColor: 'rgba(247,247,247,1.0)',
+    },
+    item: {
+      padding: 10,
+      fontSize: 18,
+      height: 44,
+    },
+  });
+  
+  const SectionListBasics = () => {
+    return (
+      <View style={styles.container}>
+        <SectionList
+          sections={[
+            {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
+            {
+              title: 'J',
+              data: [
+                'Jackson',
+                'James',
+                'Jillian',
+                'Jimmy',
+                'Joel',
+                'John',
+                'Julie',
+              ],
+            },
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => (
+            <Text style={styles.sectionHeader}>{section.title}</Text>
+          )}
+          keyExtractor={item => `basicListEntry-${item}`}
+        />
+      </View>
+    );
+  };
+  
+  export default SectionListBasics;
