@@ -1,0 +1,38 @@
+TextInput
+ - 사용자가 텍스트를 입력할 수 있는 핵심 컴포넌트
+onChangeText (property)
+ - 텍스트가 변경될 때마다 호출되는 함수를 받음
+onSubmitEditing (property)
+ - 텍스트가 제출될 때 호출되는 함수를 받음
+
+  import React, {useState} from 'react';
+  import {Text, TextInput, View} from 'react-native';
+  
+  const PizzaTranslator = () => {
+    const [text, setText] = useState('');
+    const [submittedText, setSubmittedText] = useState('');
+    
+    return (
+      <View style={{padding: 10}}>
+        <TextInput
+          style={{height: 40}}
+          placeholder="Type here to translate!"
+          onChangeText={newText => setText(newText)}
+           // 변동(값 입력)되면 Text에 있는 text 함수 실행됨
+          onSubmitEditing={() => setSubmittedText(text)}
+           // 제출 (Enter 등..)이 되면 Text에 표시됨
+          defaultValue={text}
+           // TextInput의 기본 값 정의 (placeholder보다 우선시 됨)
+        />
+        <Text style={{padding: 10, fontSize: 42}}>
+          {text
+            .split(' ')
+            .map(word => word && '🍕')
+            .join(' ')}
+          {submittedText}  
+        </Text>
+      </View>
+    );
+  };
+  
+  export default PizzaTranslator;
