@@ -1,0 +1,40 @@
+ScrollView
+ - 여러 컴포넌트와 뷰를 포함할 수 있는 일반적인 스크롤 컨테이너
+  : horizontal 속성을 설정하여 수직 및 수평으로 스크롤할 수 있음
+
+  import React from 'react';
+  import { ScrollView, Text, View, Dimensions } from 'react-native';
+  
+  const logo = {
+    uri: 'https://reactnative.dev/img/tiny_logo.png',
+    width: 64,
+    height: 64,
+  };
+  
+  const App = () => (
+    <ScrollView
+      horizontal 
+      pagingEnabled 
+      maximumZoomScale={3} 
+      minimumZoomScale={1}
+       // iOS에서 확대/축소 기능 활성화 
+      style={{ flex: 1 }}
+    >
+      <Text style={{fontSize: 80}}>React Native</Text>
+      <Image source={logo} />
+       // 세로 스크롤 (horizontal 속성 없어야함)
+      
+      <View style={{ width: Dimensions.get('window').width, height: 200, backgroundColor: 'red' }}>
+        <Text>Page 1</Text>
+      </View>
+      <View style={{ width: Dimensions.get('window').width, height: 200, backgroundColor: 'green' }}>
+        <Text>Page 2</Text>
+      </View>
+      <View style={{ width: Dimensions.get('window').width, height: 200, backgroundColor: 'blue' }}>
+        <Text>Page 3</Text>
+      </View>
+       // 수평(가로)로 스크롤 이동 (페이지인 것처럼 보여짐)
+    </ScrollView>
+  );
+  
+  export default App;
