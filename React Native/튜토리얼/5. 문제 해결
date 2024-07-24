@@ -1,0 +1,23 @@
+포트 사용중
+ 1. 겹치는 프로세스 종료
+  sudo lsof -i :8081
+  kill -9 <PID>
+ 2. 포트 변경
+  npm start -- --port=8088
+
+NPM locking 오류
+  sudo chown -R $USER ~/.npm
+  sudo chown -R $USER /usr/local/lib/node_modules
+
+누락된 React 라이브러리
+ CocoaPods 사용 시, Podfile에 React와 사용 중인 하위 스펙을 추가
+ pod 'React', :path => '../node_modules/react-native', :subspecs => ['RCTText', 'RCTImage', 'RCTNetwork', 'RCTWebSocket']
+
+Gradle 버전 다운그레이드
+ android/build.gradle에서 Gradle 버전 변경
+
+inotify
+ echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+권한 오류
+ sudo chmod +x android/gradlew
