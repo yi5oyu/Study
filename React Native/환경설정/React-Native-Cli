@@ -43,3 +43,8 @@ React-Native-Cli
  2. 안드로이드 스튜디오에서 apk 생성
   Build 옵션 > Build Bundle / APK 확인 > Build APK 클릭
    : app-debug.apk 파일 생성
+
+App.tsx
+ - 0.71 이상 버전에선 App.tsx가 기본값으로 설정되어있음
+  : npx react-native init 프로젝트명 --version 0.70
+   = 0.70 이하 버전으로 생성 하면 App.js 파일 성
