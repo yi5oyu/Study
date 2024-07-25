@@ -2,6 +2,7 @@ React Fundamentals
  - components, JSX, props, state
 
 Component
+ - 재사용
  - 컴포넌트는 함수로 시작. 반환된 React 요소는 화면에 렌더링됨
   1. React 및 Text 컴포넌트 가져오기
    import React from 'react';
