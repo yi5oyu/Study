@@ -1,5 +1,5 @@
 ScrollView
- - 여러 컴포넌트와 뷰를 포함할 수 있는 일반적인 스크롤 컨테이너
+ - 다른 컴포넌트나 뷰를 여러개(각각의 다른 형태의 요소)를 담는 컨테이너
   : horizontal 속성을 설정하여 수직 및 수평으로 스크롤할 수 있음
 
   import React from 'react';
@@ -15,6 +15,7 @@ ScrollView
     <ScrollView
       horizontal 
       pagingEnabled 
+
       maximumZoomScale={3} 
       minimumZoomScale={1}
        // iOS에서 확대/축소 기능 활성화 
