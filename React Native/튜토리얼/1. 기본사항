@@ -15,7 +15,8 @@ Component
    export default Cat;
 
 JSX
- - 중괄호는 JSX에서 JavaScript 기능을 사용할 수 있게 함
+ - JS 안에 엘리먼트를 담을 수 있음. (TypeScript: TSX)
+ - {}(중괄호): JSX에서 JavaScript 기능을 사용할 수 있게 함 
   import React from 'react';
   import {Text} from 'react-native';
    // import React from 'react'가 포함되어야 JSX가 제대로 작동
@@ -80,6 +81,7 @@ Custom Components
   export default Cat;
    
 Props (properties)
+ - React 컴포넌트에 전달하는 속성값
  - React 컴포넌트를 커스터마이즈할 수 있음
  - 컴포넌트를 렌더링할 때 설정하는 매개변수
 
@@ -127,7 +129,7 @@ Props (properties)
 
 State
  - 컴포넌트의 개인 데이터 저장소
- - 시간이 지나면서 변경되거나 사용자 상호작용에 의해 변화하는 데이터를 처리
+ - 시간이 지나면서 변경되거나 사용자 상호작용에 의해 변화하는 데이터를 처리 [useState()]
  - props와 state의 개념을 적용해 상호작용이 가능한 컴포넌트를 만들 수 있음
 
   import React, {useState} from 'react';
