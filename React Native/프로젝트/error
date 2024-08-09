@@ -6,3 +6,4 @@ github repository에서 폴더에 화살표 표시(->). 하위 폴더 push 안�
    = git rm .git
 
 lnvalid vcs root mapping The directory <Project> \frontend is registered as a Git root, but no Git repositories were found there
+ [ File ] ▶ [ Settings ] ▶ [ Version Control ] > directory Mappings
