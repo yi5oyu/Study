@@ -1,0 +1,8 @@
+github repository에서 폴더에 화살표 표시(->). 하위 폴더 push 안됨
+ : 하위 폴더에 .git 폴더가 있음
+ : react-native 프로젝트 생성시 .git 폴더 자동 생성됨
+  - .git 폴더 삭제
+   = .git 폴더 안보임: 보기 > 표시 > 숨긴 항목 > 체크
+   = git rm .git
+
+lnvalid vcs root mapping The directory <Project> \frontend is registered as a Git root, but no Git repositories were found there
