@@ -1,0 +1,7 @@
+// Babel 설정 파일을 생성
+// JavaScript 코드 트랜스파일
+
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": ["babel-plugin-react-native-web"]
+}
