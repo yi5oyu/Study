@@ -1,0 +1,50 @@
+react-native-web
+ - React Native 코드를 Web에서 사용할 수 있게 변환(React Native 앱을 웹에서도 실행 가능하게 함)
+  : npm install react-native-web
+
+react-dom
+ - React 컴포넌트를 브라우저의 DOM에 렌더링(React의 DOM 특정 구현체)
+  : npm install react-dom
+
+@babel/core
+ - Babel의 핵심 모듈
+  : npm install @babel/core
+
+babel-loader
+ - JavaScript 파일을 변환(Webpack과 함께 사용)
+  : npm install babel-loader
+
+url-loader
+ - 파일을 인라인 URL 또는 파일로 변환(파일 처리에 쓰임. 이미지 등..)
+   작은 파일: Base64 인코딩된 데이터 URL로 변환 
+   큰 파일: 별도의 파일로 만들어짐
+  : npm install url-loader
+
+Webpack
+ - 여러 파일을 하나의 번들 파일로 결합(JavaScript 모듈 번들러)
+ - 웹으로 빌드할 때 사용
+  : npm install webpack
+
+webpack-cli
+ - Webpack을 CLI에서 사용할 수 있도록 해주는 도구(webpack.config.js 설정 파일로 Webpack 명령 실행)
+  : npm install webpack-cli
+
+webpack-dev-server
+ - 개발 환경에서 실시간으로 변경 사항을 반영하며 웹 애플리케이션 테스트 개발 서버
+  : npm install webpack-dev-server
+
+babel-plugin-react-native-web
+ - React Native 컴포넌트를 웹 환경에서 사용할 수 있도록 변환(Babel 플러그인)
+  : npm install babel-plugin-react-native-web
+
+@babel/preset-react
+ - React 코드(JSX 등)를 트랜스파일하기 위한 Babel 프리셋
+  : npm install @babel/preset-react
+
+html-webpack-plugin
+ - HTML 파일을 생성 / Webpack 번들로 생성된 JavaScript 파일을 자동으로 포함시킴
+  : npm install html-webpack-plugin
+
+-------------------------------------------------------------------------------------------------------
+babel 패키지
+ - 최신 JavaScript 코드를 구형 브라우저에서도 동작할 수 있도록 변환하는 트랜스파일러
