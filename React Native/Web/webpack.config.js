@@ -1,34 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
-  ],
-  module: {
-    rules: [
-      // babel-loader
-      //  JavaScript 파일 트랜스파일
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      // babel-loader //
-      // url-loader
-      // 이미지 파일 처리
-      {
-        test: /\.(png|jpe?g|gif)$/,
-        use: 'url-loader',
-      },
-      // url-loader //
-    ],
-  },
-};
-
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -80,19 +49,21 @@ module.exports = {
       // url-loader //
     ],
   },
-
-  // Plugins to automate and optimize the build process
+  // html-webpack-plugin
+  // HTML 파일을 생성하고 Webpack 번들에 포함
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html', // Path to your HTML template
     }),
   ],
-
-  // Development server configuration
+  // html-webpack-plugin //
+  // webpack-dev-server 
+  // Dev Server 설정
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
     historyApiFallback: true, // For React Router
   },
+  // webpack-dev-server //
 };
