@@ -11,11 +11,6 @@
 
 // babel.config.js
 module.exports = {
-  presets: [
-    '@babel/preset-env',
-    '@babel/preset-react'
-  ],
-  plugins: [
-    'babel-plugin-react-native-web'
-  ]
+  presets: ['module:metro-react-native-babel-preset'],
+  plugins: ['@babel/plugin-transform-flow-strip-types'],
 };
