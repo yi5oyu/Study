@@ -1,6 +1,9 @@
+// root/App.web.js
+// App.js가 아닌 App.web.js로 나눠서 관리할 경우 webpack.config.js 의 진입점(entry)도 수정해줘야함
+
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native-web';
-https://github.com/yi5oyu/Study/tree/main/React%20Native/Web
+
 const App = () => {
   return (
     <View style={styles.container}>
