@@ -1,0 +1,26 @@
+Module not found: Error: Can't resolve './components/A' in 'C:\Users\Young\Desktop\react-native\frontend'
+resolve './components/A' in 'C:\Users\Young\Desktop\react-native\frontend'
+  using description file: C:\Users\Young\Desktop\react-native\frontend\package.json (relative path: .)
+    Field 'browser' doesn't contain a valid alias configuration
+    using description file: C:\Users\Young\Desktop\react-native\frontend\package.json (relative path: ./components/A)
+      no extension
+        Field 'browser' doesn't contain a valid alias configuration
+        C:\Users\Young\Desktop\react-native\frontend\components\A doesn't exist
+      .web.js
+        Field 'browser' doesn't contain a valid alias configuration
+        C:\Users\Young\Desktop\react-native\frontend\components\A.web.js doesn't exist
+      .js
+        Field 'browser' doesn't contain a valid alias configuration
+        C:\Users\Young\Desktop\react-native\frontend\components\A.js doesn't exist
+      .json
+        Field 'browser' doesn't contain a valid alias configuration
+        C:\Users\Young\Desktop\react-native\frontend\components\A.json doesn't exist
+      as directory
+        C:\Users\Young\Desktop\react-native\frontend\components\A doesn't exist
+ @ ./index.web.js 1:215-235
+
+webpack 5.93.0 compiled with 1 error in 29 ms
+
+ jsx 확장자명 파일을 찾지 못함
+ webpack.config.js 설정 파일에 extensions에 .jsx 추가
+ extensions: ['.web.js', '.js', '.jsx', '.json']
