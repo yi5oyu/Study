@@ -1,0 +1,9 @@
+    Could not find a required file.
+    Name: index.html
+    Searched in: C:\Users\Young\Desktop\test\frontend\public
+
+진입점 디폴트
+ src/index.js 
+ public/index.js
+
+webpack.config.js 설정 파일을 통해 진입점 수정할 수 있음
