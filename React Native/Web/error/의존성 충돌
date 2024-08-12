@@ -1,0 +1,15 @@
+    npm error   node_modules/react-native-web
+    npm error     react-native-web@"*" from the root project
+    npm error
+    npm error Fix the upstream dependency conflict, or retry
+    npm error this command with --force or --legacy-peer-deps
+    npm error to accept an incorrect (and potentially broken) dependency resolution.
+    npm error
+    npm error
+    npm error For a full report see:
+    npm error C:\Users\Young\AppData\Local\npm-cache\_logs\2024-08-11T15_25_14_531Z-eresolve-report.txt
+    npm error A complete log of this run can be found in: C:\Users\Young\AppData\Local\npm-cache\_logs\2024-08-11T15_25_14_531Z-debug-0.log
+    
+     1. 무시 하고 설치: npm install react-native-web react-dom --legacy-peer-deps
+     2. 버전에 맞는 의존성 설치: npm install react-native-web@^0.19.12 react-dom@18.1.0
+      react 와 같은 react-dom 버전 설치해야함
