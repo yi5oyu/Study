@@ -10,3 +10,8 @@ HelloWorld가 react-native-cli의 기본 플레이스홀더 이름임
 App.js
  'import type' declarations can only be used in TypeScript files.
   : vsCode 플러그인 > @builtin TypeScript and JavaScript Language Features > disabled > Reload Required
+
+.jsx 확장자 못 찾음
+ C:\Users\Young\Desktop\react-native\frontend\components\A doesn't exist
+  : webpack.config.js 설정 파일 extensions에 .jsx 설정 추가
+    extensions: ['.web.js', '.js', '.jsx', '.json']
