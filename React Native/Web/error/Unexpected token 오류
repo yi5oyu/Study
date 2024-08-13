@@ -1,0 +1,5 @@
+ERROR in ./App.web.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\Young\Desktop\react-native\frontend\App.web.js: Unexpected token (38:0)
+
+오타를 확인해야함
