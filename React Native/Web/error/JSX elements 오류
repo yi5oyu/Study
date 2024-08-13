@@ -1,0 +1,35 @@
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\Users\Young\Desktop\react-native\frontend\App.web.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (9:4)
+
+return 문에 JSX 반환이 두 번 이상 될때 발생
+
+const App = () => {
+  return (
+      <B />
+      <C />
+  )
+}
+
+// 하나의 태그로 감싸주면 됨. <>(빈 태그), <div>(div 태그), <Fragment>(Fragment 태그)
+const App = () => {
+  return (
+    <>
+        <B />
+        <C />
+    </>
+  )
+}
+
+// Fragment 사용
+import { Fragment } from 'react';
+
+const App = () => {
+  return (
+    <Fragment>
+        <B />
+        <C />
+    </Fragment>
+  )
+}
+
+// Fragment 내부에 있는 여러 자식들을 return
