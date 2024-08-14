@@ -8,6 +8,18 @@ import F6 from './components/react/F';
 import G7 from './components/react/G';
 import H8 from './components/react/H';
 import I9 from './components/react/I';
+import J10 from './components/react/J';
+import K11 from './components/react/K';
+import L12 from './components/react/L';
+import M13 from './components/react/M';
+import N14 from './components/react/N';
+import O15 from './components/react/O';
+import P16 from './components/react/P';
+import Q17 from './components/react/Q';
+import R18 from './components/react/R';
+import S19 from './components/react/S';
+import T20 from './components/react/T';
+import U21 from './components/react/U';
 
 const App = () => {
 
@@ -25,6 +37,18 @@ const App = () => {
         <G7 />
         <H8 />
         <I9 />
+        <J10 />
+        <K11 />
+        <L12 />
+        <M13 />
+        <N14 />
+        <O15 />
+        <P16 />
+        <Q17 />
+        <R18 />
+        <S19 />
+        <T20 />
+        <U21 />
     </>
   );
 };
