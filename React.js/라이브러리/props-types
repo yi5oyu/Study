@@ -1,1 +1,39 @@
+개발 모드에서만 동작(빌드 과정에서 제거됨)
 
+기본 타입
+  PropTypes.string
+  PropTypes.number
+  PropTypes.bool
+  PropTypes.func (Function)
+  PropTypes.array
+  PropTypes.object
+  PropTypes.symbol
+
+React 타입
+  PropTypes.element (React 요소)
+  PropTypes.node (랜더링할 수 있는 모든 것 숫자, 문자열, 배열 등..)
+  PropTypes.elementType
+
+복합 타입
+  PropTypes.arrayOf(type) (배열)
+  PropTypes.objectOf(type) (속성값 가진 객체)
+  PropTypes.shape({ ... }) (특정 속성들을 가진 객체)
+  PropTypes.exact({ ... }) 
+  PropTypes.oneOf([ ... ])
+  PropTypes.oneOfType([ ... ])
+
+  PropTypes.custom((props, propName, componentName) => { ... })
+
+ex)
+Greeting.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number,
+  isMember: PropTypes.bool,
+  hobbies: PropTypes.arrayOf(PropTypes.string),
+  address: PropTypes.shape({
+    street: PropTypes.string,
+    city: PropTypes.string,
+    zipCode: PropTypes.number
+  }),  // An object with a specific shape
+  contactMethod: PropTypes.oneOf(['email', 'phone']), 
+};
