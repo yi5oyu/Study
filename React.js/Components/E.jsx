@@ -1,4 +1,5 @@
 // 조건에 따라 달라지는 rendering
+// if문, &&, ? :(삼항연산자) 등으로 조건을 만들어 랜더링할 수 있음
 
 import PropTypes from 'prop-types';
 
