@@ -1,5 +1,5 @@
 // useContext()
-// createContext()와 useContext()를 사용해 인자를 넘겨줄 수 있음
+// createContext()와 useContext()를 사용해 값를 사용 수 있음
 
 // 제공
 // import {createContext} from 'react';
