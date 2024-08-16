@@ -10,7 +10,7 @@ App.js
   const App = () => {
     const [data, setData] = useState("")
     
-    axios.get('http://localhost:8080/aa')
+    axios.get('http://localhost:8080/hi')
       .then(response => {
         setData(response.data)
       })
@@ -24,7 +24,7 @@ Controller
   @RestController
   @CrossOrigin(origins = "http://localhost:9000")
   public class ReactController {
-      @GetMapping("/aa")
+      @GetMapping("/hi")
       public String test() {
           return "Hello, world!";
       }
