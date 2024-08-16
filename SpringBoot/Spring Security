@@ -1,0 +1,3 @@
+기본값
+ - ID: user
+ - PW: spring boot 실행시 콘솔창에 생성됨 (Using generated security password: )
