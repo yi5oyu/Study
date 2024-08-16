@@ -1,0 +1,32 @@
+axios 패키지 설치
+ npm install axios
+
+package.json 프록시 설정 추가
+ "proxy": "http://localhost:8080", 
+
+App.js
+  import axios from 'axios';
+  
+  const App = () => {
+    const [data, setData] = useState("")
+    
+    axios.get('http://localhost:8080/aa')
+      .then(response => {
+        setData(response.data)
+      })
+      
+    return(
+      <Text>{data}</Text>
+    )
+  }
+
+Controller
+  @RestController
+  @CrossOrigin(origins = "http://localhost:9000")
+  public class ReactController {
+      @GetMapping("/aa")
+      public String test() {
+          return "Hello, world!";
+      }
+  
+  }
