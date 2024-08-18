@@ -1,3 +1,33 @@
+스프링 기반 웹 애플리케이션 인증 권한을 담당 (스프링 하위 프레임워크)
+인증(authenticate): 사용자의 신원을 확인하는 프로세스(로그인)
+권한(authorize): 인증된 사용자가 어떤 접근 권한을 가지고 어떤 일을 할 수 있는지 관리
+
+의존성 설정 
+ build.gradle
+ dependencies {
+   implementation 'org.springframework.boot:spring-boot-starter-security'
+ }
+
+인증을 위한 로그인 화면
 기본값
  - ID: user
  - PW: spring boot 실행시 콘솔창에 생성됨 (Using generated security password: cb09ec7d-69a0-488b-be6a-1ca338772be0)
+
+스프링 시큐리티 설정 파일
+SecurityConfig.java
+
+// 환경 설정 파일 어노테이
+@Configuration
+// 모든 요청 URL이 스프링 시큐리티의 제어를 받도록 만드는 애너테이션 (스프링 시큐리티 활성화)
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Bean
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
+                .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
+        ;
+        return http.build();
+    }
+}
