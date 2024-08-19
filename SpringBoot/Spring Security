@@ -17,6 +17,7 @@
 SecurityConfig.java
 
 // 모든 요청 URL에 클래스(SecurityFilterChain)가 필터로 적용
+// URL별로 특별한 설정을 할 수 있음
 
 // 환경 설정 파일 어노테이션
 @Configuration
@@ -26,6 +27,7 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // 인증되지 않은 모든 페이지 요청 허락
         http
             .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
                 .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
