@@ -7,6 +7,19 @@
 @EnableWebSecurity
 // 웹 보안 설정 클래스로 인식
 public class WebSecurityConfig {
+	@Bean
+    	public WebSecurityCustomizer webSecurityCustomizer() {
+        	return web -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+		/* 
+  		   .ignoring(): 필터 체인에서 어떤 요청을 무시해야 하는지 지정할 수 있음 (모든 보안 검사 우회)
+  		   .requestMatchers("/css/**", "/js/**", "/images/**", "/public/**", "/favicon.ico") 등 수동으로 지정
+                   PathRequest.toStaticResources(): 일반적인 정적 리소스 위치에 대한 요청 자동으로 지정 (유틸리티 메서드)
+             	   .atCommonLocations(): 공통 위치(/css/**, /js/**, /images/**, /webjars/**, /favicon.ico)
+
+   		   정적 자원을 포함 시키지 않아 성능 향상시킬 수 있음
+  		*/
+    	}
+
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
