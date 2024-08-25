@@ -1,1 +1,7 @@
-https://ollama.com/download/windows
+windows
+ https://ollama.com/download/windows
+ 터미널
+  - ollama run llama3.1:8b
+
+윈도우를 시작하면 자동으로 ollama 실행됨
+ - 윈도우키 > 작업 관리자 > 시작 프로그램 > ollama.exe 사용안함
