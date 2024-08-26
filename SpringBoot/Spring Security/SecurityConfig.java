@@ -20,6 +20,23 @@ public class WebSecurityConfig {
   		*/
     	}
 
+	@Bean
+	public CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration configuration = new CorsConfiguration();
+		// CorsConfiguration: CORS 관련 설정 지정 (허용되는 출처, 메서드, 헤더 등..)
+		configuration.addAllowedOrigin("https://example.com");
+		// 특정 도메인 허용
+		configuration.addAllowedMethod("GET"); 
+    		configuration.addAllowedMethod("POST");
+		// GET, POST 메소드 허용
+    		configuration.addAllowedHeader("*");
+
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		// UrlBasedCorsConfigurationSource: CORS 구성을 특정 경로와 연결 (/** : 모든 경로)
+    		source.registerCorsConfiguration("/**", configuration);
+
+		return source;
+	}
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -30,10 +47,16 @@ public class WebSecurityConfig {
 	   요청이 체인으로 된 여러 필터를 거치며 허용되는 경우 통과하며 보안 규칙을 위반할 경우 프로세스 중지됨
 	*/  
 		http
+			.cors(cors -> cors.configurationSource(corsConfigurationSource()))
+			// 사용자 정의 configurationSource 사용
+			// .cors(withDefaults()): 디폴트 값을 가짐
+			/*
+   			Spring Security 6.1 이상 버전에서 사용되지않음
 			.csrf().disable()
 			// CSRF(Cross-Site Request Forgery) 보호 기능을 비활성화 (토큰 없이도 요청 가능)
 			.cors().disable()
 			// CORS(Cross-Origin Resource Sharing) 보호 기능을 비활성화 (다른 도메인에서 오는 요청)
+   			*/
 			.authorizeHttpRequests((requests) -> requests
      			// 들어오는 HTTP 요청에 대한 권한을 설정                       
 				.requestMatchers("/", "/home").permitAll()
