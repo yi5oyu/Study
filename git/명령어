@@ -1,0 +1,10 @@
+취소
+ git add
+  - git reset HEAD [파일명]
+   : 특정 파일을 스테이지에서 내리고 싶을 때 사용
+
+ git commit
+  - git reset [reset 모드] [리셋시점]
+   : reset 모드 default 값 = --mixed (--soft = 스테이징 상태 유지, --hard)
+   : HEAD^ = 최신 커밋 취소, HEAD~(숫자) = 최근 커밋부터 숫자까지 커밋 취소
+   
