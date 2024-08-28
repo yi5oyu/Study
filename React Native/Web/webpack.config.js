@@ -118,7 +118,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html', // Use your own index.html template
+      template: './index.html', // index.html 사용
     }),
   ],
   devServer: {
