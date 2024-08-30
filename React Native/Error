@@ -16,3 +16,7 @@ App.js
   : webpack.config.js 설정 파일 extensions에 .jsx 설정 추가
     extensions: ['.web.js', '.js', '.jsx', '.json']
     설정파일 변경 후 프로젝트 재시작
+
+npm run web 실행후 오류 발생
+ Error: listen EACCES: permission denied 0.0.0.0:9000
+  : cmd 관리자 권한 실행 > net stop winnat > net start winnat > npm run web
