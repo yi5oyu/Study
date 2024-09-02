@@ -24,5 +24,7 @@ nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
      nginx  12303 nginx 8u IPv4  47044      OtO  TCP *:http (LISTEN)
   - 프로세스 종료
    = sudo kill -9 12303
+  - SSL 인증서 갱신
+   = sudo certbot renew --nginx
 
 인증서 매달 자동 갱신시 서버 다운됨
