@@ -1,1 +1,28 @@
+sudo nginx -t
+
+nginx: [emerg] unexpected end of file, expecting ";" or "}" in /etc/nginx/conf.d/pricetaglist.conf:48
+ : *.conf 파일 ;, } 누락 확인 (48번째 줄)
+
+nginx: [emerg] host not found in upstream "app1:8080" in /etc/nginx/conf.d/pricetaglist.conf:2
+ : /etc/nginx/conf.d/*.conf 파일 확인 (중복 파일이 있어 오류났음)
+ : 고려해 볼 수 있는 사항
+  docker-compose.yml 파일 확인
+   1. 서비스 종속확인 
+      depends_on:
+        - app1
+        - app2
+   2. 네트워크 연결 확인
+      networks:
+        - app-network
+          driver: bridge
+      
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+ : nginx나 다른 프로세스가 이미 실행중 (포트 80 점유하고 있음)
+  - 포트 확인
+   = sudo lsof -i :80
+     COMMAND  PID  USER FD TYPE DEVICE SIZE/OFF NODE   NAME
+     nginx  12303 nginx 8u IPv4  47044      OtO  TCP *:http (LISTEN)
+  - 프로세스 종료
+   = sudo kill -9 12303
+
 인증서 매달 자동 갱신시 서버 다운됨
