@@ -1,0 +1,11 @@
+JWT(JSON Web Token)
+ - 필요한 모든 정보를 자체적으로 지니고 있음 (토큰 기본정보, 전달 할 정보, 토큰 검증 증명할 signature(서명))
+ - HTTP 헤더 / URL 파라미터 전달
+ - 회원인증, 정보전달
+
+구성
+ 헤더(Header).정보(payload).서명(signature)
+ asdf42masnf.vwnl2ewke.fnawlkf1
+
+헤더
+ 
