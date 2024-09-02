@@ -1,4 +1,5 @@
-sudo nginx -t
+nginx 상태 확인
+ = sudo nginx -t
 
 nginx: [emerg] unexpected end of file, expecting ";" or "}" in /etc/nginx/conf.d/pricetaglist.conf:48
  : *.conf 파일 ;, } 누락 확인 (48번째 줄)
