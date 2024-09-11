@@ -2,53 +2,50 @@
   // 요청에 사용될 서버 URL
   url: '/user',
 
-  // `method`는 요청을 생성할때 사용되는 메소드입니다.
+  // 요청을 생성할때 사용되는 메소드
   method: 'get', // 기본값
 
-  // `url`이 절대값이 아닌 경우 `baseURL`은 URL 앞에 붙습니다.
-  // 상대적인 URL을 인스턴스 메서드에 전달하려면 `baseURL`을 설정하는 것은 편리합니다.
+  // url이 절대값이 아닌 경우 URL 앞에 붙음
   baseURL: 'https://some-domain.com/api',
 
 
-  // `transformRequest`는 요청 데이터를 서버로 전송하기 전에 변경할 수 있게 해줍니다.
-  // 이것은 'PUT', 'POST', 'PATCH', 'DELETE' 메소드에서만 적용됩니다.
-  // 마지막 함수는 Buffer, ArrayBuffer, FormData 또는 Stream의 인스턴스 또는 문자열을 반환해야 합니다.
-  // 헤더 객체를 수정할 수 있습니다.
+  // 요청 데이터를 서버로 전송하기 전에 변경할 수 있게 해줌
+  // PUT, POST, PATCH, DELETE 메소드에서만 적용
+  // 마지막 함수는 Buffer, ArrayBuffer, FormData 또는 Stream의 인스턴스 또는 문자열을 반환해야 함
+  // 헤더 객체를 수정할 수 있음
   transformRequest: [function (data, headers) {
-    // 데이터를 변환하려는 작업 수행
+    // 데이터 변환 작업
 
     return data;
   }],
 
-  // `transformResponse`는 응답 데이터가 then/catch로 전달되기 전에 변경할 수 있게 해줍니다.
+  // 응답 데이터가 then/catch로 전달되기 전에 변경할 수 있게 함
   transformResponse: [function (data) {
-    // 데이터를 변환하려는 작업 수행
+    // 데이터 변환 작업
 
     return data;
   }],
 
-  // `headers`는 사용자 지정 헤더입니다.
+  // 사용자 지정 헤더
   headers: {'X-Requested-With': 'XMLHttpRequest'},
 
-  // `params`은 요청과 함께 전송되는 URL 파라미터입니다.
-  // 반드시 일반 객체나 URLSearchParams 객체여야 합니다.
-  // 참고: null이나 undefined는 URL에 렌더링되지 않습니다.
+  // 요청과 함께 전송되는 URL 파라미터 (반드시 일반 객체나 URLSearchParams 객체여야 함)
+  // null, undefined는 URL에 렌더링되지 않음
   params: {
     ID: 12345
   },
 
-  // `paramsSerializer`는 `params`의 시리얼라이즈를 담당하는 옵션 함수입니다.
+  // params의 시리얼라이즈 담당하는 옵션 함수
   // (예: https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)
   paramsSerializer: function (params) {
     return Qs.stringify(params, {arrayFormat: 'brackets'})
   },
 
-  // `data`는 요청 바디로 전송될 데이터입니다.  
-  // 'PUT', 'POST', 'PATCH', 'DELETE' 메소드에서만 적용 가능합니다.
-  // `transformRequest`가 설정되지 않은 경우 다음 타입 중 하나여야 합니다.
-  // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams
-  // - 브라우저 전용: FormData, File, Blob
-  // - Node 전용: Stream, Buffer
+  //  요청 바디로 전송될 데이터입니다.  
+  //  PUT, POST, PATCH, DELETE 메소드에서만 적용 가능
+  //  transformRequest가 설정되지 않은 경우 (string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams 타입 중 하나)
+  //  브라우저 전용: FormData, File, Blob
+  //  Node 전용: Stream, Buffer
   data: {
     firstName: 'Fred'
   },
