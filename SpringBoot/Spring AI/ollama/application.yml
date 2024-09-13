@@ -3,10 +3,14 @@ spring:
     ollama:
       # Ollama API의 기본 URL
       base-url: http://localhost:11434
+      
       # Ollama API 키
       # api-key: YOUR_API_KEY
-      # 사용할 AI 모델 이름
-      model: llama3.1
+      
+      chat:
+        # 사용할 AI 모델 이름
+        model: llama3.1
+      
       # 추가 설정 (선택 사항)
       timeout: 5000  # 밀리초 단위
       max-retries: 3
