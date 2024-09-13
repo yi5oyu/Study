@@ -1,0 +1,24 @@
+import org.springframework.web.bind.annotation.*;
+import org.springframework.ai.chat.client.ChatClient;
+
+@RestController
+@RequestMapping("/api/chat")
+@CrossOrigin(origins = "http://localhost:9000")
+public class ChatController {
+
+    private final ChatClient chatClient;
+
+    public ChatController(ChatClient.Builder chatClientBuilder) {
+        this.chatClient = chatClientBuilder.build();
+    }
+
+    @PostMapping
+    public String getResponseFromAI(@RequestBody String userMessage) {
+        String response = chatClient.prompt()
+                .user(userMessage)
+                .call()
+                .content();
+        return response;
+    }
+
+}
