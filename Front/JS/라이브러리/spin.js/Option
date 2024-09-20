@@ -1,0 +1,27 @@
+<script>
+
+const opts = {
+    lines: 12, // 선 개수
+    length: 80, // 각 선의 길이
+    width: 9, // 선 굵기
+    radius: 45, // 안쪽 원의 반지름
+    scale: 0.4, // 스피너의 전체 크기
+    corners: 1, // 코너 라운드(0..1)
+    speed: 1.2, // Rounds per second
+    rotate: 37, // 초당 회진 수
+    animation: 'spinner-line-fade-quick', // 라인의 CSS 애니메이션 이름
+    direction: 1, // 1: 시계 방향, -1: 시계 반대 방향
+    color: '#000000', //CSS 색상
+    fadeColor: 'transparent', // CSS 색상
+    top: '50%', // Top position
+    left: '50%', // Left position
+    shadow: '0 0 1px transparent', // 그림자
+    zIndex: 2000000000, //  z-index
+    className: 'spinner', // 스피너에 할당할 CSS 클래스
+    position: 'fixed', // positioning
+  };
+
+ const target = document.getElementById('내가 사용할 곳의 ID');
+ const spinner = new Spinner(opts).spin(target)
+
+</script>
