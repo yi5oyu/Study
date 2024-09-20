@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: backend
+  redis:
+    host: localhost
+    port: 6379 # 기본 포트
+    password: # 생략 가능
