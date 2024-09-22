@@ -1,18 +1,23 @@
 Workflow
-Workflow란 레포지토리에 추가할 수 있는 일련의 자동화된 커맨드 집합이다.
-하나 이상의 Job으로 구성되어 있고, PR이나 push과 같은 이벤트에 의해 실행될 수도 있고 특정 시간대에 실행될 수 있다.
-빌드, 테스트, 배포 등 각각의 역할에 맞는 Workflow를 추가할 수 있고, .github/workflows 디렉토리에 YAML 형태를 저장합니다.
+ 레포지토리에 추가할 수 있는 일련의 자동화된 커맨드 집합
+ 하나 이상의 Job으로 구성되어 있고, PR이나 push과 같은 이벤트에 의해 실행될 수도 있고 특정 시간대에 실행될 수 있음
+ 빌드, 테스트, 배포 등 각각의 역할에 맞는 Workflow를 추가할 수 있고, .github/workflows 디렉토리에 YAML 형태를 저장
+
 Event
-Event란 Workflow를 실행시키는 push, PR, commit 등의 특정 행동을 의미한다.
+ Workflow를 실행시키는 push, PR, commit 등의 특정 행동을 의미
+
 Job
-Job이란 동일한 Runner에서 실행되는 여러 Step의 집합을 의미한다.
-기본적으로 하나의 Workflow 내의 여러 Job은 독립적으로 실행되지만, 필요에 따라 의존 관계를 설정하여 순서를 지정해줄 수 있다.
+ 동일한 Runner에서 실행되는 여러 Step의 집합을 의미
+ 기본적으로 하나의 Workflow 내의 여러 Job은 독립적으로 실행되지만, 필요에 따라 의존 관계를 설정하여 순서를 지정해줄 수 있음
+
 Step
-Step이란 커맨드를 실행할 수 있는 각각의 Task를 의미한다. Shell 커맨드가 될 수도 있고, 하나의 Action이 될 수도 있다.
-하나의 Job 내에서 각각의 Step은 다양한 Task로 인해 생성된 데이터를 공유할 수 있다.
+ 커맨드를 실행할 수 있는 각각의 Task를 의미한다. Shell 커맨드가 될 수도 있고, 하나의 Action이 될 수도 있음
+ 하나의 Job 내에서 각각의 Step은 다양한 Task로 인해 생성된 데이터를 공유할 수 있음
+
 Action
-Action이란 Job을 만들기 위해 Step을 결합한 독립적인 커맨드로, 재사용이 가능한 Workflow의 가장 작은 단위의 블럭이다.
-직접 만든 Action을 사용하거나 Gihub Community에 의해 생성된 Action을 불러와 사용할 수 있다.
+ Job을 만들기 위해 Step을 결합한 독립적인 커맨드로, 재사용이 가능한 Workflow의 가장 작은 단위의 블럭
+ 직접 만든 Action을 사용하거나 Gihub Community에 의해 생성된 Action을 불러와 사용할 수 있음
+
 Runner
-Runner란 Github Actions Workflow 내에 있는 Job을 실행시키기 위한 어플리케이션이다.
-Runner Application은 Github에서 호스팅하는 가상 환경 또는 직접 호스팅하는 가상 환경에서 실행 가능하며, Github에서 호스팅하는 가상 인스턴스의 경우에는 메모리 및 용량 제한이 존재한다.
+ Github Actions Workflow 내에 있는 Job을 실행시키기 위한 어플리케이션
+ Runner Application은 Github에서 호스팅하는 가상 환경 또는 직접 호스팅하는 가상 환경에서 실행 가능하며, Github에서 호스팅하는 가상 인스턴스의 경우에는 메모리 및 용량 제한이 존재
