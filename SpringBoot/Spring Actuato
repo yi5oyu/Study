@@ -1,0 +1,47 @@
+Spring Boot 애플리케이션의 모니터링/관리 기능 제공 
+ : 매트릭(metric)과 같은 기능을 HTTP와 JMX 엔드포인트를 통해 제공
+애플리케이션 상태를 확인하고, 메트릭, 로그, 환경 설정, 힙 덤프 등을 쉽게 조회
+
+의존성(Gradle)
+ implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+엔드포인트
+ - 디폴트값
+   : /actuator 
+     localhost:8080/actuator
+   : /health, /info
+     localhost:8080/actuator/health
+
+ - 경로 변경(application.yml)
+   management:
+     endpoints:
+       web:
+         base-path: /a
+
+ - 디폴트값을 제외한 다른 엔드포인트는 비활성화 되어있음 (보안처리 필요함)
+ - 활성화/비활성화
+   management:
+     endpoints:
+       web:
+         exposure:
+           # 모든 엔드포인트 포함(활성화)
+           include: "*" 
+           # 특정 엔드포인트 포함
+           include: health,info,metrics
+           # 특정 엔드포인트 제외(비활성화)
+           exclude: threaddump, heapdump
+
+ - 보안
+   management:
+     endpoint:
+       shutdown:
+         enabled: true  # Enable shutdown endpoint
+     endpoints:
+       web:
+         exposure:
+           include: health,info,shutdown  # Expose only specific endpoints
+     health:
+       livenessstate:
+         enabled: true
+       readinessstate:
+         enabled: true
