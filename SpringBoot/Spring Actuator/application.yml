@@ -1,0 +1,19 @@
+management:
+ endpoint:
+   # shutdown 엔드포인트 활성화(HTTP POST 요청으로 Spring Boot 애플리케이션을 정상적으로 종료할 수 있음)
+   shutdown:
+     enabled: true  
+ endpoints:
+   web:
+     exposure:
+       # 웹을 통해 노출되는 엔드포인트 설정
+       include: health,info,shutdown
+       exclude: threaddump
+info:
+  app:
+    name: 어플리케이션 이름
+    description: 설명
+    version: 1.0.0
+  developer:
+    name: 이름
+    email: name@example.com
