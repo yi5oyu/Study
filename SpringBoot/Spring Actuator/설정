@@ -30,18 +30,3 @@ Spring Boot 애플리케이션의 모니터링/관리 기능 제공
            include: health,info,metrics
            # 특정 엔드포인트 제외(비활성화)
            exclude: threaddump, heapdump
-
- - 보안
-   management:
-     endpoint:
-       shutdown:
-         enabled: true  # Enable shutdown endpoint
-     endpoints:
-       web:
-         exposure:
-           include: health,info,shutdown  # Expose only specific endpoints
-     health:
-       livenessstate:
-         enabled: true
-       readinessstate:
-         enabled: true
