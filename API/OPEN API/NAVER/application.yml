@@ -1,0 +1,4 @@
+naver:
+  client:
+    id: Client_ID
+    secret: Client_Sercet
