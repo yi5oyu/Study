@@ -1,7 +1,16 @@
 // https://developers.naver.com/docs/serviceapi/search/blog/blog.md#java
 // local.json
 
-@GetMapping(value = "/search", produces = "application/json; charset=UTF-8")
+@RestController
+@RequestMapping("/api/search")
+public class NaverSearchController {
+    @Value("${naver.client.id}")
+    private String clientId;
+
+    @Value("${naver.client.secret}")
+    private String clientSecret;
+
+    @GetMapping(value = "/search", produces = "application/json; charset=UTF-8")
     public ResponseEntity<String> naverSearchList() {
 
         URI uri = UriComponentsBuilder
@@ -28,3 +37,5 @@
 
         return ResponseEntity.ok(responseBody);
     }
+
+}
