@@ -1,4 +1,5 @@
 // https://developers.naver.com/docs/serviceapi/search/blog/blog.md#java
+// local.json
 
 @GetMapping(value = "/search", produces = "application/json; charset=UTF-8")
     public ResponseEntity<String> naverSearchList() {
