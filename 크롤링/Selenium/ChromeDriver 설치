@@ -1,0 +1,11 @@
+https://googlechromelabs.github.io/chrome-for-testing/
+
+https://storage.googleapis.com/chrome-for-testing-public/129.0.6668.70/win64/chrome-headless-shell-win64.zip
+
+--------------------
+
+chrome: 크롬 브라우저
+
+chromedriver: 셀레니움 테스트를 위한 도구 (GUI 있음, 헤더리스 모드 사용가능)
+
+chrome-headless-shell: 헤드리스 모드에서 실행
