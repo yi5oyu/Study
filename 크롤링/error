@@ -1,0 +1,7 @@
+// WebDriverManager를 사용할 때 발생하는 문제점
+// WebDriverManager이 지원하는 크롬버전 118과 현제 사용하는 129버전 불일치
+NoSuchElementException: No value present
+  at java.base/java.util.Optional.get(Optional.java:143) ~[na:na]
+	at io.github.bonigarcia.wdm.WebDriverManager.<init>(WebDriverManager.java:225) ~[webdrivermanager-5.5.1.jar:na]
+	at io.github.bonigarcia.wdm.managers.ChromeDriverManager.<init>(ChromeDriverManager.java:51) ~[webdrivermanager-5.5.1.jar:na]
+	at io.github.bonigarcia.wdm.WebDriverManager.chromedriver(WebDriverManager.java:236) ~[webdrivermanager-5.5.1.jar:na]
