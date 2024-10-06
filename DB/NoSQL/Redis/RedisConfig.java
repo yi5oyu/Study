@@ -1,6 +1,15 @@
 @Configuration
 public class RedisConfig {
 
+    // @Value("${spring.redis.host}")
+    // private String redisHost;
+    
+    // @Value("${spring.redis.port}")
+    // private String redisPort;
+    
+    // @Value("${spring.redis.password}")
+    // private String redisPassword;
+    
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
     // RedisTemplate: Redis에 데이터를 저장하고 읽기 위한 클래스 (Redis 명령을 실행할 수 있는 메서드 제공)
