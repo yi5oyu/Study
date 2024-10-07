@@ -1,3 +1,3 @@
 kakao:
   api:
-    key: 카카오 API키
+    key: ${Kakao_API}
