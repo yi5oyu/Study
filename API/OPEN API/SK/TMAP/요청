@@ -1,0 +1,5 @@
+보행자 경로
+https://openapi.sk.com/products/detail?svcSeq=4&menuSeq=45
+
+POST https://apis.openapi.sk.com/tmap/routes/pedestrian
+필수 파라미터: startX startY endX endY startName endName
