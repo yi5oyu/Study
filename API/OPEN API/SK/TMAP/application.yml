@@ -1,0 +1,3 @@
+skopenapi:
+  api:
+    key: ${SK_KEY}
