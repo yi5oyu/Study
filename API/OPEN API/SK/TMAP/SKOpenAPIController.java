@@ -1,3 +1,5 @@
+// https://tmap-public-skopenapi.readme.io/reference/
+
 @RestController
 public class SKOpenAPIController {
 
@@ -32,3 +34,22 @@ public class SKOpenAPIController {
         return ResponseEntity.ok(responseEntity.getBody());
     }
 }
+
+// HttpRequest
+
+public ResponseEntity<String> getTransit() throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://apis.openapi.sk.com/transit/routes/sub"))
+                .header("accept", "application/json")
+                .header("appKey", apiKey)
+                .header("content-type", "application/json")
+                .method("POST", HttpRequest.BodyPublishers.ofString(
+                        "{\"startX\":\"126.926493082645\"," +
+                                "\"startY\":\"37.6134436427887\"," +
+                                "\"endX\":\"127.126936754911\"," +
+                                "\"endY\":\"37.5004198786564\"}"))
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
+        return ResponseEntity.ok(response.body());
+    }
