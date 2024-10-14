@@ -31,7 +31,8 @@ public class LlamaAPIService {
               "temperature": 0
             }
             """;
-            //, "what your name?"  %s
+            // system: 모델이 어떻게 응답해야 하는지에 대한 지침 제공
+            // user: 질문 / 요청
 
         // Request를 엔티티로 묶음
         HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
