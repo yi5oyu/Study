@@ -1,0 +1,7 @@
+https://yamoo9.github.io/axios/
+
+https://axios-http.com/kr/
+
+axios instance
+ - Axios는 브라우저, Node.js를 위한 Promise API를 활용하는 HTTP 비동기 통신 라이브러리
+ - 반복되는 코드를 인스턴스화(가독성과 재사용성)
