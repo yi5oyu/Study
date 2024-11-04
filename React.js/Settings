@@ -1,22 +1,35 @@
+https://nodejs.org 설치
 node.js: npm을 활용한 모듈 다운
+ * LTS(Long Term Support): 안정적이고 검증된 장기간 유지보수가 약속된 버전
 
-spring boot, intellj
+spring boot, intellj, VScode
 
 spring project 생성
-터미널
- - main 폴더 이동
-   cd src/main
- - 리액트 프로젝트 생성
-   npx create-react-app 폴더명
- - 브라우저 열기
-   cs 폴더명
-   npm start
+ 터미널
+  - main 폴더 이동
+    cd src/main
+  - 리액트 프로젝트 생성
+    npx create-react-app 폴더명
+  - 브라우저 열기
+    cs 폴더명
+    npm start
 
 포트 변경
  - package.json 파일 script 위에 생성
    "proxy" : "http://localhost:8080",
 
-VSCode 연동
+VSCode
+ 터미널
+  - new Terminal > 
+  - 버전 확인 node --version
+ 플러그인
+  - Material Icon Theme
+  - One Dark Pro
+
  폴더 열기
   - 생성한 리액트 프로젝트 폴더 열기
+
  브라우저 열기 : npm start
+
+확장 프로그램(크롬, 엣지)
+ - React Developer Tools
