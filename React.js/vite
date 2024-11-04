@@ -1,4 +1,13 @@
-npm rub dev
- localhost:5173
- h + enter: 실행할 수 있는 명령어 보기
- o + enter: 브라우저 열기
+npm run dev
+ - localhost:5173
+ - h + enter: 실행할 수 있는 명령어 보기
+ - o + enter: 브라우저 열기
+ - q + enter: 종료
+
+npm run build
+ - dist(distribution) 폴더 생성
+ - HTML, CSS, JS 만들어짐
+
+npm run preview
+ - 빌드된 배포 프로젝트 실행
+ - localhost:4173
