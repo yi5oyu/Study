@@ -5,6 +5,7 @@ package.json
  - 프로젝트 설정 파일
  - dependencies: 어플리케이션 실행시 사용되는 라이브러리
  - devDependencies: 개발과정(테스트, 빌드)에서 사용되는 라이브러리
+ - scirpts: 명령어
 
 vite.config.js
  - Vite 설정 파일
