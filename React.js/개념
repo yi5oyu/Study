@@ -17,3 +17,6 @@ JSX (JavaScript XML)
 
 생명주기 메서드
  - 생성, 업데이트, 소멸 등의 과정에서 특정 메서드를 실행
+
+JSX > node.js > js > 브라우저
+ - JSX코드를 node.js가 js로 컴파일하면 브라우저가 이해할 수 있음
