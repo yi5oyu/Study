@@ -11,3 +11,6 @@ npm run build
 npm run preview
  - 빌드된 배포 프로젝트 실행
  - localhost:4173
+
+public
+ - favicon, 전역 설정 파일등 정적파일 넣음
