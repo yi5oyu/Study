@@ -1,0 +1,4 @@
+npm rub dev
+ localhost:5173
+ h + enter: 실행할 수 있는 명령어 보기
+ o + enter: 브라우저 열기
