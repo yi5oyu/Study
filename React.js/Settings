@@ -2,7 +2,7 @@ https://nodejs.org 설치
 node.js: npm을 활용한 모듈 다운
  * LTS(Long Term Support): 안정적이고 검증된 장기간 유지보수가 약속된 버전
 
-spring boot, intellj, VScode
+Intellj, VScode
 
 spring project 생성
  터미널
@@ -14,13 +14,14 @@ spring project 생성
     cs 폴더명
     npm start
 
-포트 변경
- - package.json 파일 script 위에 생성
-   "proxy" : "http://localhost:8080",
+ 포트 변경(BE와 연결)
+  - package.json 파일 script 위에 생성
+    "proxy" : "http://localhost:8080",
 
 VSCode
  터미널
-  - new Terminal > 
+  - 프로젝트 생성(vite)
+   = new Terminal > npm create vite@latest > 프로젝트명 > react > JavaScript > cd 프로젝트명(생성한 프로젝트로 이동)
   - 버전 확인 node --version
  플러그인
   - Material Icon Theme
