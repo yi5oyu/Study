@@ -22,6 +22,8 @@ VSCode
  터미널
   - 프로젝트 생성(vite)
    = new Terminal > npm create vite@latest > 프로젝트명 > react > JavaScript > cd 프로젝트명(생성한 프로젝트로 이동)
+  - 라이브러리 설치
+   = npm i (package.json에 적힌 라이브러리 목록 다운로드)
   - 버전 확인 node --version
  플러그인
   - Material Icon Theme
