@@ -1,0 +1,18 @@
+코드 스타일
+
+Settings(Ctrl + Alt + S)
+적용(Ctrl + Alt + L)
+
+Settings > Editor> Code Style > Java
+
+자동 코드 변환 (Save 할때)
+Settings > Tools > Actions on Save > Reformat code
+ - 예외 설정
+  Settings > Editor > Code Style > Formatter > Do not format 패턴 등록
+
+Google Java Style Guide
+ https://google.github.io/styleguide/javaguide.html
+ 다운로드: https://github.com/google/styleguide
+  - Intellj: https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml
+ Settings > Scheme > Import Scheme > IntelliJ IDEA code style scheme > intellij-java-google-style.xml
+ (Tab size, Indent: 4로 변경)
