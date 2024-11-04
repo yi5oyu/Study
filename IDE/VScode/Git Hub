@@ -1,0 +1,7 @@
+연동
+ - git clone
+  = 레포지토리 복제 > git 주소 입력 > clone 폴더 선택 > 
+
+커밋
+ - git commit
+  = 소스제어 > 스테이징(+) > 커밋메시지 > 커밋(V) (Ctrl+Enter)
