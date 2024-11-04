@@ -1,0 +1,8 @@
+eslint.config.js
+ - 자바스크립트 코딩으로 도와주는 도구(ESLint) 설정파일
+
+package.json
+ - 프로젝트 설정 파일
+
+vite.config.js
+ - Vite 설정 파일
