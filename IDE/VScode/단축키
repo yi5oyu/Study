@@ -1,0 +1,12 @@
+Ctrl + , : 설정
+Ctrl + ` : 터미널
+Ctrl + B : 탐색기
+Ctrl + L : 코드 블럭
+Ctrl + D : 같은 단어 선택
+Ctrl + K : 코드 정렬
+Ctrl + Alt + F : 자동 정렬
+Ctrl + X : 삭제
+Ctrl + Enter : 빈줄 생성
+Shift + Alt + (위,아래): 한줄 복사
+Alt + (위,아래) : 한줄 이동
+Ctrl + Shift + G : git
