@@ -1,7 +1,9 @@
 https://www.javaguides.net/2020/07/three-tier-three-layer-architecture-in-spring-mvc-web-application.html
 https://developer.mozilla.org/ko/docs/Glossary/MVC
 
-MVC 디자인 패턴
+웹 애플리케이션을 개발하기 위한 Java 기반의 프레임워크
+
+MVC(Model-View-Controller) 디자인 패턴
  - 소프트웨어의 비즈니스 로직과 화면을 구분
   M 모델: 데이터, 비즈니스 로직 관리
   V 뷰: 레이아웃, 화면을 처리
