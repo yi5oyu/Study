@@ -74,3 +74,5 @@ Repository: 데이터 접근 계층을 담당, 데이터베이스와 상호작�
 * DispatcherServlet
  - Spring MVC 애플리케이션의 모든 클라이언트 요청에 대한 단일 진입점 역할(전면 컨트롤러 역할)
  - 요청의 사전 및 사후 처리를 담당하고 이를 핸들러 또는 컨트롤러에 전달
+
+https://terasolunaorg.github.io/guideline/5.2.1.RELEASE/en/_images/RequestLifecycle.png
