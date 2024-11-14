@@ -1,3 +1,5 @@
+// 상속관계 Repository > CrudRepository > PagingAndSortingRepository > JpaRepository
+
 public interface JpaRepository<T, ID extends Serializable> extends PagingAndSortingRepository<T, ID> {
 
   // findAll() : 모든 엔티티를 조회 (파라미터: 정렬 or 페이징 조건)
@@ -46,4 +48,9 @@ public interface CrudRepository<T, ID extends Serializable> extends Repository<T
 	void delete(Iterable<? extends T> entities);
 
 	void deleteAll();
+}
+
+// 마커 인터페이스(메소드 선언없음)
+public interface Repository<T, ID> {
+	
 }
