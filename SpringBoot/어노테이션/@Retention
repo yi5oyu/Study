@@ -1,0 +1,19 @@
+https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/annotation/Retention.html
+
+어노테이션의 생명주기 지정
+
+@Retention(RetentionPolicy.RUNTIME)
+
+RetentionPolicy에 정의되 있는 Enum 상수(Constants)
+
+SOURCE
+ - 소스 코드가 컴파일된 후 컴파일러에 의해 삭제(.class 파일에는 포함되지 않음)
+ - 개발 중에만 관련된 어노테이션에 적합
+
+CLASS
+ - 컴파일러에 의해 클래스 파일에 기록되지만 런타임 시 JVM에 의해 유지되지 않음
+ - 런타임 실행 중에는 필요하지 않은 주석에 적합
+
+RUNTIME
+ - 클래스 파일에 기록되고 런타임 시 JVM에 의해 유지
+ - 종속성 주입, AOP 같은 런타임 중에 엑세스해야 할때 필요
