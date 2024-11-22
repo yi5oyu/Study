@@ -1,0 +1,17 @@
+@EqualsAndHashCode
+
+// 특정 필드 제외
+@EqualsAndHashCode(exclude = {"password"})
+public class User {
+    private Long id;
+    private String username;
+    private String password;
+}
+
+// 특정 필드만 포함 
+@EqualsAndHashCode(of = {"id", "username"})
+public class User {
+    private Long id;
+    private String username;
+    private String email;
+}
