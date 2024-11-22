@@ -8,7 +8,7 @@ public class Log4jExample {
         log.info("인포 메세지");
         log.warn("경고 메시지");
         log.error("에러 메시지");
-        log.fatal("Fatal message");
+        log.fatal("심각한 오류 메시지");
     }
 }
 
