@@ -1,6 +1,5 @@
-@Log4j
+Log4j(Apache Log4j 1.2.x 버전)
 
-// 
 @Log4j
 public class Log4jExample {
     public void logExample() {
@@ -12,3 +11,6 @@ public class Log4jExample {
         log.fatal("Fatal message");
     }
 }
+
+// 로그 이름 설정
+@Log4j(topic = "CustomLogger")
