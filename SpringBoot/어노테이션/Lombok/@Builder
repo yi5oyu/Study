@@ -1,0 +1,67 @@
+@Builder
+
+// 빌더 사용
+@Builder
+public class User {
+    private Long id;
+    private String name;
+    private String email;
+}
+
+// 빌더가 생성하는 코드
+public class User {
+    private Long id;
+    private String name;
+    private String email;
+
+    private User(Long id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public static UserBuilder builder() {
+        return new UserBuilder();
+    }
+
+    public static class UserBuilder {
+        private Long id;
+        private String name;
+        private String email;
+
+        public UserBuilder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public UserBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public UserBuilder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public User build() {
+            return new User(id, name, email);
+        }
+    }
+}
+
+// 생성자 사용
+User user = new User(1L, "John Doe", "john@example.com");
+
+// Setter 사용
+User user = new User();
+user.setId(1L);
+user.setName("John Doe");
+user.setEmail("john@example.com");
+
+// @Builder 사용
+User user = User.builder()
+                .id(1L)
+                .name("John Doe")
+                .email("john@example.com")
+                .build();
