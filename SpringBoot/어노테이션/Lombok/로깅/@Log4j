@@ -1,0 +1,14 @@
+@Log4j
+
+// 
+@Log4j
+public class Log4jExample {
+    public void logExample() {
+        log.trace("추적 메시지");
+        log.debug("디버그 메시지");
+        log.info("인포 메세지");
+        log.warn("경고 메시지");
+        log.error("에러 메시지");
+        log.fatal("Fatal message");
+    }
+}
