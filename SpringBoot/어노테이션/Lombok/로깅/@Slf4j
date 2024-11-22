@@ -1,0 +1,16 @@
+SLF4J(Simple Logging Facade for Java)
+ - log 변수를 통해 로깅
+
+@Slf4j
+public class Slf4jExample {
+    public void logExample() {
+        log.debug("디버그 메세지");
+        log.info("인포 메세지");
+        log.error("에러 메시지");
+        log.warn("경고 메시지");
+        log.trace("추적 메시지");
+    }
+}
+
+// 로그 이름 설정
+@Slf4j(topic = "CustomLogger")
