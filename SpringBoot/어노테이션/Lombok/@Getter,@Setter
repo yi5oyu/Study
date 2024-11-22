@@ -1,0 +1,23 @@
+@Getter / @Setter
+
+
+// 모든 필드 Getter, Setter 생성
+@Getter
+@Setter
+public class User {
+    private Long id;
+    private String username;
+    private String email;
+}
+
+------------------------------------
+
+public class User {
+    // Getter만 생성
+    @Getter 
+    private String username;
+
+    // Setter만 생성
+    @Setter 
+    private String email;
+}
