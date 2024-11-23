@@ -1,4 +1,6 @@
 @Builder
+ - 빌더 패턴을 사용해 객체 생성할 수 있음(빌더 디자인 패턴을 구현)
+ - 객체를 생성할 때 가독성이 높아지고 불필요한 생성자 오버로딩 피할 수 있음
 
 // 빌더 사용
 @Builder
@@ -59,7 +61,7 @@ user.setId(1L);
 user.setName("John Doe");
 user.setEmail("john@example.com");
 
-// @Builder 사용
+// @Builder 사용(객체 생성)
 User user = User.builder()
                 .id(1L)
                 .name("John Doe")
