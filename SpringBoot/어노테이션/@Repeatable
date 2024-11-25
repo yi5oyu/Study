@@ -1,4 +1,5 @@
 동일한 선언에 어노테이션을 두 번 이상 적용할 수 있음
+반복 가능한 어노테이션을 만들 수 있음
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
