@@ -1,0 +1,47 @@
+컴포넌트 클래스들을 자동으로 감지, 빈 등록
+특정 패키지와 그 하위 패키지를 스캔 대상으로 지정
+애플리케이션 시작 시 한 번만 스캔하여 빈을 등록함으로써 성능을 최적화함
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE})
+@Documented
+@Repeatable(ComponentScans.class)
+public @interface ComponentScan {
+    @AliasFor("basePackages")
+    String[] value() default {};
+
+    @AliasFor("value")
+    String[] basePackages() default {};
+
+    Class<?>[] basePackageClasses() default {};
+
+    Class<? extends BeanNameGenerator> nameGenerator() default BeanNameGenerator.class;
+
+    Class<? extends ScopeMetadataResolver> scopeResolver() default AnnotationScopeMetadataResolver.class;
+
+    ScopedProxyMode scopedProxy() default ScopedProxyMode.DEFAULT;
+
+    String resourcePattern() default "**/*.class";
+
+    boolean useDefaultFilters() default true;
+
+    Filter[] includeFilters() default {};
+
+    Filter[] excludeFilters() default {};
+
+    boolean lazyInit() default false;
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target({})
+    public @interface Filter {
+        FilterType type() default FilterType.ANNOTATION;
+
+        @AliasFor("classes")
+        Class<?>[] value() default {};
+
+        @AliasFor("value")
+        Class<?>[] classes() default {};
+
+        String[] pattern() default {};
+    }
+}
