@@ -1,0 +1,9 @@
+JSON이나 XML 형식의 데이터를 클라이언트에게 반환할 때 사용
+데이터 중심의 응답을 제공, RESTful API 구현 시 사용
+
+
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface ResponseBody {
+}
