@@ -1,0 +1,8 @@
+동일한 선언에 어노테이션을 두 번 이상 적용할 수 있음
+
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.ANNOTATION_TYPE)
+public @interface Repeatable {
+    Class<? extends Annotation> value();
+}
