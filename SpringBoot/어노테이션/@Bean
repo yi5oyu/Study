@@ -1,0 +1,19 @@
+메소드가 반환하는 객체를 스프링 컨테이너가 빈으로 등록
+
+
+@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Bean {
+    @AliasFor("name")
+    String[] value() default {};
+
+    @AliasFor("value")
+    String[] name() default {};
+
+    boolean autowireCandidate() default true;
+
+    String initMethod() default "";
+
+    String destroyMethod() default "(inferred)";
+}
