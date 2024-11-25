@@ -1,0 +1,8 @@
+자동으로 상속되도록 지정
+
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.ANNOTATION_TYPE)
+public @interface Inherited {
+
+}
