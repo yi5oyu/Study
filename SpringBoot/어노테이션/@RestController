@@ -1,0 +1,15 @@
+Controller와 ResponseBody가 결합된 형태
+RESTful 웹 서비스 생성 단순화함
+JSON 또는 XML 형식의 데이터를 직접 제공
+
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Controller
+@ResponseBody
+public @interface RestController {
+    @AliasFor(
+        annotation = Controller.class
+    )
+    String value() default "";
+}
