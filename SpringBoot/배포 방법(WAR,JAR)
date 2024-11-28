@@ -1,0 +1,27 @@
+WAR(Web Application Archive)
+ - WS(Web Server) or WAS(Web Application Server)에서 실행
+ - 웹 애플리케이션에 필요한 파일(JSP, Servlet, JAR, Class, XML, HTML, Javascript), 구조(WEB-INF, META-INF) 포함
+  : 폴더 구조(정해진 구조)
+   = WEB-INF: 설정/라이브러리 폴더
+    - web.xml: application 설정 파일
+    - classes: 컴파일된 클래스 파일
+    - lib: 의존성 JAR파일
+   = META-INF: 메타데이터 정보
+
+JAR(Java Archive)
+ - 독립 실행형 어플리케이션 or 라이브러리로 사용
+ - JRE(JAVA Runtime Environment)만 있어도 실행(모든 JVM 환경에서 실행 가능)
+ - Java 클래스 및 리소스를 압축한 파일
+  : 폴더 구조(특정 구조가 요구되진 않음)
+   = BOOT-INF
+    - classes: 컴파일된 클래스 파일
+    - lib: 의존성 JAR파일
+   = META-INF: 메타데이터 정보
+    - MANIFEST.MF: main-class 정보 포함
+
+jar 파일 생성
+ 터미널 명령 ./gradlew bootJar
+ build/libs/ 위치에 jar 파일 생성
+
+jar 실행
+ java -jar 프로젝트이름.jar
