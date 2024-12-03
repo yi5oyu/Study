@@ -1,8 +1,29 @@
-API
+REST (Representational State Transfer)
+ - 주고 받는 자원에 이름을 정하고 URI에 명시해 HTTP 메서드(GET, POST, PUT, DELETE)를 통해 해당 자원의 상태를 주고받는 것
+API (Application Programming Interface)
+ - 애플리케이션에서 제공하는 인터페이스. API를 통해 서버 or 프로그램 사이를 연결할 수 있음
  - 다양한 소프트웨어 애플리케이션이 서로 통신할 수 있도록 하는 일련의 규칙 및 프로토콜
+RESTful
+ - REST(Representational State Transfer) 아키텍처 스타일을 따르는 API
+
+REST 특징
+ 유니폼 인터페이스
+  일관된 인터페이스 
+  REST 서버는 HTTP 표준 전송 규약을 따르기 때문에 언어와 플랫폼, 기술에 종속되지 않고 호환해 사용할 수 있음
+ 무상태성
+  서버에 상태 정보를 따로 보관하거나 관리하지 않음. 요청을 개별적으로 처리
+  비즈니스 로직의 자유도가 높고 설계가 단순함
+ 캐시 가능성
+  HTTP 캐싱 기능을 적용할 수 있음. 응답과 요청 모두 캐싱 가능한지 명시해야 기능 사용 가능
+  서버의 트랜잭션 부하가 줄어 효율적이며 사용자 입장에서 성능 개선
+  (클라이언트에서 캐시에 저장해두고 같은 요청에 대해 해당 데이터를 사용)
+ 레이어 시스템
+  서버의 복잡도와 관계없이 클라이언트는 서버와 연결되는 포인트만 알면 됨
+ 클라이언트-서버 아키텍처
+  구조 분리 설계. REST 서버는 API 제공, 클라이언트는 사용자 정보 관리
+  서로에 대한 의존성 낮춤
 
 REST API
- - REST(Representational State Transfer) 아키텍처 스타일을 따르는 API
  - REST 아키텍처
   1. 클라이언트-서버 아키텍처
    : 클라이언트(UI/UX)와 서버(데이터, 로직, 리소스 등...)를 분리
@@ -58,6 +79,15 @@ RESTful API
   : OPTIONS 통신 옵션 확인(메소드, 헤더 등...)
  - 데이터 형식
   : JSON(JavaScript Object Notation)/XML(eXtensible Markup Language)
+
+URI 설계 규칙
+ URI 마지막에 ( / ) 포함하지 않음
+ 언더바( _ ) 사용하지 않고 하이픈 ( - ) 사용
+ 행위(동사)가 아닌 결과(명사)를 포함
+  - 행위는 HTTP 메서드로 표현. (ex. delete-product x -> product)
+ 소문자로 작성
+ 파일의 확장자 URI에 포함하지 않음
+  - HTTP에서 제공하는 Accpet 헤더 사용
 
 REST API 설계
  - 명명 규칙
