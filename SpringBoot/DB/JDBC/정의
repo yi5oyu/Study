@@ -1,0 +1,5 @@
+JDBC(Java Database Connectivity)
+ - Java에서 데이터베이스에 접근하기 위한 기본적인 자바 API
+
+JdbcTemplate
+ - JDBC 작업을 더 간단히 처리하기 위한 도구
