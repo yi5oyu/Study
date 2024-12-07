@@ -4,4 +4,20 @@
 
 연결
  - 데이터베이스 URL, 사용자 이름, 비밀번호 등의 연결 정보 사용해 DB 연결
- - 
+ - Connection 객체 생성
+  = Connection connection = DriverManager.getConnection(url, name, pw);
+
+쿼리
+ - SQL 명령 DB로 보냄
+ - Statement 객체 생성
+  = Statement statement = connection.createStatement();
+ - 쿼리 실행
+  = ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+ - 쿼리 결과
+  = resultSet 객체에 저장됨
+  = resultSet.getInt("id");, resultSet.getString("name");
+
+Close
+ - DB 결과 완료후 Close(리소스 닫아 메모리 확보)
+ - 역순으로 닫음(ResultSet, Statement, Connection)
+ - resultSet.close();, statement.close();, connection.close();
