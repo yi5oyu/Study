@@ -1,5 +1,14 @@
 JDBC(Java Database Connectivity)
  - Java에서 데이터베이스에 접근하기 위한 기본적인 자바 API
+ - java.sql 패키지
+  : java.sql.Connection 연결
+   = DB와 연결 생성/세션 관리
+   = DriverManager.getConnection(url, username, password)
+  : java.sql.Statement SQL 실행
+   = DB에 SQL 전달/실행
+   = execute(), executeQuery(), executeUpdate() ...
+  : java.sql.ResultSet SQL 결과 처리
+   = DB에서 반환된 결과를 한 줄씩 읽어서 처리
 
 JdbcTemplate
  - JDBC 작업을 더 간단히 처리하기 위한 도구
