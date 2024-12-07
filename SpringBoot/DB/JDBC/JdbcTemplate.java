@@ -20,6 +20,7 @@ spring:
 @Repository
 public class UserRepository {
     /*
+    생성자 주입
     private final JdbcTemplate jdbcTemplate;
 
     public UserRepository(JdbcTemplate jdbcTemplate) {
