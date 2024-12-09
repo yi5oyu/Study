@@ -1,5 +1,8 @@
 <!--  
 src/main/resources/mapper/UserMapper.xml
+
+mapper 태그의 namespace와 mapper 인터페이스 매핑
+id와 mapper 인터페이스 필드명 매핑
 -->
 
 <?xml version="1.0" encoding="UTF-8" ?>
