@@ -1,0 +1,17 @@
+@Service
+public class UserService {
+    
+    private final UserMapper userMapper;
+
+    public UserService(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
+
+    public List<User> getAllUsers() {
+        return userMapper.findAll();
+    }
+
+    public void addUser(User user) {
+        userMapper.insert(user);
+    }
+}
