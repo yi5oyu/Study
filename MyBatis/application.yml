@@ -1,0 +1,3 @@
+mybatis:
+  type-aliases-package: com.example.springboottest.entity
+  mapper-locations: classpath:mapper/*.xml
