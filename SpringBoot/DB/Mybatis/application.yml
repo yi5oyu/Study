@@ -1,7 +1,0 @@
-spring:
-  mybatis:
-    # 패키지 경로 지정
-    # 지정된 패키지, 하위 패키지에 있는 클래스들을 자동으로 alias(별칭)으로 등록 
-    type-aliases-package: com.example.demo.entity
-    # xml 있는 위치 지정
-    mapper-locations: classpath:mapper/*.xml
