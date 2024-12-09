@@ -1,0 +1,13 @@
+Mapper 패키지 / UserMapper 인터페이스
+
+@Mapper
+public interface UserMapper {
+    // xml
+    List<User> findAll();
+    User findById(Long id);
+    void insertUser(User user);
+    void updateUser(User user);
+    void deleteUser(Long id);
+
+    // @(어노테이션)
+}
