@@ -1,0 +1,10 @@
+Mapper 패키지 / UserMapper 인터페이스
+
+@Mapper
+public interface UserMapper {
+
+    @Select("SELECT * FROM users")
+    List<User> findAll();
+
+    void insert(User user);
+}
