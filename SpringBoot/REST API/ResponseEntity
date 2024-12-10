@@ -1,0 +1,28 @@
+HTTP 응답 처리에 사용
+ - HTTP 상태 코드, 헤더, 본문
+
+public class ResponseEntity<T> extends HttpEntity<T>
+ - HttpEntity 클래스를 상속, 데이터 타입 지정 가능
+
+// 특정 HTTP 상태 코드 전송(HttpStatus.OK, HttpStatus.CREATED, HttpStatus.NOT_FOUND ...)
+@GetMapping("/status")
+public ResponseEntity<String> userStatus() {
+    return new ResponseEntity<>("성공", HttpStatus.OK);
+}
+
+// 빌더 패턴 사용
+@GetMapping("/builder")
+public ResponseEntity<String> userResponse() {
+    return ResponseEntity
+            .status(HttpStatus.CREATED)
+            // 사용자 정의 헤더 설정
+            .header("Custom-Header", "사용자 정의 헤더")
+            .body("응답 생성");
+}
+
+// JSON 응답 반환
+@GetMapping("/user")
+public ResponseEntity<User> getUser() {
+    User user = new User(1, "lee");
+    return ResponseEntity.ok(user);
+}
