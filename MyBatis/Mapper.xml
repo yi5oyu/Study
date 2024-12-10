@@ -37,4 +37,34 @@ id와 mapper 인터페이스 필드명 매핑
   <delete id="deleteUser">
     DELETE FROM users WHERE id = #{id}
   </delete>
+
+  <!-- 동적 쿼리 -->
+  <!-- xml에서 안전한 특수문자 사용 <![CDATA[]]> -->
+  <select id="searchUsers" resultType="User" parameterType="hashmap">
+    SELECT * FROM users
+    <!-- 조건문  -->
+    <where>
+        <if test="name != null and name != ''">
+            name LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="id != null">
+            AND id <![CDATA[ <= ]]> #{id}
+        </if>
+        <if test="email != null and email != ''">
+            email LIKE CONCAT('%', #{email}, '%')
+        </if>
+    </where>
+    <!-- 스위치문 -->
+    <choose>
+        <when test="order == 0">
+            ORDER BY <![CDATA[ id DESC ]]>
+        </when>
+        <when test="order == 1">
+            ORDER BY <![CDATA[ email ASC ]]>
+        </when>
+        <otherwise>
+            ORDER BY name ASC
+        </otherwise>
+    </choose>
+  </select>
 </mapper>
