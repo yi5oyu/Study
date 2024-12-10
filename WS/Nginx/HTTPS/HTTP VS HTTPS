@@ -9,6 +9,7 @@
 SEO
  HTTPS: 검색 결과 순위에서 우선시될 수 있음
 
-SSL/TLS 인증서 발급 (Let's Encrypt)
-웹서버 인증서 설치
-HTTP요청을 HTTPS로 리다이렉션
+HTTPS 구현
+ 1. SSL/TLS 인증서 발급 (Let's Encrypt)
+ 2. 웹서버 인증서 설치
+ 3. HTTP요청을 HTTPS로 리다이렉션
