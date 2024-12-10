@@ -1,0 +1,21 @@
+HttpStatus 상태 코드
+100: HttpStatus.CONTINUE	
+ - 요청 계속 진행해도 됨
+200: HttpStatus.OK 
+ - 요청 성공
+201: HttpStatus.CREATED
+ - 리소스 생성됨
+204: HttpStatus.NO_CONTENT	
+ - 콘텐츠 없음
+301: HttpStatus.MOVED_PERMANENTLY
+- 영구적으로 이동함
+400: HttpStatus.BAD_REQUEST	
+- 잘못된 요청
+401: HttpStatus.UNAUTHORIZED	
+- 인증 필요
+403: HttpStatus.FORBIDDEN	
+- 접근 금지
+404: HttpStatus.NOT_FOUND	
+- 리소스 찾을 수 없음
+500: HttpStatus.INTERNAL_SERVER_ERROR	
+- 서버 내부 오류
