@@ -6,6 +6,7 @@ Swagger
  API 문서 자동생성
  1. 의존성 추가
   - implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+
  2. 추가 설정
   SwaggerConfig 클래스
    @Configuration
@@ -20,12 +21,3 @@ Swagger
                            .version("v1.0.0"));
        }
    }
-  3. API 문서화
-    Controller 클래스/메서드 Swagger 어노테이션 추가
-
-    @ApiOperation
-     대상 API의 설명을 작성
-    @ApiParam
-     매개변수에 대한 설명 / 설정, DTO 클래스 내의 매개변수에도 정의 가능
-
- 직접 통신해 URI 확인과 결과값 받을 수 있음. Talend API Tester가 아닌 Swagger를 통해 테스트 가능
