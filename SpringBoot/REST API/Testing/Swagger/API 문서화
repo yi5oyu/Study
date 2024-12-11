@@ -96,7 +96,7 @@ public class User {
  - 엔드포인트 분류, 설명
  - name: 태그 이름, description: 설명
 
-@Tag(name = "User", description = "users 관리")
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
