@@ -1,0 +1,17 @@
+API의 실제 동작을 기반으로 문서 생성
+테스트 코드에서 RESTful 엔드포인트를 테스트, 테스트 실행 결과를 바탕으로 API 문서 자동 생성
+
+MockMvc을 통해 API 테스트
+
+testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+plugins {
+    id 'org.asciidoctor.jvm.convert' version "3.3.2"
+}
+
+asciidoctor {
+    attributes(
+        "snippets": file("build/generated-snippets"),
+        "output-format": "markdown"
+    )
+}
