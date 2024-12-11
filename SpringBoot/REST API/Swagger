@@ -1,35 +1,28 @@
+API 문서 자동화, API 테스트 인터페이스를 제공
 API가 어떤 로직을 수행하는지 설명, 어떤 값을 요청하는지 응답값으로 무엇을 받을 수 있는지 정리한 자료
 
 Swagger
- http://localhost:8080/swagger-ui.html -> 페이지 출력
+ http://localhost:8080/swagger-ui.html
+ API 문서 자동생성
  1. 의존성 추가
- 2. 설정 코드 작성
-  main.java 폴더에 있는 패키지명 하단에 config 패키지 생성후 SwaggerConfiguration.java 파일
-    ---
-    @Configuration
-    @EnableSwagger2
-    public class SwaggerConfig {
-        @Bean
-        public Docket api() {
-            return new Docket(DocumentationType.SWAGGER_2)
-                    .select()
-                    .apis(RequestHandlerSelectors.basePackage("main.java 폴더에 있는 패키지명")) 
-                      // Swagger에서 스캔할 패키지 범위 설정. 하위 패키지, 클래스를 모두 스캔해서 문서 생성
-                    .paths(PathSelectors.any())
-                    .build()
-                    .apiInfo(apiInfo());
-        }
-    
-        private ApiInfo apiInfo() {
-            return new ApiInfoBuilder()
-                    .title("API 타이틀")
-                    .description("설명 부분")
-                    .version("1.0.0")
-                    .build();
-        }
-    }
-    ---
-    Controller에서 작성한 메서드에 어노테이션 추가
+  - implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+ 2. 추가 설정
+  SwaggerConfig 클래스
+   @Configuration
+   public class SwaggerConfig {
+   
+       @Bean
+       public OpenAPI openAPI() {
+           return new OpenAPI()
+                   .info(new Info()
+                           .title("API 문서")
+                           .description("API 명세서")
+                           .version("v1.0.0"));
+       }
+   }
+  3. API 문서화
+    Controller 클래스/메서드 Swagger 어노테이션 추가
+
     @ApiOperation
      대상 API의 설명을 작성
     @ApiParam
