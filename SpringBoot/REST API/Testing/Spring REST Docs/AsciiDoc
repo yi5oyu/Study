@@ -1,0 +1,87 @@
+https://asciidoc.org/#try
+
+AsciiDoc
+ - 경량 마크업 언어
+ - .adoc 파일 작성
+
+문서 헤더
+ - 문서에 대한 메타데이터(작성자, 날짜 등...)
+
+섹션/하위 섹션
+ - = 기호 사용
+
+ = 제목
+ == 섹션
+ === 하위 섹션
+
+단락
+ - 빈 줄으로 단락 구분
+ 
+ 내용 작성
+
+ 내용 작성
+
+목록
+ - *, ., ::
+ - 기호뒤 띄어쓰기해야함
+ 
+ * 1
+ * 2
+ 내용:: 부가설명
+
+코드 표현
+ - [source] 블록 사용(source 생략 가능)
+ - ----에 내용을 넣음
+
+ [source,java]
+ ----
+ public static void main(String[] args) {
+     System.out.println("Hello World!");
+ }
+ ----
+
+테이블
+  |===
+  |1 |2 |3
+  
+  |1 |2 |3
+  |1 |2 |3
+  |===
+
+링크
+ - 내/외부 링크
+
+ 공식문서: https://asciidoc.org[AsciiDoc].
+ 자세한 설명 <<section-id>>.
+
+이미지
+ - image::
+
+ image::path/to/image.png[Alt Text, width=300, height=200]
+
+파일
+ - include::
+
+ include::path/to/file.adoc[]
+
+텍스트
+ - 볼드: *볼드체*
+ - 기울임: _기울임체_
+ - 인라인: `인라인 코드`
+ - 색칠: #노랑색배경색#
+ - 취소선: [.line-through]#취소선#
+
+인용문
+ - ____ 사용
+
+ ____
+ 인용문
+ ____
+
+강조
+
+ NOTE: 노트
+
+ TIP: 팁
+
+ WARNING: 경고
