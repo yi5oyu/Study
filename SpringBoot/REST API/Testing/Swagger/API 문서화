@@ -1,0 +1,14 @@
+Controller 클래스/메서드 Swagger 어노테이션 추가
+
+@OpenAPIDefinition
+ - OpenAPI 메타데이터 정의(제목, 설명, 버전)
+@Operation
+@ApiResponse
+@ApiResponses
+@Parameter
+@RequestBody
+@Content
+@Schema
+@Tag
+@Server
+@Hidden
