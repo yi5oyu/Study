@@ -2,13 +2,112 @@ Controller 클래스/메서드 Swagger 어노테이션 추가
 
 @OpenAPIDefinition
  - OpenAPI 메타데이터 정의(제목, 설명, 버전)
-@Operation
-@ApiResponse
-@ApiResponses
-@Parameter
-@RequestBody
-@Content
-@Schema
-@Tag
+
 @Server
+ - API용 서버 지정
+ - @OpenAPIDefinition에서 자주 사용됨
+
+@OpenAPIDefinition(
+    info = @Info(
+        title = "User API",
+        version = "1.0",
+        description = "user API 문서"
+    ),
+    servers = {
+        @Server(url = "http://localhost:8080", description = "Local 서버"),
+        @Server(url = "https://example.com", description = "배포 서버")
+    }
+)
+@RestController
+public class UserController {
+    ...
+}
+
+@ApiResponses
+ - 여러 응답 정의
+
+@ApiResponse
+ - 단일 응답 정의
+
+@ApiResponses({
+    @ApiResponse(responseCode = "200", description = "응답 성공"),
+    @ApiResponse(responseCode = "404", description = "유저 찾을 수 없음")
+})
+public ResponseEntity<String> getUser() {
+    return ResponseEntity.ok("User 찾음");
+}
+
+@Parameter
+ - 매개변수 세부정보(쿼리, 경로, 헤더, 쿠키 등...) 정의
+
+@Operation(summary = "user 찾기")
+@GetMapping("/users/{id}")
+public ResponseEntity<String> getUser(
+    @Parameter(name = "id", description = "User ID", required = true, example = "1") 
+    @PathVariable String id) {
+    return ResponseEntity.ok("아이디: " + id);
+}
+
+@RequestBody
+ - POST or PUT 메서드와 사용되는 요청 body 설명
+
+@Operation(summary = "user 생성")
+@PostMapping
+public ResponseEntity<String> createUser(
+    @RequestBody(description = "User 정보", required = true, 
+                 content = @Content(mediaType = "application/json"))
+    @Valid User user) {
+    return ResponseEntity.ok("User 생성");
+}
+
+@Operation
+ - 엔드포인트 메타데이터 정의
+
+@Content
+ - 요청 or 응답 본문의 콘텐츠 구조 정의
+ - mediaType: application/json, application/xml...
+
+@Operation(summary = "ID로 user 찾기", description = "ID로 user 정보 가져옴")
+@ApiResponse(
+    responseCode = "200",
+    description = "user 찾기 성공",
+    content = @Content(
+        mediaType = "application/json",
+        schema = @Schema(implementation = User.class)
+    )
+)
+@GetMapping("/{id}")
+public User getUserById(@PathVariable Long id) {
+    return userService.getUserById(id);
+}
+
+@Schema
+ - API에 사용되는 모델(DTO, Entity) or 데이터 타입 스키마 설명
+
+@Schema(description = "User Entity")
+public class User {
+    @Schema(description = "ID", example = "1")
+    private String id;
+    @Schema(description = "name", example = "lee")
+    private String name;
+}
+
+@Tag
+ - 엔드포인트 분류, 설명
+ - name: 태그 이름, description: 설명
+
+@Tag(name = "User", description = "users 관리")
+@RestController
+@RequestMapping("/users")
+public class UserController {
+    ...
+}
+
 @Hidden
+ - 문서에서 API 숨김
+
+@Hidden
+public ResponseEntity<String> hiddenEndpoint() {
+    return ResponseEntity.ok("문서에서 안보이게 함");
+}
+
