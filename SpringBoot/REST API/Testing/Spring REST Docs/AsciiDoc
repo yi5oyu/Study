@@ -9,36 +9,32 @@ AsciiDoc
 
 섹션/하위 섹션
  - = 기호 사용
-
- = 제목
- == 섹션
- === 하위 섹션
+  = 제목
+  == 섹션
+  === 하위 섹션
 
 단락
- - 빈 줄으로 단락 구분
+ - 빈 줄으로 단락 구분 
+  내용 작성
  
- 내용 작성
-
- 내용 작성
+  내용 작성
 
 목록
  - *, ., ::
  - 기호뒤 띄어쓰기해야함
- 
- * 1
- * 2
- 내용:: 부가설명
+  * 1
+  * 2
+  내용:: 부가설명
 
 코드 표현
  - [source] 블록 사용(source 생략 가능)
  - ----에 내용을 넣음
-
- [source,java]
- ----
- public static void main(String[] args) {
-     System.out.println("Hello World!");
- }
- ----
+  [source,java]
+  ----
+  public static void main(String[] args) {
+      System.out.println("Hello World!");
+  }
+  ----
 
 테이블
   |===
@@ -50,19 +46,16 @@ AsciiDoc
 
 링크
  - 내/외부 링크
-
- 공식문서: https://asciidoc.org[AsciiDoc].
- 자세한 설명 <<section-id>>.
+  공식문서: https://asciidoc.org[AsciiDoc].
+  자세한 설명 <<section-id>>.
 
 이미지
  - image::
-
- image::path/to/image.png[Alt Text, width=300, height=200]
+  image::path/to/image.png[Alt Text, width=300, height=200]
 
 파일
  - include::
-
- include::path/to/file.adoc[]
+  include::path/to/file.adoc[]
 
 텍스트
  - 볼드: *볼드체*
@@ -73,15 +66,36 @@ AsciiDoc
 
 인용문
  - ____ 사용
-
- ____
- 인용문
- ____
+  ____
+  인용문
+  ____
 
 강조
-
  NOTE: 노트
-
  TIP: 팁
-
  WARNING: 경고
+
+문서 설정 옵션
+
+목차 생성
+ - 메타 데이터
+  = :author: [Author Name]
+ - 
+ - 문서 속성
+  = 목차 생성
+   - toc(Table of Contents)
+   ) :toc:
+   ) :toclevels:
+   ) :toc-placement:
+  = 섹션에 번호
+   ) :sectnums:
+
+
+
+
+
+
+
+
+
+
