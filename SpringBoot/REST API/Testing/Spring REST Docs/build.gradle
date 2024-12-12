@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.4.0'
 	id 'io.spring.dependency-management' version '1.1.6'
-  // asciidoctor 플러그인 추가
+  	// asciidoctor 플러그인 추가
 	id 'org.asciidoctor.jvm.convert' version '3.3.2'
 }
 
@@ -25,10 +25,11 @@ ext {
 
 // ext에 정의한 snippetsDir 사용
 asciidoctor {
-  attributes(
-			"snippets": snippetsDir,
-      // 생략 가능
-			"output-format": "html"
+	attributes(
+		"snippets": snippetsDir,
+      		// 생략 가능
+		// html or markdown
+		"output-format": "html"
 	)
   // 이전 문서 삭제
   doFirst {
