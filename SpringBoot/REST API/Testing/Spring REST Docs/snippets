@@ -1,0 +1,15 @@
+Spring REST Docs에서 API 문서화를 위해 생성되는 재사용 가능한 작은 정보 조각
+API의 요청과 응답에 대한 상세한 정보를 포함
+
+.andDo(document(...)) 메소드 사용, 테스트된 API 호출에 대한 스니펫 생성
+
+종류
+ - curl-request: API 호출을 위한 curl 명령어
+ - http-request: HTTP 요청 정보
+ - http-response: HTTP 응답 정보
+ - request-body: 요청 본문
+ - response-body: 응답 본문
+ - request-fields: 요청 필드 설명
+ - response-fields: 응답 필드 설명
+ - path-parameters: 경로 변수 설명
+ - request-parameters: 요청 파라미터 설명
