@@ -12,6 +12,8 @@ plugins {
 asciidoctor {
     attributes(
         "snippets": file("build/generated-snippets"),
-        "output-format": "markdown"
+        // 생략 가능
+        // html or markdown
+        "output-format": "html"
     )
 }
