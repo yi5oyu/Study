@@ -1,0 +1,78 @@
+HTTP 요청을 시뮬레이션, Spring MVC 컨트롤러 동작 테스트해 예상 응답을 반환하는지 확인
+
+@WebMvcTest(Controller.class)
+ - 컨트롤러 단위 테스트
+@SpringBootTest
+ - 애플리케이션 전체 통합 테스트(모든 빈(컨트롤러, 서비스, 리포지토리)을 로드)
+
+메소드
+ perform()
+  - 요청 보냄
+  - RequestBuilder 메서드
+   = get(), post(), put(), delete(), patch(), options()
+    - HTTP
+    ) mockMvc.perform(get("/api/endpoint"));
+   = header()
+    - 헤더 추가
+    ) perform().header("문자열 이름", "값");
+   = param()
+    - 매개변수 추가
+    ) perform().param("key", "value");
+   = content()
+    - 페이로드 추가(post, put, patch 요청)
+    ) perform().content("{\"key\": \"value\"}");
+   = contentType()
+    - 컨텐츠 타입
+    ) perform().contentType(MediaType.APPLICATION_JSON);
+   = accept()
+    - 클라이언트가 기대하는 응답 타입 설정
+    ) perform().accept(MediaType.APPLICATION_JSON);
+   = cookie()
+    - 쿠키
+    ) perform().cookie(new Cookie("SESSIONID", "12345"));
+   = with()
+    - Spring Security 테스트(인증된 사용자 테스트)
+    - with(SecurityMockMvcRequestPostProcessors.user(String username))
+    ) perform().with(user("이름").password("password").roles("USER"));
+
+ andExpect()
+  - 요청 결과(응답) 검증
+  - ResultMatchers 메서드
+   = .status()
+    * 상태 코드
+     200: .isOk()
+     201: .isCreated()
+     400: .isBadRequest()
+     401: .isUnauthorized()
+     404: .isNotFound()
+     500: .isInternalServerError()
+    ) .andExpect(status().isOk());
+   = .header()
+    - 헤더 확인
+    ) .andExpect(header().string("Content-Type", "application/json"));
+   = .content()
+    - Content-Type 
+    ) .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+    - 정확한 응답 확인
+    ) .andExpect(content().string("정확한 응답"));
+   = .jsonPath()
+    - JSON 값 검증
+    ) .andExpect(jsonPath("$.key").value("기대값"));
+   = .cookie()
+    - 쿠키 유효성 검사
+    ) .andExpect(cookie().value("SESSIONID", "12345"));
+   = .view()
+    - 뷰 이름 검증
+    ) .andExpect(view().name("home"));
+   = .model()
+    - 모델 속성 확인
+    ) .andExpect(model().attribute("key", value));
+
+ andDo()
+  - 테스트중 추가 작업 수행(로그 출력)
+  ) mockMvc.perform(get("/api/endpoint")).andDo(print());
+
+ andReturn()
+  - 테스트 실행 결과 반환
+  ) MvcResult result = mockMvc.perform(get("/api/resource")).andReturn();
+  ) String responseBody = result.getResponse().getContentAsString();
