@@ -79,9 +79,47 @@ HTTP 요청을 시뮬레이션, Spring MVC 컨트롤러 동작 테스트해 예�
      - 페이로드에 포함된 데이터 필드 문서화
      ) .andDo(document("이름",
            requestFields(
-              fieldWithPath("name").description("유저이름"),
-              fieldWithPath("email").description("이메일주소")
-           )));
+               fieldWithPath("id").description("ID"),
+               fieldWithPath("name").description("유저이름"),
+               fieldWithPath("email").description("이메일주소")
+           )
+       ));
+    = pathParameters()
+     - 엔드포인트 URL 경로 매개변수 문서화(/api/endpoint/{id})
+     ) .andDo(document("get-user",
+           pathParameters(
+               parameterWithName("id").description("ID")
+           )
+       ));
+    = queryParameters()
+     - 쿼리 매개변수 문서화
+     ) .andDo(document("search-users",
+           queryParameters(
+               parameterWithName("name").description("이름으로 찾기")
+           )
+       ));
+    = requestHeaders()
+     - 헤더 문서화
+     ) .andDo(document("response-headers",
+           requestHeaders(
+               headerWithName("Content-Type").description("응답 타입")
+           )
+       ));
+    = links()
+     - HATEOAS를 사용할 때 응답 하이퍼미디어 링크 문서화
+     ) .andDo(document("get-user-links",
+           links(
+               linkWithRel("self").description("유저 리소스 링크"),
+               linkWithRel("friends").description("유저 친구 링크")
+           )
+       ));
+    = requestPart()/responsePart()
+     - 멀티파트 파일 업로드/응답 문서화
+     ) .andDo(document("upload-file",
+           requestParts(
+               partWithName("file").description("업로드 파일")
+           )
+       ));
 
  andReturn()
   - 테스트 실행 결과 반환
