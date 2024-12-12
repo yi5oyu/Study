@@ -4,17 +4,16 @@ AsciiDoc
  - 경량 마크업 언어
  - .adoc 파일 작성
 
-문서 헤더
- - 문서에 대한 메타데이터(작성자, 날짜 등...)
-
 섹션/하위 섹션
  - = 기호 사용
+ )
   = 제목
   == 섹션
   === 하위 섹션
 
 단락
  - 빈 줄으로 단락 구분 
+ )
   내용 작성
  
   내용 작성
@@ -22,6 +21,7 @@ AsciiDoc
 목록
  - *, ., ::
  - 기호뒤 띄어쓰기해야함
+ )
   * 1
   * 2
   내용:: 부가설명
@@ -29,6 +29,7 @@ AsciiDoc
 코드 표현
  - [source] 블록 사용(source 생략 가능)
  - ----에 내용을 넣음
+ )
   [source,java]
   ----
   public static void main(String[] args) {
@@ -37,6 +38,7 @@ AsciiDoc
   ----
 
 테이블
+ )
   |===
   |1 |2 |3
   
@@ -46,15 +48,18 @@ AsciiDoc
 
 링크
  - 내/외부 링크
+ )
   공식문서: https://asciidoc.org[AsciiDoc].
   자세한 설명 <<section-id>>.
 
 이미지
  - image::
+ )
   image::path/to/image.png[Alt Text, width=300, height=200]
 
 파일
  - include::
+ )
   include::path/to/file.adoc[]
 
 텍스트
@@ -66,6 +71,7 @@ AsciiDoc
 
 인용문
  - ____ 사용
+ )
   ____
   인용문
   ____
@@ -76,26 +82,40 @@ AsciiDoc
  WARNING: 경고
 
 문서 설정 옵션
+ - 메타 데이터 옵션
+  = :author: 홍길동(저자)
+  = :revdate: 2024-12-12(변경 날짜)
+  = :revnumber: 1.0(문서 버전)
+  = :email: hong@google.com
+   )
+   = API 문서
+   홍길동, <hong@google.com>
+   v1.0, 2024-12-12
+   :author: 홍길동
+   :revdate: 2024-12-12
+   :revnumber: 1.0
+   :email: hong@google.com
 
-목차 생성
- - 메타 데이터
-  = :author: [Author Name]
- - 
- - 문서 속성
-  = 목차 생성
-   - toc(Table of Contents)
-   ) :toc:
-   ) :toclevels:
-   ) :toc-placement:
-  = 섹션에 번호
-   ) :sectnums:
+ - toc(Table of Contents) 목차 옵션
+  = :toc:
+  = :toclevels: (1-5)
+  = :toc-title: 목차
+  = :toc-placement: (top, left, right)
+  = :sectnums:
+   * 섹션에 번호 자동 생성
+  = :sectlinks:
+   * 섹션에 클릭 가능한 링크 추가
+  )
+  :toc:
+  :toclevels: 2
+  :toc-title: Table of Contents
+  :toc-placement: left
+  :sectnums: 
+  :sectlinks:
 
-
-
-
-
-
-
-
-
-
+ - 강조
+  = :source-highlighter: (coderay, pygments, rouge, prettify, none)
+   
+ - 문서 타입
+  = :doctype: (article, book, manpage, inline, ebook)
+   * article(기본값), book(섹션번호,자세한 목차 기능 활성화), manpage(Unix/Linux 매뉴얼 페이지)
