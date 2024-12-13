@@ -49,6 +49,7 @@ public class UserControllerTest {
             .andDo(document("get-all-users",
                 responseFields(
                     // JSON 배열([]) 필드 타입, 설명 문서화
+                    // 배열 안에 있는 각 객체의 필드
                     fieldWithPath("[].id").type(JsonFieldType.NUMBER).description("ID"),
                     fieldWithPath("[].name").type(JsonFieldType.STRING).description("이름"),
                     fieldWithPath("[].email").type(JsonFieldType.STRING).description("이메일")
