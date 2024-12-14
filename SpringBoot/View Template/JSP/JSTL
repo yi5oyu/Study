@@ -7,8 +7,17 @@ JSTL(JavaServer Pages Standard Tag Library)
   = 변수, 조건, 반복 등...
   = <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    1. 변수, 속성 설정
-    ) <c:set var="username" value="lee" />
-      ${username}
+    ) <c:set var="name" value="lee" />
+      ${name}
+   2. 조건
+    ) <c:if test="${name == 'lee'}">
+        <p>내이름은 lee</p>
+      </c:if>
+
+
+
+
+
  - Formatting
   = <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
  - SQL 
