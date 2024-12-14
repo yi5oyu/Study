@@ -16,9 +16,9 @@ public class JspController {
 
     @GetMapping("/scope")
     public String Scopes(HttpServletRequest request, HttpSession session, Model model) {
-        request.setAttribute("requestScope", "리퀘스트"); 
-        session.setAttribute("sessionScope", "세션");
-        context.setAttribute("applicationScope", "어플리케이션");
+        request.setAttribute("request", "리퀘스트"); 
+        session.setAttribute("session", "세션");
+        context.setAttribute("application", "어플리케이션");
         // HttpServletRequest 사용됨
         model.addAttribute("model", "모델");
         return "jsp";
@@ -43,15 +43,15 @@ public class JspController {
 
     <!-- Request -->
     <div>리퀘스트:</div>
-    <p>${requestScope.requestScope}</p>
+    <p>${requestScope.request}</p>
 
     <!-- Session -->
     <div>세션:</div>
-    <p>${sessionScope.sessionScope}</p>
+    <p>${sessionScope.session}</p>
 
     <!-- Application -->
     <div>어플리케이션:</div>
-    <p>${applicationScope.applicationScope}</p>
+    <p>${applicationScope.application}</p>
 
     <!-- Model -->
     <div>모델:</div>
