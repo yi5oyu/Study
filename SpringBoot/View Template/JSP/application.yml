@@ -1,0 +1,6 @@
+spring:
+  mvc:
+    # 뷰 리졸버(View Resolver) 설정
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
