@@ -28,13 +28,13 @@ JSTL(JavaServer Pages Standard Tag Library)
   = 숫자, 날짜, 시간 등...
   = <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
    1. 숫자
-    ) <c:set var="num" value="1234567.89" />
-      <fmt:formatNumber value="${num}" />
-      <fmt:formatNumber value="${num}" type="percent" />
-      <fmt:formatNumber value="${num}" maxFractionDigits="2" />
+    ) <c:set var="num" value="1234567.89" /><br>
+      <fmt:formatNumber value="${num}" /><br>
+      <fmt:formatNumber value="${num}" type="percent" /><br>
+      <fmt:formatNumber value="${num}" maxFractionDigits="2" /><br>
    2. 날짜
     ) <c:set var="now" value="<%= new java.util.Date() %>" />
-      <fmt:formatDate value="${now}" />
+      <fmt:formatDate value="${now}" /><br>
       <fmt:formatDate value="${now}" type="date" /><br>
-      <fmt:formatDate value="${now}" type="time" />
-      <fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" />
+      <fmt:formatDate value="${now}" type="time" /><br>
+      <fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" /><br>
