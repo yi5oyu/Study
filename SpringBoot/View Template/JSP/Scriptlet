@@ -1,2 +1,32 @@
 스크립틀릿(Scriptlet)
  - JSP 페이지 내에서 Java 코드를 직접 작성할 수 있음
+ - HTML이 클라이언트의 브라우저로 전송되기 전에 서버에서 실행
+ - <% Java 코드 %>
+
+변수
+ - Java 변수를 선언하고 초기화
+  ) <% int num = 10; %>
+
+조건문
+ - if, else, for, while 등... 사용할 수 있음
+  ) <% 
+        if (num >= 5) {
+            out.println("5 이상");
+        } else {
+            out.println("5 미만");
+        }
+    %>
+
+메서드
+ - java 메서드 호출
+  ) <% 
+        String message = "Hello, JSP!";
+        out.println(message); 
+    %>
+
+객체
+ - 요청, 응답, 세션, 애플리케이션 객체 사용
+  ) <% 
+        String username = request.getParameter("username");
+        out.println("Hello, " + username);
+    %>
