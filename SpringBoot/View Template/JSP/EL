@@ -1,0 +1,20 @@
+EL(Expression Language)
+ - JSP 페이지에서 데이터를 쉽게 출력할 수 있게 해주는 표현 언어
+ - 간결한 문법(${} 표기법)
+ - 자동 형변환 및 null 처리
+ - 객체 접근 용이
+
+객체 속성 값
+ - ${user.name}
+
+연산
+ - +, -, *, /, %
+ - <, <=, >, >=, ==, !=
+ - &&, ||
+
+내장 객체
+ - ${pageScope}, ${requestScope}, ${sessionScope}, ${applicationScope}
+  ) ${sessionScope.username}
+
+빈값/null 확인
+ - <c:if test="${empty name}">빈값</c:if>
