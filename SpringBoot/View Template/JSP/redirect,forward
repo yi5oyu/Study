@@ -1,0 +1,37 @@
+Redirect
+ - 새로운 URL로 재요청(서버와 클라이언트간 요청 - 응답 - 요청 - 응답)
+ - 브라우저의 URL 새로운 주소로 변경됨
+Forward
+ - 서버 내부에서 요청을 다른 리소스로 전달
+ - 브라우저의 URL 변경되지 않음
+
+Redirect에선 HTTP 요청이 새로 발생해 model과 request 데이터 사라짐
+
+@Controller
+public class JspController {
+    @Autowired
+    private ServletContext context;
+
+    @GetMapping("/page")
+    public String page(){
+        return "jsp";
+    }
+
+    @GetMapping("/redirect")
+    public String redirect(HttpServletRequest request, HttpSession session, Model model) {
+        request.setAttribute("request", "리퀘스트-리다이렉트");
+        session.setAttribute("session", "세션-리다이렉트");
+        context.setAttribute("application", "어플리케이션-리다이렉트");
+        model.addAttribute("model", "모델-리다이렉트");
+        return "redirect:/page";
+    }
+
+    @GetMapping("/forward")
+    public String forward(HttpServletRequest request, HttpSession session, Model model) {
+        request.setAttribute("request", "리퀘스트-포워드");
+        session.setAttribute("session", "세션-포워드");
+        context.setAttribute("application", "어플리케이션-포워드");
+        model.addAttribute("model", "모델-포워드");
+        return "forward:/page";
+    }
+}
