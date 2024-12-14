@@ -11,16 +11,16 @@
 
 @Controller
 public class JspController {
+    @Autowired
+    private ServletContext context;
 
     @GetMapping("/scope")
-    public String Scopes(HttpServletRequest request, HttpSession session, ServletContext context, Model model) {
-
+    public String Scopes(HttpServletRequest request, HttpSession session, Model model) {
         request.setAttribute("requestScope", "리퀘스트"); 
         session.setAttribute("sessionScope", "세션");
         context.setAttribute("applicationScope", "어플리케이션");
-        // HttpServletRequest를 사용
+        // HttpServletRequest 사용됨
         model.addAttribute("model", "모델");
-        
         return "jsp";
     }
 }
@@ -33,27 +33,28 @@ public class JspController {
     <title>JSP</title>
 </head>
 <body>
+    <
     <!-- 스코프 -->
     <% pageContext.setAttribute("pageScope", "페이지"); %>
 
     <!-- Page -->
     <div>페이지:</div>
-    <p>${pageScope}</p>
-  
+    <p>${pageContext.getAttribute("pageScope")}</p>
+
     <!-- Request -->
     <div>리퀘스트:</div>
-    <p>${requestScope}</p>
+    <p>${requestScope.requestScope}</p>
 
     <!-- Session -->
     <div>세션:</div>
-    <p>${sessionScope}</p>
+    <p>${sessionScope.sessionScope}</p>
 
     <!-- Application -->
     <div>어플리케이션:</div>
-    <p>${applicationScope}</p>
+    <p>${applicationScope.applicationScope}</p>
 
     <!-- Model -->
     <div>모델:</div>
-    <p>${modelScope}</p>
+    <p>${model}</p>
 </body>
 </html>
