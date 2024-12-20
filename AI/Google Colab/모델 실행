@@ -1,4 +1,48 @@
-허깅페이스 접속
+라이브러리 설치
+ !pip install transformers torch pillow requests
+
+모듈 import
  import huggingface_hub
- huggingface_hub.login()
- - 실행 후 토큰값 입력
+ from transformers import MllamaForConditionalGeneration, MllamaProcessor
+ import torch
+ from PIL import Image
+ import requests
+
+허깅페이스 로그인
+ import huggingface_hub
+ from google.colab import userdata
+ huggingface_hub.login(userdata.get('token'))
+ - token: 허깅페이스 Access Token
+
+
+// https://huggingface.co/Bllossom/llama-3.2-Korean-Bllossom-AICA-5B
+// Use Vision-language Model
+
+model = MllamaForConditionalGeneration.from_pretrained(
+  'Bllossom/llama-3.2-Korean-Bllossom-AICA-5B',
+  torch_dtype=torch.bfloat16,
+  device_map='auto'
+)
+processor = MllamaProcessor.from_pretrained('Bllossom/llama-3.2-Korean-Bllossom-AICA-5B')
+
+url = "https://t1.daumcdn.net/cfile/tistory/21527E4A543DCABE1D"
+image = Image.open(requests.get(url, stream=True).raw)
+
+messages = [
+  {'role': 'user','content': [
+    {'type':'image'},
+    {'type': 'text','text': '이 문서를 마크다운으로 바꿔줘'}
+    ]},
+  ]
+
+input_text = processor.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)
+
+inputs = processor(
+    image,
+    input_text,
+    add_special_tokens=False,
+    return_tensors="pt",
+).to(model.device)
+
+output = model.generate(**inputs, max_new_tokens=256,temperature=0.1,eos_token_id=processor.tokenizer.convert_tokens_to_ids('<|eot_id|>'),use_cache=False)
+print(processor.decode(output[0]))
