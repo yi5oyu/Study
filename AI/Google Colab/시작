@@ -9,3 +9,10 @@ https://colab.google/
 
 라이브러리 설치
  - !pip install [라이브러리명]
+
+환경변수(보안 비밀)
+ - 설정
+  = 노트북 엑세스 ON, 이름: [키이름], 값: [토큰키]
+ - 사용
+  from google.colab import userdata
+  userdata.get('키이름')
