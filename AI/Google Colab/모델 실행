@@ -46,3 +46,4 @@ inputs = processor(
 
 output = model.generate(**inputs, max_new_tokens=256,temperature=0.1,eos_token_id=processor.tokenizer.convert_tokens_to_ids('<|eot_id|>'),use_cache=False)
 print(processor.decode(output[0]))
+
