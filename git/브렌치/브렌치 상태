@@ -1,2 +1,5 @@
 VScode
- - 확장프로그램 git graph
+ 확장프로그램 git graph
+
+Terminal
+ git log --graph --oneline --all
