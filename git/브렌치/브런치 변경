@@ -1,0 +1,24 @@
+Intellj
+
+Git 메뉴 > New Branch 생성
+Checkout branch: 새로운 브런치를 생성한 후 새로 생성된 브런치로 이동
+
+VScode
+
+ctrl + shift + p > git: Create Branch... > 브런치 이름
+
+Terminal
+
+git status
+ - 브런치 상태 확인
+git branch
+ - 브런치 확인
+git branch <브런치이름>
+ - 브런치 생성
+git branch -d <브런치>
+ - 브런치 삭제
+git checkout <브런치>
+git switch <브런치>
+ - 브런치 변경
+git merge <브런치>
+ - 브런치 병합
