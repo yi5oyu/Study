@@ -1,0 +1,42 @@
+// .vscode/settings.json
+
+{
+  // 일반 설정
+  // Prettier - Code formatter
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  /* Prettier 설정
+    singleQuote: 문자열에 작은 따옴표
+    semi: 문장 끝 세미콜론
+    tabWidth: 탭 너비
+    printWidth: 한 줄 최대 길이
+  */
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 100,
+
+  // JavaScript 설정
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // React 설정
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Java 설정
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.settings.profile": "GoogleStyle",
+
+  // Checkstyle 설정
+  "java.checkstyle.version": "10.21.1",
+  "java.checkstyle.configuration": "${workspaceFolder}/backend/checkstyle/checkstyle.xml",
+  "java.configuration.updateBuildConfiguration": "interactive"
+}
