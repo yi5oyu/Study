@@ -1,1 +1,18 @@
+main
+ - main 브랜치에서 생성된 브랜치를 사용
+ - 항상 배포 가능하게 유지
 
+브랜치 생성
+ - feature/[기능-이름]
+ - bugfix/[버그명]
+ - hotfix/[버그명]
+
+github에서 PR요청 생성
+pull 요청 승인되면 main에 병합
+
+명령어
+ - git branch [feature/login]
+  : 브랜치 생성
+ - git switch feature/login
+  : 브랜치 전환
+ 
