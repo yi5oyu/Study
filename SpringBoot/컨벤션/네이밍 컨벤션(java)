@@ -1,0 +1,16 @@
+// PackageName
+package com.example.checkstyle;
+
+// TypeName(ClassName)
+public class NamingConvention {
+    // MemberName
+    private String memberName = "전역변수";
+    // ConstantName
+    public static final int MAX_LIMIT = 100;
+    // MethodName, ParameterName
+    public void methodName(String parameterName) {
+        // LocalVariableName
+        String localVariableName = "지역변수";
+        System.out.println(localVariableName + memberName);
+    }
+}
