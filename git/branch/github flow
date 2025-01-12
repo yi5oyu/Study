@@ -3,9 +3,9 @@ main
  - 항상 배포 가능하게 유지
 
 브랜치 생성
- - feature/[기능-이름]
- - bugfix/[버그명]
- - hotfix/[버그명]
+ - feature/[이슈번호-이름]
+ - bugfix/[이슈번호-버그명]
+ - hotfix/[이슈번호-버그명]
 
 github에서 PR요청 생성
 pull 요청 승인되면 main에 병합
