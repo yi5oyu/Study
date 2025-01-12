@@ -1,0 +1,15 @@
+plugins {
+	id 'checkstyle'
+}
+
+checkstyle {
+	toolVersion = '10.11.0'
+	configFile = file("${rootDir}/checkstyle/checkstyle.xml")
+}
+
+tasks.withType(Checkstyle) {
+	reports {
+		xml.required = true
+		html.required = true
+	}
+}
