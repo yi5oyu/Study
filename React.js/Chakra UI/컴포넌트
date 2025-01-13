@@ -1,0 +1,63 @@
+레이아웃 컴포넌트
+ - Box
+  : div
+ - Flex
+  : 하위 Box 행/열 정렬
+  : flexbox
+ - Grid
+  : 그리드 기반 레이아웃
+ - Stack
+  : 수직/수평으로 정렬
+
+텍스트
+ - Text
+  : 기본 텍스트
+ - Heading
+  : h1~h6
+ - Code
+  : 인라인 코드 표시
+
+입력
+ - Input
+  : 사용자 정의 스타일 가능한 입력
+ - Textarea
+  : 여러 줄 텍스트 입력
+ - Checkbox
+  : 체크박스
+ - Select
+  : 드롭다운 메뉴
+ - FormControl 
+  : 라벨/오류 메시지 입력
+
+스타일 지정된 정보 표시
+ - Badge
+  : 작은 뱃지 표시
+ - Progress
+  : 진행 표시줄
+ - Table
+  : 테이블
+
+피드백
+ - Alert
+  : 경고 메시지
+ - Spinner
+  : 로딩 스피너
+ - useToast
+  : 임시 알림 훅
+
+링크/탐색
+ - Link 
+  : 링크
+ - Breadcrumb
+  : 탐색경로 표시
+
+모달/팝업
+ - Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody
+  : 모달 창
+ - Popover
+  : 마우스를 올리거나 클릭하면 추가 콘텐츠가 표시
+
+다크모드
+ - useColorMode
+  : light/Dark 토글
+
