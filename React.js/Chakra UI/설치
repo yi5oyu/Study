@@ -1,3 +1,24 @@
 Chakra UI V2.x
 
 npm install @chakra-ui/react@2.8.1 @emotion/react@11.11.0 @emotion/styled@11.11.0 framer-motion@6.2.8 @chakra-ui/icons@2.2.4 
+
+@chakra-ui/react
+ - Chakra UI의 핵심 라이브러리
+
+@emotion/react
+ - CSS-in-JS 라이브러리
+
+@emotion/styled
+ - 스타일링된 React 컴포넌트를 생성
+
+framer-motion
+ - React 애니메이션 라이브러리
+
+@chakra-ui/icons
+ - Chakra UI에서 스타일링 가능한 SVG 아이콘
+
+===
+
+Chakra UI V3.x
+
+npm install @chakra-ui/react@lastet @emotion/react@lastet
