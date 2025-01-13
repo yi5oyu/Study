@@ -1,0 +1,8 @@
+npm install react-markdown@8.0.7 remark-gfm@3.0.1 chakra-ui-markdown-renderer@4.1.0 
+
+react-markdown
+ - Markdown 파일 또는 Markdown 텍스트를 렌더링
+remark-gfm
+ - GitHub Flavored Markdown 지원
+chakra-ui-markdown-renderer
+ - Markdown을 Chakra UI로 렌더링
