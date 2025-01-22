@@ -22,3 +22,8 @@ git switch <브랜치>
  - 브랜치 변경
 git merge <브랜치>
  - 브랜치 병합
+
+이름 변경
+ 1. git branch -m <이전 브랜치> <새 브랜치>
+ 2. git push origin --delete <이전 브랜치>
+ 3. git push origin <새 브랜치>
