@@ -77,6 +77,16 @@ public class WebSecurityConfig {
 	                    .loginPage("/oauth2/authorization/github")
 	                    .defaultSuccessUrl("http://localhost:8080", true)
 	                )
+			.logout(logout -> logout
+	                    // 로그아웃 URL(POST)
+			    .logoutUrl("/logout")
+			    // 성공 후 리다이렉트될 URL
+	                    .logoutSuccessUrl("http://localhost:8080")
+			    // 로그아웃 HTTP 세션 무효화(제거)
+	                    .invalidateHttpSession(true)
+			    // Spring Security의 인증 객체와 관련된 모든 데이터가 제거
+	                    .clearAuthentication(true)
+	                )
 			.formLogin((form) -> form
      			// form으로 로그인 될 때 설정           
 				.loginPage("/login")
