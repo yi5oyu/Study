@@ -70,13 +70,15 @@ public class WebSecurityConfig {
 			            - INCLUDE, ERROR, ASYNC
 				*/
 				.requestMatchers("/h2-console/**").authenticated()	       
-				// 인증된 사용자 권한	       
+				// 인증된 사용자 접근 가능    
 				.anyRequest().authenticated()
         			// 그 외 모든 요청은 인증된 사용자만 접근 가능 (로그인 등..)                      
 			)
 			// oauth2 설정
 			.oauth2Login(oauth2 -> oauth2
+			    // 로그인 시작점
 	                    .loginPage("/oauth2/authorization/github")
+			    // 성공 후 리다이렉트될 URL
 	                    .defaultSuccessUrl("http://localhost:8080", true)
 	                )
 			.logout(logout -> logout
@@ -86,7 +88,7 @@ public class WebSecurityConfig {
 	                    .logoutSuccessUrl("http://localhost:8080")
 			    // 로그아웃 HTTP 세션 무효화(제거)
 	                    .invalidateHttpSession(true)
-			    // Spring Security의 인증 객체와 관련된 모든 데이터가 제거
+			    // Spring Security 인증 객체, 관련된 모든 데이터 제거
 	                    .clearAuthentication(true)
 	                )
 			.formLogin((form) -> form
