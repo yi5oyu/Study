@@ -69,6 +69,8 @@ public class WebSecurityConfig {
 	                            - FORWARD: 요청이 서버안에서 포워딩 될 때 (servlet(Controller 등..)에서 다른 servlet or servlet에서 JSP)
 			            - INCLUDE, ERROR, ASYNC
 				*/
+				.requestMatchers("/h2-console/**").authenticated()	       
+				// 인증된 사용자 권한	       
 				.anyRequest().authenticated()
         			// 그 외 모든 요청은 인증된 사용자만 접근 가능 (로그인 등..)                      
 			)
