@@ -72,6 +72,11 @@ public class WebSecurityConfig {
 				.anyRequest().authenticated()
         			// 그 외 모든 요청은 인증된 사용자만 접근 가능 (로그인 등..)                      
 			)
+			// oauth2 설정
+			.oauth2Login(oauth2 -> oauth2
+	                    .loginPage("/oauth2/authorization/github")
+	                    .defaultSuccessUrl("http://localhost:8080", true)
+	                )
 			.formLogin((form) -> form
      			// form으로 로그인 될 때 설정           
 				.loginPage("/login")
