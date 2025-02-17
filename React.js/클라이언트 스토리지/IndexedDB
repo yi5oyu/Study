@@ -1,0 +1,108 @@
+IndexedDB
+ - 브라우저에서 제공하는 비동기 데이터베이스 API
+ - 대용량 데이터를 저장할 수 있는 NoSQL 기반의 Key-Value 저장소
+ - 비동기 방식으로 동작
+ - 대량 데이터 저장 가능 50MB~2GB(브라우저마다 다름)
+ - 객체 저장 가능(JSON 형태 데이터 저장)
+ - 빠른 데이터 검색을 위한 인덱싱 기능
+
+DB 생성
+  const request = indexedDB.open("MyDatabase", 1)
+  
+  request.onsuccess = (e) => {
+    const db = e.target.result
+  }
+  
+  request.onerror = (e) => {
+    console.error("에러: ", e.target.error)
+  }
+  
+  // DB 최소 생성될때 호출
+  request.onupgradeneeded = (e) => {
+    const db = e.target.result
+    if (!db.objectStoreNames.contains("users")) {
+      const userStore = db.createObjectStore("users", { keyPath: "id" })
+      userStore.createIndex("name", "name", { unique: false })
+    }
+  }
+
+데이터 추가
+  const addUser = (user) => {
+    const request = indexedDB.open("MyDatabase", 1);
+    
+    request.onsuccess = (e) => {
+      const db = e.target.result;
+      const transaction = db.transaction("users", "readwrite");
+      const store = transaction.objectStore("users");
+      
+      store.add(user);
+      transaction.oncomplete = () => console.log("유저 추가됨:", user)
+    };
+  }
+  
+  addUser({ id: 1, name: "Alice", age: 25 })
+
+데이터 조회
+  const getUser = (id) => {
+    const request = indexedDB.open("MyDatabase", 1)
+  
+    request.onsuccess = (e) => {
+      const db = e.target.result
+      const transaction = db.transaction("users", "readonly")
+      const store = transaction.objectStore("users")
+  
+      const getRequest = store.get(id)
+      getRequest.onsuccess = () => console.log("유저 찾음:", getRequest.result)
+    }
+  }
+  
+  getUser(1)
+
+데이터 업데이트
+  const updateUser = (user) => {
+    const request = indexedDB.open("MyDatabase", 1)
+  
+    request.onsuccess = (e) => {
+      const db = e.target.result
+      const transaction = db.transaction("users", "readwrite")
+      const store = transaction.objectStore("users")
+  
+      store.put(user)
+      transaction.oncomplete = () => console.log("업데이트됨: ", user)
+    }
+  }
+  
+  updateUser({ id: 1, name: "Alice", age: 30 })
+
+데이터 삭제
+  const deleteUser = (id) => {
+    const request = indexedDB.open("MyDatabase", 1)
+  
+    request.onsuccess = (e) => {
+      const db = e.target.result
+      const transaction = db.transaction("users", "readwrite")
+      const store = transaction.objectStore("users")
+  
+      store.delete(id)
+      transaction.oncomplete = () => console.log(`User with ID ${id} deleted`)
+    };
+  };
+  
+  deleteUser(1)
+
+인덱스
+  const getUserByName = (name) => {
+    const request = indexedDB.open("MyDatabase", 1)
+  
+    request.onsuccess = (e) => {
+      const db = e.target.result
+      const transaction = db.transaction("users", "readonly")
+      const store = transaction.objectStore("users")
+      const index = store.index("name")
+  
+      const getRequest = index.get(name)
+      getRequest.onsuccess = () => console.log("이름으로 유저 검색: ", getRequest.result)
+    };
+  };
+  
+  getUserByName("lee")
