@@ -1,0 +1,21 @@
+JavaScript Web APIs
+ - 웹 브라우저가 제공하는 기능을 JavaScript에서 사용할 수 있도록 만든 인터페이스
+
+브라우저에서 기본적으로 제공하는 기능
+ - 모든 최신 웹 브라우저(Chrome, Firefox, Edge, Safari 등) 실행 가능
+
+localStorage
+ - 데이터 삭제 전까지 유지(캐시 데이터 저장, 데이터 장기 보관에 적합)
+ - 모든 탭에서 공유됨
+ ) localStorage.setItem("key", "value")
+ ) localStorage.getItem("key")
+ ) localStorage.removeItem("key");
+ ) localStorage.clear();
+
+sessionStorage
+ - 탭 닫으면 데이터 삭제(인증 정보 등 일시적 저장에 적합)
+ - 같은 탭에서만 접근 가능
+ ) sessionStorage.setItem("key", "value")
+ ) sessionStorage.getItem("key")
+ ) sessionStorage.removeItem("key");
+ ) sessionStorage.clear();
