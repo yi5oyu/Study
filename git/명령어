@@ -8,3 +8,10 @@
    : reset 모드 default 값 = --mixed (--soft = 스테이징 상태 유지, --hard)
    : HEAD^ = 최신 커밋 취소, HEAD~(숫자) = 최근 커밋부터 숫자까지 커밋 취소
    
+ git reset --hard HEAD~1 / git reset --hard HEAD~n (여러 커밋 한 번에 취소)
+  - 커밋 삭제, 변경사항 완전 삭제
+   : vim에서 DROP으로 수정후 :wq로 저장후 종료
+ git reset --soft HEAD~1
+  - 커밋 취소, 변경사항 스테이징 영역에 있음
+ git revert
+  - 커밋 되돌림
