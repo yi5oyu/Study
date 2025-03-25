@@ -1,0 +1,14 @@
+마크다운(.md) 또는 YAML(.yml) 형식으로 작성할 수 있음
+
+템플릿 유형
+
+ 이슈(Issue) 템플릿
+  .github/ISSUE_TEMPLATE/
+   - 버그 리포트 (Bug report)
+   - 기능 요청 (Feature request)
+   - 사용자 정의 템플릿 (Custom template)
+    : 질문, 문서 개선, 작업 요청
+
+ 풀 리퀘스트(Pull Request) 템플릿
+  .github/PULL_REQUEST_TEMPLATE/
+   - PR 템플릿 
