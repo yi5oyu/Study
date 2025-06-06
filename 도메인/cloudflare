@@ -1,0 +1,18 @@
+https://dash.cloudflare.com/
+
+도메인 입력 > 사용 가능 확인 > 요금제 선택 > DNS 레코드 검토(A, CNAME...) > 네임서버 변경(도메인을 구매한 사이트에서)
+
+Cloudflare Tunnel 설정
+대시보드 > 엑세스 > Zero Trust 실행 > 계정 선택 > Networks > Tunnels > 터널 생성 > Cloudflared > 터널 이름 
+> 커넥터 설치 및 실행 > 운영체제 선택(도커) > docker-compose 수정(토큰 등록) > 커넥터 연결 확인 
+> 트래픽 라우팅(공개 호스트 이름 추가): 
+ex) 도메인 or www . 도메인, HTTP//내부IP:포트번호
+
+Subdomain: (비워둠 or wwww, api 등...)
+Domain: 도메인
+Service Type: HTTP  
+URL: http://내부IP:포트번호
+
+https://dnschecker.org 확인
+
+(레코드 충돌시 기존에 입력한 DNS 레코드 검토의 A 레코드 삭제)
