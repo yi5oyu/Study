@@ -4,7 +4,7 @@ https://dash.cloudflare.com/
 
 Cloudflare Tunnel 설정
 대시보드 > 엑세스 > Zero Trust 실행 > 계정 선택 > Networks > Tunnels > 터널 생성 > Cloudflared > 터널 이름 
-> 커넥터 설치 및 실행 > 운영체제 선택(도커) > docker-compose 수정(토큰 등록) > 커넥터 연결 확인 
+> 커넥터 설치 및 실행 > 운영체제 선택(도커) > docker-compose 수정(cloudflared-tunnel 설치 토큰 등록) > 커넥터 연결 확인 
 > 트래픽 라우팅(공개 호스트 이름 추가): 
 ex) 도메인 or www . 도메인, HTTP//내부IP:포트번호
 
