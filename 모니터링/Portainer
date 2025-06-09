@@ -8,3 +8,37 @@ Portainer: Docker 컨테이너 환경을 쉽게 관리할 수 있도록 도와�
  - 네트워크 관리: Docker 네트워크 생성, 삭제, 구성이 가능하고 컨테이너 간 네트워크 연결 관리
  - 볼륨 관리: 데이터 영속성을 위한 볼륨 생성과 마운트 설정
  - 스택 배포: Docker Compose 파일 업로드, 멀티 컨테이너 애플리케이션 배포
+
+docker-compose.yml
+
+name: monitoring
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    ports:
+      - '9000:9000' # 80
+      - '9443:9443' # 433
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - portainer_data:/data
+    networks:
+      - monitoring_network
+      - writemd_app-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  portainer_data:
+    name: monitoring_portainer_data
+
+http://IP:9000 > 관리자 계정 생성 > Get Started > Docker 환경 자동 감지
+
+모니터링
+ - Stacks: 스택 전체 상태
+ - Containers: 개별 컨테이너 상세 정보
+ - Images: 사용중인 이미지들
+ - Networks: 네트워크 상태
+ - Volumes: 데이터 관리
