@@ -1,0 +1,17 @@
+Grafana: 웹 기반 데이터 시각화 및 모니터링 도구
+ - 다양한 데이터 소스로부터 메트릭을 시각화하고 모니터링할 수 있는 오픈소스 분석 및 대시보드 플랫폼(UI)
+ - Prometheus, InfluxDB, Elasticsearch 등 다양한 데이터 소스와 연동하여 실시간 모니터링과 분석을 제공
+
+주요 기능
+ - 데이터 시각화: 다양한 차트, 그래프, 테이블을 통해 복잡한 데이터를 직관적으로 표현
+ - 대시보드 관리: 여러 패널을 조합하여 종합적인 모니터링 대시보드를 구성
+ - 알림 시스템: 임계값 기반 알림을 설정하고 다양한 채널로 알림을 전송
+
+데이터 소스
+  시계열 데이터베이스: Prometheus, InfluxDB, TimescaleDB, VictoriaMetrics
+  관계형 데이터베이스: MySQL, PostgreSQL, Microsoft SQL Server
+  NoSQL 데이터베이스: MongoDB, Cassandra
+  클라우드 서비스: AWS CloudWatch, Google Cloud Monitoring, Azure Monitor
+  로그 시스템: Elasticsearch, Loki, Fluentd
+  APM 도구: Jaeger, Zipkin, Tempo
+  기타: Redis, MQTT, CSV, JSON API 등
