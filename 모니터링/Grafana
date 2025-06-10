@@ -15,3 +15,9 @@ Grafana: 웹 기반 데이터 시각화 및 모니터링 도구
   로그 시스템: Elasticsearch, Loki, Fluentd
   APM 도구: Jaeger, Zipkin, Tempo
   기타: Redis, MQTT, CSV, JSON API 등
+
+대시보드
+https://grafana.com/grafana/dashboards/
+
+spring boot 3.x
+ - https://grafana.com/grafana/dashboards/20727-spring-boot-3-x-statistics/
