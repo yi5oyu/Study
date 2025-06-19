@@ -1,0 +1,24 @@
+포트포워딩
+
+인바운드 연결: 외부에서 내부로 들어오는 연결
+NAT(Network Address Translation) 변환: 공인IP:포트 > 내부IP포트 매핑
+방화벽 규칙: 특정 포트 개방
+
+사용자 - 인터넷 - 공인IP - 공유기 - NAS 
+
+공유기 고정 IP 192.168.0.1
+공유기 포트포워딩 설정 외부포트 - 내부포트 매핑/내부 IP TCP
+NAS 방화벽 설정 특정 포트 허용
+
+사용자 > http://[공인IP]:포트 접속 > [iptime사설IP 192.168.45.x]:포트 > [NAS내부IP 192.168.0.x]:포트 > [Docker컨테이너]:80
+
+Cloudflare Tunnel 
+
+아웃바운드 연결: 
+공인IP 숨김:
+방화벽: 포트 개방 x
+자동 SSL: HTTPS
+터널: https://도메인
+
+사용자 > Cloudflare CDN > [터널] > [NAS Docker] > [웹서버]
+         
