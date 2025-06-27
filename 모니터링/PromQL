@@ -1,0 +1,30 @@
+PromQL(Prometheus Query Language): 함수형 쿼리 언어
+ - 시계열 데이터를 쿼리하고 분석
+
+메트릭과 레이블
+ - 메트릭: 측정하고자 하는 값
+   ) cpu_usage, memory_usage
+ - 레이블: 메트릭을 구분하는 키-값 쌍
+   ) instance="server1", job="web-server"
+ - 시계열: 메트릭과 레이블 조합으로 식별되는 데이터 포인트들의 시간별 순서
+
+데이터 타입
+ - Instant Vector(즉시 벡터): 특정 시점의 시계열 집합
+   ) cpu_usage{instance="server1"}
+ - Range Vector (범위 벡터): 특정 시간(s(초), m(분), h(시간), d(일), w(주), y(년)) 범위의 시계열 데이터
+   ) cpu_usage[1h]
+ - Scalar (스칼라): 단일 숫자 값
+   ) 3.14
+ - String (문자열): 단순 문자열 값
+
+문법
+ - 메트릭 선택(http_requests_total)
+ - 레이블 매칭 연산자(=, !=, =~, !~)
+ - 산술 연산자(+, -, *, /)
+ - 비교 연산자(>, <, >=, <=, ==, !=)
+ - 집계 연산자(sum, avg, count, max, min)
+
+메트릭 브라우저 사용
+ - 사용 가능한 메트릭
+   Prometheus UI 접속 > Graph 탭에서 쿼리 입력 창 클릭 > Ctrl + Space로 메트릭 목록 보기
+   Status > Targets 메뉴 > 수집 중인 메트릭 정보
