@@ -1,0 +1,53 @@
+JDBC(Java Database Connectivity): Java DB 연결 API
+ - 데이터베이스 연결/해제
+ - SQL 쿼리 전송/수신
+ > 반복적인 보일러플레이트 코드
+  - Connection 생성/해제, 예외 처리 등..
+ > SQL과 Java 코드의 불일치
+  - 테이블 구조 변경 시 모든 SQL 수정 필요, 컴파일 SQL 오류 확인 불가
+ > 수동 객체 매핑
+ > 트랜잭션 관리의 복잡성
+ > 연관관계 처리의 복잡성
+
+ORM(Object-Relational Mapping): 객체-관계형DB 매핑 개념/방법론
+ - 객체를 테이블에 자동 매핑
+ - SQL 자동 생성
+ - 결과를 자동으로 객체에 매핑
+ - 연관관계 자동 처리
+ - 트랜잭션 자동 관리
+
+Hibernate: ORM 구현체(프레임워크)
+ - 어노테이션 분석(@Entity, @Column 등)
+ - 메타데이터 생성(테이블-클래스 매핑 정보)
+ - SQL 자동 생성
+ - 1차 캐시/2차 캐시(EhCache, Redis 등과 연동) 관리
+ - 지연 로딩 프록시 생성
+ - 트랜잭션 관리
+ - 변화 감지(Dirty Checking)
+ - HQL(Hibernate Query Language)
+ - Criteria API(타입 안전 쿼리)
+ - 배치 처리
+
+JPA(Java Persistence API): Java ORM 사용 표준 인터페이스
+ - 표준 인터페이스 정의
+ - 어노테이션 표준화
+ - JPQL(Java Persistence Query Language) 문법 정의
+ - 구현체 간 호환성 보장(JPA 표준을 사용하면 구현체를 바꿔도 코드가 안 바뀜)
+
+Spring Data JPA: 편의 도구
+ - Repository 인터페이스 자동 구현
+ - 메서드 이름으로 쿼리 자동 생성
+ - 페이징과 정렬 자동 처리
+ - 커스텀 쿼리 지원 (@Query)
+ - Auditing 생성시간, 수정시간 자동 관리)
+
+---
+
+MyBatis: SQL 매핑 프레임워크
+ - SQL 직접 실행
+ - 객체 매핑
+ - 동적 SQL 처리(복잡한 쿼리)
+
+
+
+
