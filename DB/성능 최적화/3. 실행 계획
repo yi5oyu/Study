@@ -1,0 +1,66 @@
+실행 계획:  데이터베이스 성능 최적화의 핵심 도구
+ - 쿼리가 실제로 어떻게 실행되는지 파악해서 병목지점을 찾는 필수 기술
+ - 데이터베이스가 쿼리를 실행하는 방법을 미리 보여주는 청사진
+
+  실행 계획이 알려주는 것
+   - 어떤 인덱스를 사용하는지
+   - 몇 개의 행을 검사하는지
+   - 어떤 방식으로 JOIN하는지
+   - 어디서 성능 병목이 발생하는지
+   
+  EXPLAIN
+    EXPLAIN SELECT * FROM users WHERE name = '홍길동';
+    | id | select_type | table | type | possible_keys | key      | key_len | ref   | rows | Extra |
+    | 1  | SIMPLE      | users | ref  | idx_name      | idx_name | 203     | const | 1    | NULL  |
+
+  EXPLAIN EXTENDED(더 상세한 정보)
+    EXPLAIN EXTENDED SELECT * FROM users WHERE name = '홍길동';
+    SHOW WARNINGS;
+
+  EXPLAIN FORMAT=JSON(가장 상세)
+    EXPLAIN FORMAT=JSON 
+    SELECT u.name, o.amount 
+    FROM users u 
+    JOIN orders o ON u.user_id = o.user_id 
+    WHERE u.age > 25;
+
+  항목별 상세 분석
+   - id: 쿼리가 실행되는 순서를 나타내는 번호
+     > 서브쿼리가 있는 경우 id에 실행계획 추가됨(id = 1, 2)
+       id 숫자가 클수록 먼저 실행
+     > JOIN의 경우 같은 id값을 가짐(id = 1, 1)
+       id 숫자 같으면 동시에 처리
+   - select_type: 어떤 종류의 쿼리인지
+     > SIMPLE: 가장 간단한 쿼리
+       JOIN도 없고 서브쿼리도 없는 단순한 SELECT
+     > PRIMARY + SUBQUERY: 메인쿼리 + 서브쿼리
+     > DERIVED: FROM 절의 서브쿼리
+       FROM 절에 있는 서브쿼리로 임시 테이블을 만듬
+   - type: 어떤 방식으로 데이터를 찾는지
+     성능 순서: const > eq_ref > ref > range > index > ALL
+     > const: 상수 접근(최고 성능)
+       PRIMARY KEY로 딱 1개 행만 찾으면 됨
+     > eq_ref: 유니크 참조(매우 좋음)
+       JOIN할 때 상대방 테이블에서 딱 1개씩만 매칭됨
+     > ref: 참조 접근(좋음)
+       인덱스 사용해서 여러 개 행을 찾을 수 있음
+     > range: 범위 검색(보통) 
+     > index: 인덱스 풀 스캔(나쁨)
+     > ALL: 테이블 풀 스캔(최악)
+   - rows: 예상 검사 행 수
+     > 커질수록 안좋음
+   - Extra: 추가 정보
+     > Using index: 커버링 인덱스
+       인덱스만으로 모든 정보를 얻음(테이블 접근 불필요)
+     > Using index condition: 인덱스 조건 푸시다운
+       인덱스에서 미리 조건을 확인해서 불필요한 테이블 접근을 줄임
+     > Using filesort: 별도 정렬
+       인덱스가 없어서 별도로 정렬 작업을 해야 됨
+     > Using temporary: 임시 테이블
+       중복 제거를 위해 임시 테이블을 만들어야 함
+     > Using where: 추가 필터링
+       일부는 인덱스로 찾았지만 나머지는 테이블에서 추가로 확인해야함
+
+  즉시 수정 필요: type=ALL, rows > 10000
+  최적화 검토: Using filesort, Using temporary
+  좋은 상태: type=const/ref, Using index
