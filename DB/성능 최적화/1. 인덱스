@@ -1,5 +1,5 @@
 DB 인덱스(Index): 데이터 검색 성능을 향상시키기 위한 핵심적인 데이터 구조
- - 테이블의 특정 컬럼에 대한 별도의 정렬된 구조를 만들어, 데이터를 빠르게 찾을 수 있게 해주는 도구
+ - 테이블 데이터를 빠르게 검색하기 위한 별도의 정렬된 자료구조
 
  인덱스 없이 검색
   - 테이블의 모든 행을 순차적으로 검사(데이터가 많을수록 검색 시간이 선형적으로 증가)
@@ -7,21 +7,106 @@ DB 인덱스(Index): 데이터 검색 성능을 향상시키기 위한 핵심적
   - 인덱스는 정렬된 구조(주로 B-Tree)로 되어 있어 O(log n) 시간 복잡도로 빠른 검색
 
  종류
-  클러스터드 인덱스(Clustered Index)
-   - 테이블의 물리적 데이터 순서를 결정
-   - 인덱스 자체가 데이터를 포함
-   - 테이블당 하나만 존재 가능
-   - Primary Key에 자동 생성
-  비클러스터드 인덱스(Non-Clustered Index)
-   - 별도의 구조로 존재하며 실제 데이터 위치를 가리킴
-   - 테이블당 여러 개 생성 가능
-   - 일반적으로 사용하는 인덱스
-  복합 인덱스(Composite Index)
-   - 여러 컬럼을 조합한 인덱스
-   - 컬럼 순서가 중요함
+  - 자동 생성 인덱스
+    클러스터드 인덱스(Clustered Index)
+     - 테이블의 물리적 데이터 순서를 결정
+     - 인덱스 자체가 데이터를 포함
+     - 테이블당 하나만 존재 가능
+     - PRIMARY KEY(삭제 불가능), UNIQUE, FOREIGN KEY(MySQL 8.0부터 자동 생성)
+  - 일반 인덱스
+    비클러스터드 인덱스(Non-Clustered Index)
+     - 별도의 구조로 존재하며 실제 데이터 위치를 가리킴
+     - 테이블당 여러 개 생성 가능
+     - 일반적으로 사용하는 인덱스
+    복합 인덱스(Composite Index)
+     - 여러 컬럼을 조합한 인덱스
+     - 컬럼 순서가 중요함
+
+ EXPLAIN: 실행 계획 분석 도구
+  - 인덱스가 제대로 사용되는지 확인하는 핵심 도구
+  - 어떤 인덱스를 사용하는지 확인
+  - 몇 개의 행을 검사하는지 예측
+  - 쿼리 성능 병목지점 파악
+  - 최적화 포인트 발견
+  type: 성능 순서
+   - const > eq_ref > ref > range > index > ALL
+  key: 사용된 인덱스
+   - 인덱스 사용 안 하는 경우: NULL
+  rows: 예상 검사 행 수
+   - 적은 rows = 좋은 성능, 많은 rows = 나쁜 성능
+  Extra: 추가 정보
+   - Using index: 커버링 인덱스(테이블 접근 없음)
+   - Using filesort: 별도 정렬 작업
+   - Using where: 추가 필터링
+ EXPLAIN ANALYZE: 실제 실행 + 시간 측정
+
+ MySQL 옵티마이저: 쿼리를 가장 효율적으로 실행하는 방법을 자동으로 결정하는 자동 최적화 엔진
+  - 인덱스 선택(비용 기반 최적화)
+  - JOIN 순서 결정
+  - WHERE 절 조건 순서 재배열
+
+ 사용 규칙
+  - 쿼리 패턴 분석: 어떤 조건이 자주 사용되는지
+  - 데이터 변경 빈도: 해당 컬럼이 얼마나 자주 수정되는지(읽기:쓰기 비율. 100:1 이상)
+  - 조건 타입 고려: 등등조건 vs 범위조건
+  - 카디널리티: 동일 조건에서 높은 카디널리티 우선
+  인덱스를 피해야 하는 경우
+   - 함수 사용: WHERE UPPER(name) = 'KIM'
+   - 앞 와일드카드: WHERE name LIKE '%kim'
+   - 연산 사용: WHERE age + 10 > 30
+   - 카디널리티가 너무 낮은 컬럼 (성별, boolean 등)
+
+ 예제
+    -- 사용자 테이블
+    CREATE TABLE users (
+        user_id INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(50) NOT NULL,
+        age INT NOT NULL,
+        email VARCHAR(100) NOT NULL UNIQUE,
+        nickname VARCHAR(100) NOT NULL
+    );
+
+    -- 단일 인덱스
+    CREATE INDEX idx_name ON users(name);
+    -- 복합 인덱스
+    CREATE INDEX idx_name_age ON users(name, age);
+    CREATE INDEX idx_age_email ON users(age, email);
+    -- 커버링 인덱스(조회 컬럼을 모두 포함)
+    CREATE INDEX idx_name_age_email ON users(name, age, email);
+    
+    -- PK로 검색(가장 빠름) | 사용 인덱스: PRIMARY
+    SELECT * FROM users WHERE user_id = 3;
+    -- 이름으로 검색 | 사용 인덱스: idx_name
+    SELECT * FROM users WHERE name = '김철수';
+    -- 나이로 검색 | 사용 인덱스: idx_age_email(첫번째 칼럼(age)만 부분 사용)
+    SELECT * FROM users WHERE age = 25;
+    -- name + age 조건 | 사용 인덱스: idx_name_age
+    SELECT * FROM users WHERE name = '김철수' AND age = 25;
+    -- age + name 조건 | 사용 인덱스: idx_name_age(WHERE 절 순서는 인덱스 사용에 전혀 영향 없음)
+    SELECT * FROM users WHERE age = 25 AND name = '김철수';
+    -- email + age + nickname 조건 | 사용 인덱스: email(UNIQUE) 또는 idx_age_email, nickname은 추가 필터링
+    SELECT * FROM users WHERE age = 25 AND nickname = 'ababa' AND email = 'aaaa@gmail.com';
+    -- nickname으로 검색 | 사용 인덱스 없음
+    SELECT * FROM users WHERE nickname = 'ababa';
+    -- name + email | 사용 인덱스: email(UNIQUE) 또는 idx_name, 나머지는 추가 필터링
+    SELECT * FROM users WHERE name = '김철수' AND email = 'aaaa@gmail.com';
+    -- 앞 와일드카드 | 사용 인덱스 없음
+    SELECT * FROM users WHERE name LIKE '%수';
+    -- 뒤 와일드카드 | 사용 인덱스: idx_name
+    SELECT * FROM users WHERE name LIKE '김%';
+    -- 연산 사용 | 사용 인덱스: 없음
+    SELECT * FROM users WHERE age + 5 > 30;
+    -- 인덱스 순서와 정렬(ORDER BY) 일치 | 사용 인덱스: idx_name_age
+    SELECT * FROM users WHERE name = '김철수' ORDER BY age;
+    -- 복합 조건에서 범위 사용 | 사용 인덱스: idx_name_age
+    SELECT * FROM users WHERE name = '김철수' AND age > 20;
+    -- 범위 조건 후 컬럼은 인덱스 사용 제한 | 사용 인덱스: idx_name_age(WHERE 절 순서 무관), 둘 다 인덱스 사용
+    SELECT * FROM users WHERE age > 25 AND name = '김철수';
+    -- 모든 조회 컬럼이 인덱스에 포함 | 사용 인덱스: idx_name_age_email
+    SELECT name, age, email FROM users WHERE name = '김철수';
 
  B-Tree(Balanced-Tree): 대용량 데이터를 효율적으로 저장하고 검색할 수 있도록 설계된 균형 트리(자가 균형 트리)
-  - 모든 자녀 노드가 같은 레벨에 위치하며 트리의 높이를 최소화하여 검색 성능을 보장
+  - 모든 자녀 노드가 같은 레벨에 위치하며 트리의 높이를 최소화하여   검색 성능을 보장
   - 이진탐색트리(BST)를 일반화한 트리
   차수(Order)각 노드는 최대 (M-1)개의 키를 저장
    - M: 각 노드의 최대 자녀 노드 수
