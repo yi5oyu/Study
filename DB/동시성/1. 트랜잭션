@@ -1,0 +1,27 @@
+트랜잭션(Transaction): 데이터베이스에서 하나의 논리적 작업 단위
+ - ACID
+   Atomicity(원자성): 트랜잭션 내 모든 작업이 전부 실행되거나 전부 취소
+   Consistency(일관성): 트랜잭션 실행 후에도 데이터베이스가 일관된 상태 유지
+   Isolation(격리성): 동시 실행되는 트랜잭션들이 서로 영향을 주지 않음
+   Durability(지속성): 완료된 트랜잭션의 결과가 영구적으로 저장
+
+ - 트랜잭션의 상태
+   [Active] → [Partially Committed] → [Committed]
+      ↓              ↓
+   [Failed] ←  [Aborted]
+
+   Active: 트랜잭션이 실행 중인 상태
+   Partially Committed: 트랜잭션의 마지막 연산이 실행된 상태(아직 커밋 안됨)
+   Committed: 트랜잭션이 성공적으로 완료된 상태
+   Failed: 트랜잭션 실행 중 오류가 발생한 상태
+   Aborted: 트랜잭션이 취소되고 롤백된 상태
+
+ - 명령어
+   BEGIN/START TRANSACTION: 트랜잭션 시작
+   COMMIT: 트랜잭션을 성공적으로 완료
+   ROLLBACK: 트랜잭션을 취소하고 원래 상태로 되돌림
+   SAVEPOINT: 트랜잭션 내에서 중간 지점을 설정하여 부분적으로 롤백할 수 있음(부분 롤백)
+
+   트랜잭션은 가능한 짧게 유지(필요한 부분만 트랜잭션으로 실행)
+   중첩 트랜잭션 주의(대부분의 DBMS에서는 중첩 트랜잭션을 지원하지 않음)
+   자동 커밋 모드(자동으로 커밋됨)
