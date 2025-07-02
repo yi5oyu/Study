@@ -1,0 +1,31 @@
+격리성 레벨(Isolation Level): 동시에 실행되는 트랜잭션들이 서로 얼마나 격리되어 실행될지를 정의하는 수준
+ - 데이터베이스 애플리케이션에서 성능과 일관성 사이의 균형을 맞추는 핵심 도구
+ - 격리성이 높을수록 데이터 일관성은 보장되지만 성능은 떨어지고, 격리성이 낮을수록 성능은 좋아지지만 동시성 문제가 발생할 수 있음
+
+ 1. READ UNCOMMITTED(레벨 0): 가장 빠름
+  - 가장 낮은 격리성, 커밋되지 않은 데이터도 읽을 수 있음
+  - 실시간성이 중요하고 정확성이 덜 중요한 경우, 읽기 전용 작업
+  > Dirty Read, Non-repeatable Read, Phantom Read 모두 발생 가능
+ 2. READ COMMITTED(레벨 1): Dirty Read 방지
+  - 커밋된 데이터만 읽을 수 있음(대부분 DBMS의 기본값)
+  - 가장 많이 사용됨, 성능과 일관성의 적절한 균형
+  > Non-repeatable Read, Phantom Read 발생 가능
+ 3. REPEATABLE READ(레벨 2): Dirty Read, Non-repeatable Read 방지
+  - 같은 트랜잭션 내에서는 항상 같은 데이터를 읽음
+  - MySQL InnoDB에서는 REPEATABLE READ에서도 Phantom Read가 발생하지 않음(Gap Lock 사용)
+  > Phantom Read 발생 가능
+ 4. SERIALIZABLE(레벨 3): 성능이 가장 느림, 동시성 최저
+  - 가장 높은 격리성, 트랜잭션들이 순차적으로 실행되는 것과 같은 결과
+  - Dirty Read, Non-repeatable Read, Phantom Read 모두 방지
+
+ 동시성 문제
+  - Dirty Read(더티 리드): 커밋되지 않은 데이터를 읽는 현상
+  - Non-repeatable Read(반복 불가능한 읽기): 같은 트랜잭션 내에서 같은 데이터를 여러 번 읽을 때 결과가 다른 현상
+  - Phantom Read(팬텀 리드): 같은 조건의 쿼리를 실행했는데 결과 행의 개수가 달라지는 현상
+
+ 예시
+  일반적인 웹 애플리케이션: READ COMMITTED
+  실시간 대시보드/통계: READ UNCOMMITTED
+  일관된 보고서 생성: REPEATABLE READ
+  중요한 금융 거래: SERIALIZABLE
+  높은 동시성이 필요한 시스템: READ COMMITTED
