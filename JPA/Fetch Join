@@ -1,2 +1,79 @@
 Fetch Join: 연관된 엔티티를 한 번의 쿼리로 함께 가져오는 JPQL의 기능
  - LAZY 로딩의 N+1 문제를 해결하는 가장 효과적인 방법
+ - 단일 엔티티 조회 시
+ - 하나의 컬렉션만 페치 시
+ - 연관 데이터를 거의 항상 사용하는 경우
+ - 데이터 양이 적은 경우(< 1000건)
+
+ 주요 문제점
+ 1. 페이징 문제: 페이징 불가
+  - HHH000104: firstResult/maxResults specified with collection fetch; 
+    applying in memory!
+  - Fetch Join으로 데이터를 가져올 경우 연관된 모든 데이터를 가져오는데 페이징은 부분적인 데이터를 가져오기 때문에 페이징을 Fetch Join으로 쓸 경우 문제 생김
+  해결 방법
+  > @BatchSize 사용
+  > 분리된 쿼리 사용
+  > DTO Projection으로 필요한 데이터만
+  > EntityGraph 활용
+
+ 2. 메모리 사용량 급증: 대용량 데이터 처리 어려움
+  - 예상보다 훨씬 많은 객체 생성
+  해결 방법
+  > 청크 단위 처리 (PageRequest 활용)
+  > 스트림 처리 (@Query Stream<Entity>)
+  > DTO Projection 사용
+  > 캐싱 전략 적용
+  카테시안 곱(Cartesian Product) 문제: 메모리 폭증 위험
+   - 여러 컬렉션 동시 JOIN FETCH 할 경우 모든 가능한 조합을 만들어 중복 데이터 발생함(데이터 행 수 = 컬렉션1 x 컬렉션2 x ...)
+   - 메모리/네트워크/성능 모두 폭증
+   해결 방법
+   > 한 번에 하나의 컬렉션만 Fetch Join 해야함
+   > Set + DISTINCT 사용
+   > 단계별로 조회
+   > @EntityGraph 사용
+   > 배치로 묶어서 조회
+
+ 3. 복잡한 쿼리: 성능 저하 가능성
+  - 연관된 관계가 늘어나면 복잡성 증가
+  - 쿼리 옵티마이저가 고려해야 할 실행 계획의 수 늘어남(옵티마이저가 최적 계획을 찾기 위해 더 많은 시간 소요, N! 경우의 수 발생)
+  - 인덱스 활용 어려움
+  - 복잡한 JOIN 시 MySQL/PostgreSQL이 임시 테이블 생성
+  해결 방법
+  > 쿼리 분해
+  > 인덱스 최적화
+  > 뷰(View) 활용
+  > 캐싱 전략
+
+ 4. 순환 참조 문제: JSON 직렬화 문제
+  - 양방향 관계 설정(두 개 이상의 객체가 서로를 참조하는 구조)
+  - JSON 직렬화 시 무한 루프
+  - 중복 데이터: 중복 데이터 로드
+  - 메모리 낭비: 같은 데이터를 여러 번 메모리에 적재
+  - 성능 저하: 불필요한 JOIN으로 쿼리 복잡도 증가
+  해결방법
+  > DTO 사용
+  > @JsonIgnore 사용(항상 제외됨)
+  > @JsonManagedReference/@JsonBackReference
+  > @JsonIdentityInfo 사용
+
+ 5. DISTINCT
+  - DB에서 중복 제거 후 전송이 아닌 DB에서 모든 데이터 전송 후에 메모리에서 중복 제거 발생해 성능저하
+  해결방법
+  > Set 사용 (LinkedHashSet으로 순서 유지)
+  > 스트림 활용 (.distinct())
+  > 분리된 쿼리 (권장)
+  > EntityGraph 활용
+
+ Fetch Join 대안 기술
+ @BatchSize: 지연 로딩 최적화
+  - N+1 문제를 배치 처리로 해결
+  - 페이징과 호환 가능
+  - 메모리 사용량 예측 가능
+ @EntityGraph: 선언적 페치 전략
+  - 상황별 다른 페치 전략 적용
+  - 여러 컬렉션 안전하게 처리
+  - 타입 안전성 보장
+ DTO Projection: 성능 최적화
+  - 필요한 데이터만 조회
+  - 메모리 사용량 최소화
+  - 순환 참조 문제 원천 차단
