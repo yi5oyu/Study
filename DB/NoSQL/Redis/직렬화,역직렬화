@@ -1,1 +1,48 @@
+직렬화(Serialization)/역직렬화(Deserialization)
+ - 직렬화: 메모리에 있는 객체나 데이터 구조를 Redis에 저장 가능한 형태로 변환하는 과정
+ - 역직렬화: Redis에서 조회한 데이터를 다시 원래의 객체나 데이터 구조로 복원하는 과정
 
+ 직렬화 방식(Spring Data Redis)
+  - JDK 직렬화
+   장점: Java 객체를 그대로 저장 가능
+   단점: 크기가 큼, 다른 언어와 호환 불가, 가독성 떨어짐
+  - JSON 직렬화
+   장점: 가독성 좋음, 언어 간 호환성 우수, 디버깅 용이
+   단점: 크기가 상대적으로 큼, 타입 정보 손실 가능성
+  - String 직렬화 
+   장점: 단순함, 가독성 최고 
+   단점: 객체 저장 시 수동 변환 필요
+  - 커스텀 직렬화
+   장점: 최적화된 성능, 특정 요구사항 대응
+   단점: 구현 복잡도 높음
+
+ Serializer 종류
+  - 스프링에서 Redis와 통신할 때 다양한 Serializer를 설정할 수 있음
+  JdkSerializationRedisSerializer
+   - 자바 기본 직렬화로 객체를 저장
+  Jackson2JsonRedisSerializer
+   - 객체를 JSON으로 직렬화/역직렬화. 명시적 Class Type 지정 필요
+  GenericJackson2JsonRedisSerializer
+   - JSONObject로 직렬화, Class type 정보 함께 저장
+  StringRedisSerializer
+   - 값을 String으로 직렬화/역직렬화
+
+RedisTemplate Serializer 설정
+  - Key Serializer: 주로 StringRedisSerializer 사용
+  - Value Serializer: 데이터 타입에 따라 선택
+  - Hash Key Serializer: Hash 구조의 필드명 직렬화
+  - Hash Value Serializer: Hash 구조의 값 직렬화
+  - Default Serializer: 미지정 시 기본값 (JdkSerializationRedisSerializer)
+
+성능 비교
+  - 속도: JDK > JSON > XML
+  - 크기: JSON < JDK < XML
+  - 가독성: String > JSON > XML > JDK
+  - 호환성: JSON > XML > String > JDK
+
+사용
+  - 일반적인 객체 저장: GenericJackson2JsonRedisSerializer
+  - 단순 문자열: StringRedisTemplate + StringRedisSerializer
+  - 성능이 중요한 경우: 커스텀 직렬화 또는 JDK 직렬화
+  - 다른 시스템과 데이터 공유: JSON 직렬화
+  - 레거시 시스템 연동: JDK 직렬화
