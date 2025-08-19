@@ -1,3 +1,14 @@
+EAR(Enterprise Archive)
+ - 애플리케이션 전체를 패키징
+ - 여러 WAR, JAR 파일들을 포함
+  : 폴더 구조
+   = META-INF/
+     - application.xml: 애플리케이션 설정 및 모듈 정의
+     - MANIFEST.MF
+    *.war: 웹 모듈들
+    *.jar: EJB 모듈들
+    lib/: 공통 라이브러리들
+
 WAR(Web Application Archive)
  - WS(Web Server) or WAS(Web Application Server)에서 실행
  - 웹 애플리케이션에 필요한 파일(JSP, Servlet, JAR, Class, XML, HTML, Javascript), 구조(WEB-INF, META-INF) 포함
