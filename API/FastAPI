@@ -1,0 +1,5 @@
+FastAPI
+ - Python으로 만든 웹 프레임워크
+ - 매우 빠름(Node.js, Go와 비슷한 수준의 성능)
+ - 자동 문서 생성(Swagger UI 문서가 자동 생성)
+ - Python의 타입 힌트를 사용, 자동 검증
