@@ -1,0 +1,11 @@
+스프링의 의존성 자동 주입 애노테이션
+
+스프링 컨테이너가 자동으로 의존 객체를 주입
+- 타입(Type) 기반으로 빈을 찾아서 주입
+
+@Target({ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Autowired {
+	boolean required() default true;
+}
