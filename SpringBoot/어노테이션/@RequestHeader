@@ -1,0 +1,19 @@
+HTTP 요청 헤더의 값을 메서드 파라미터에 바인딩하는 애노테이션
+- HTTP 헤더 값을 추출하여 메서드 파라미터로 전달
+- 인증, 콘텐츠 협상, 메타데이터 처리에 사용
+- 메서드 파라미터 레벨에 적용
+
+@Target(ElementType.PARAMETER)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface RequestHeader {
+	@AliasFor("name")
+	String value() default "";
+
+	@AliasFor("value")
+	String name() default "";
+
+	boolean required() default true;
+	
+	String defaultValue() default ValueConstants.DEFAULT_NONE;
+}
