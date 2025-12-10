@@ -1,0 +1,10 @@
+같은 타입의 빈이 여러 개 있을 때 우선순위를 지정하는 애노테이션
+- @Autowired와 함께 사용하여 기본 빈 지정, 클래스/@Bean 메서드에 적용 가능
+- 타입 기반 자동 주입 시 우선적으로 선택
+- @Qualifier 없이 자동 주입 시 사용될 기본 빈 결정
+
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Primary {
+}
