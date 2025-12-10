@@ -1,0 +1,30 @@
+HTTP 요청을 특정 컨트롤러 메서드에 매핑하는 애노테이션
+- URL 패턴과 핸들러 메서드를 연결
+- HTTP 메서드(GET, POST, PUT, DELETE 등) 지정 가능
+- 클래스 레벨과 메서드 레벨 모두 사용 가능
+- 요청 파라미터, 헤더, Content-Type 등 다양한 조건 설정
+
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Mapping
+@Reflective(ControllerMappingReflectiveProcessor.class)
+public @interface RequestMapping {
+	String name() default "";
+
+	@AliasFor("path")
+	String[] value() default {};
+
+	@AliasFor("value")
+	String[] path() default {};
+
+	RequestMethod[] method() default {};
+
+	String[] params() default {};
+
+	String[] headers() default {};
+
+	String[] consumes() default {};
+
+	String[] produces() default {};
+}
