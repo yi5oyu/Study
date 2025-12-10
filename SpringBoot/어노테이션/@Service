@@ -1,3 +1,5 @@
+비즈니스 로직을 담당하는 서비스 계층을 표시하는 스테레오타입 애노테이션
+
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
