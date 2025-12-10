@@ -1,0 +1,19 @@
+HTTP 요청의 쿼리 파라미터(Query Parameter)를 메서드 파라미터에 바인딩하는 애노테이션
+- URL의 ?key=value 형태 파라미터를 추출
+- GET 요청의 쿼리 스트링 처리
+- POST 폼 데이터 처리
+- 메서드 파라미터 레벨에 적용
+
+@Target(ElementType.PARAMETER)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface RequestParam {
+	String value() default "";
+
+	@AliasFor("value")
+	String name() default "";
+
+	boolean required() default true;
+
+	String defaultValue() default ValueConstants.DEFAULT_NONE;
+}
