@@ -1,6 +1,16 @@
-Java 코드를 사용하여 Spring 애플리케이션을 구성
-@Configuration가 선언된 클래스가 하나 이상의 @Bean 메소드를 선언할 수 있음
+스프링 설정 클래스임을 나타내는 애노테이션
+- @Configuration 클래스 안에 @Bean 메서드를 1개 이상 만들어서 스프링 컨테이너에 등록할 객체들을 정의
+- CGLIB 프록시를 통해 @Bean 메서드 간 호출 시 싱글톤 보장
 
+proxyBeanMethods
+CGLIB 프록시를 통해 싱글톤 보장
+- true(기본값): CGLIB 프록시 생성, 싱글톤 보장
+- false: 프록시 생성 안 함, Lite Mode(경량 모드)
+
+enforceUniqueMethods
+@Bean 메서드 이름의 중복 검증 여부
+- true(기본값): 중복된 @Bean 메서드 이름 검증
+- false: 검증 안 함(오버로딩 허용)
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
