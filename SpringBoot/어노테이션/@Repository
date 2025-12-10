@@ -1,0 +1,27 @@
+데이터 액세스 계층(DAO - Data Access Object)을 표시하는 스테레오타입 애노테이션
+데이터베이스 접근 계층임을 명시적으로 표현
+
+빈 후처리기를 통해 데이터베이스 의존적인 예외를 스프링의 DataAccessException으로 자동 변환
+- 데이터베이스마다 다른 예외를 던지기 때문에 데이터베이스를 변경하면 예외 처리 코드도 모두 수정해야 함
+  (MySQLIntegrityConstraintViolationException, OracleSQLIntegrityConstraintViolationException ...)
+
+예외 계층 구조
+DataAccessException (추상 클래스)
+├── NonTransientDataAccessException
+│   ├── DataIntegrityViolationException (무결성 제약 위반)
+│   ├── DataAccessResourceFailureException (리소스 접근 실패)
+│   └── InvalidDataAccessApiUsageException (잘못된 API 사용)
+│
+└── TransientDataAccessException
+    ├── OptimisticLockingFailureException (낙관적 락 실패)
+    ├── PessimisticLockingFailureException (비관적 락 실패)
+    └── DeadlockLoserDataAccessException (데드락)
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Component
+public @interface Repository {
+	@AliasFor(annotation = Component.class)
+	String value() default "";
+}
