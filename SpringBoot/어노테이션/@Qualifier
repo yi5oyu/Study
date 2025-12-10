@@ -1,0 +1,13 @@
+같은 타입의 빈이 여러 개 있을 때 명시적으로 특정 빈을 지정하는 애노테이션
+- 빈 이름으로 주입할 빈을 명확히 지정
+- @Autowired와 함께 사용
+- 필드, 메서드, 파라미터, 클래스, 애노테이션에 적용 가능
+- @Primary보다 높은 우선순위
+
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE, ElementType.ANNOTATION_TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+@Documented
+public @interface Qualifier {
+	String value() default "";
+}
