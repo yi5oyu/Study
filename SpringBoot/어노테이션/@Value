@@ -1,0 +1,11 @@
+외부 설정값(properties, yml)을 필드에 주입하는 애노테이션
+- application.properties/yml, 환경 변수, 시스템 프로퍼티의 값을 자바 코드로 주입
+- 기본값 설정 가능
+- 필드, 메서드, 파라미터에 적용 가능
+
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Value {
+	String value();
+}
