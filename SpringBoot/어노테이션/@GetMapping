@@ -1,0 +1,32 @@
+HTTP GET 요청을 처리하는 메서드에 매핑하는 축약형 애노테이션
+- @RequestMapping(method = RequestMethod.GET)
+- 메서드 레벨에만 적용 가능
+- 조회(Read) 작업에 사용
+- RESTful API에서 리소스 조회 용도
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@RequestMapping(method = RequestMethod.GET)
+public @interface GetMapping {
+	@AliasFor(annotation = RequestMapping.class)
+	String name() default "";
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] value() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] path() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] params() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] headers() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] consumes() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] produces() default {};
+}
