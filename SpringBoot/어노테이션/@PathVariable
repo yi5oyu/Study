@@ -1,0 +1,17 @@
+URL 경로의 일부를 메서드 파라미터로 추출하는 애노테이션
+- URI 템플릿 변수를 메서드 파라미터에 바인딩
+- RESTful API의 리소스 식별에 사용
+- 메서드 파라미터 레벨에 적용
+
+@Target(ElementType.PARAMETER)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface PathVariable {
+	@AliasFor("name")
+	String value() default "";
+
+	@AliasFor("value")
+	String name() default "";
+
+	boolean required() default true;
+}
