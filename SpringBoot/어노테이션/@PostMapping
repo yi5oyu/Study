@@ -1,0 +1,32 @@
+HTTP POST 요청을 처리하는 메서드에 매핑하는 축약형 애노테이션
+- @RequestMapping(method = RequestMethod.POST)
+- 메서드 레벨에만 적용 가능
+- 생성(Create) 작업에 주로 사용
+- RESTful API에서 리소스 생성 용도
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@RequestMapping(method = RequestMethod.POST)
+public @interface PostMapping {
+	@AliasFor(annotation = RequestMapping.class)
+	String name() default "";
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] value() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] path() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] params() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] headers() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] consumes() default {};
+
+	@AliasFor(annotation = RequestMapping.class)
+	String[] produces() default {};
+}
