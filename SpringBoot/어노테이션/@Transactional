@@ -16,17 +16,17 @@ public @interface Transactional {
 	String transactionManager() default "";
 
 	String[] label() default {};
-  // 전파속성
+    // 전파속성
 	Propagation propagation() default Propagation.REQUIRED;
-  // 격리수준
+    // 격리수준(디폴트: DB설정)
 	Isolation isolation() default Isolation.DEFAULT;
-  
+  	// 트랜잭션 타임아웃(일정 이상 시간 지나면 예외)
 	int timeout() default TransactionDefinition.TIMEOUT_DEFAULT;
-
+	
 	String timeoutString() default "";
-
+	// 읽기 전용 트랜잭션
 	boolean readOnly() default false;
-
+	// 롤백 조건 지정
 	Class<? extends Throwable>[] rollbackFor() default {};
 
 	String[] rollbackForClassName() default {};
