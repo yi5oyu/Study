@@ -1,0 +1,37 @@
+메서드나 클래스에 트랜잭션 경계를 선언하는 애노테이션
+- 선언적 트랜잭션 관리
+- 데이터베이스 작업의 원자성(Atomicity) 보장
+- ACID 속성 보장
+
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+@Documented
+@Reflective
+public @interface Transactional {
+	@AliasFor("transactionManager")
+	String value() default "";
+
+	@AliasFor("value")
+	String transactionManager() default "";
+
+	String[] label() default {};
+  // 전파속성
+	Propagation propagation() default Propagation.REQUIRED;
+  // 격리수준
+	Isolation isolation() default Isolation.DEFAULT;
+  
+	int timeout() default TransactionDefinition.TIMEOUT_DEFAULT;
+
+	String timeoutString() default "";
+
+	boolean readOnly() default false;
+
+	Class<? extends Throwable>[] rollbackFor() default {};
+
+	String[] rollbackForClassName() default {};
+
+	Class<? extends Throwable>[] noRollbackFor() default {};
+
+	String[] noRollbackForClassName() default {};
+}
