@@ -1,8 +1,5 @@
 ```java
 public class Throwable implements Serializable {
-    /* 필드
-     * 
-    
     @java.io.Serial
     private static final long serialVersionUID = -3042686055658047285L;
     // 상세 메시지 - new Exception("에러 발생")
@@ -80,8 +77,7 @@ public class Throwable implements Serializable {
 
     public synchronized Throwable initCause(Throwable cause) {
         if (this.cause != this)
-            throw new IllegalStateException("Can't overwrite cause with " +
-                                            Objects.toString(cause, "a null"), this);
+            throw new IllegalStateException("Can't overwrite cause with " + Objects.toString(cause, "a null"), this);
         if (cause == this)
             throw new IllegalArgumentException("Self-causation not permitted", this);
         this.cause = cause;
