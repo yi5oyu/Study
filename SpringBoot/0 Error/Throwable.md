@@ -1,20 +1,23 @@
 ```java
 public class Throwable implements Serializable {
+    /* 필드
+     * 
+    
     @java.io.Serial
     private static final long serialVersionUID = -3042686055658047285L;
-
+    // 상세 메시지 - new Exception("에러 발생")
     private String detailMessage;
-
+    
     private static class SentinelHolder {
         public static final StackTraceElement STACK_TRACE_ELEMENT_SENTINEL = new StackTraceElement("", "", null, Integer.MIN_VALUE);
 
         public static final StackTraceElement[] STACK_TRACE_SENTINEL = new StackTraceElement[] {STACK_TRACE_ELEMENT_SENTINEL};
     }
-
+    
     private static final StackTraceElement[] UNASSIGNED_STACK = new StackTraceElement[0];
-
+    // 원인 예외(초기값은 자기 자신)
     private Throwable cause = this;
-
+    
     private StackTraceElement[] stackTrace = UNASSIGNED_STACK;
 
     private transient int depth;
