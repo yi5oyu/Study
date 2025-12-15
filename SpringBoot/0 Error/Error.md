@@ -1,3 +1,7 @@
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Error.html
+
+An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Most such errors are abnormal conditions. The ThreadDeath error, though a "normal" condition, is also a subclass of Error because most applications should not try to catch it.
+
 ```java
 public class Error extends Throwable {
     @java.io.Serial
@@ -19,9 +23,7 @@ public class Error extends Throwable {
         super(cause);
     }
 
-    protected Error(String message, Throwable cause,
-                    boolean enableSuppression,
-                    boolean writableStackTrace) {
+    protected Error(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }
