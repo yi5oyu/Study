@@ -1,3 +1,16 @@
+URI(Uniform Resource Identifier) > URL(Uniform Resource Locator) 
+
+URI: 인터넷 상의 자원을 고유하게 식별하는 모든 수단
+URL: 자원이 어디에 있고 어떻게 접근하는지(프로토콜+위치)를 통해 식별하는 수단
+
+`https://www.example.com:8080/api/users/123?status=active` 
+
+프로토콜 = 어떻게 자원에 접근할건지 방법 (https:)
+도메인 = 서버 네트워크 위치 (www.example.com)
+포트 = 서버 내 프로세스 위치 (:8080)
+경로 = 서버 내에서 자원의 구체적인 계층적 위치 (/api/users/123)
+쿼리 파라미터 = 원을 추가적으로 필터링하거나 식별하는 데이터 (?status=active)
+
 URL 위치
  웹 주소. 리소스가 어디에 있는지 알려주기 위한 경로를 의미
  웹에서 리소스가 어느 서버에 위치해 있는지 알 수 있음
